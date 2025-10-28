@@ -1,0 +1,29 @@
+@import '@/assets/sass/normalize.css' layer(normalize);
+@import '@/assets/sass/reset.css' layer(reset);
+@import '@/assets/sass/fonts.css' layer(fonts);
+
+@layer normalize, reset, fonts;
+
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    font-family: $font-family-text;
+    background: $color-gray;
+}
+
+html.dark {
+    background: $color-gray;
+    color: $color-white;
+}
+
+body {
+    min-height: 100dvh;
+    color: $color-black;
+}
+
+.container {
+    $padding: 15px;
+    max-width: calc(1361px + $padding);
+    padding: 0px $padding;
+    margin: auto;
+}

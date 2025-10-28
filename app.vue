@@ -1,3 +1,7 @@
 <template>
-    <div>Новое начало...</div>
+    <div>
+        <NuxtLayout>
+            <NuxtPage />
+        </NuxtLayout>
+    </div>
 </template>
