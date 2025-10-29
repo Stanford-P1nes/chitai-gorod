@@ -11,7 +11,11 @@
                         />
                     </div>
                 </form>
-                <AppButton />
+                <UiButton
+                    variant="secondary"
+                    src="/ico/search.svg"
+                    alt="Кнопка с иконкой лупы для поиска"
+                />
             </div>
         </div>
     </div>
@@ -20,14 +24,18 @@
 <style lang="scss">
 .app-search {
     width: 100%;
+
     &__form {
         display: flex;
         border-radius: 8px;
         background-color: $color-gray;
     }
+    
     .search-form {
         width: 100%;
         padding: 12px 15px 12px 15px;
+        display: flex;
+        align-items: center;
 
         &__input-wrapper {
             width: 100%;

@@ -58,20 +58,12 @@ export default defineNuxtConfig({
             ],
         },
     },
-    modules: ['@nuxt/image', '@pinia/nuxt'],
+    modules: ['@pinia/nuxt'],
     imports: {
         dirs: [
             'composables/**',
-            'pages/**',
-            'components/**',
-            'server/**',
-            'assets/**',
-            'layouts/**',
         ],
     },
-    // pinia: {
-    //     storesDirs: ['./stores/**'],
-    // },
     css: ['@/assets/sass/main.scss'],
     vite: {
         css: {
