@@ -116,6 +116,13 @@
                 align-items: center;
                 gap: 16px;
             }
+            &__link {
+                font-family: $font-family-title;
+                font-weight: 300;
+                font-size: $font-size-sm;
+                line-height: $line-height-xl;
+                color: $color-black;
+            }
         }
     }
 }
