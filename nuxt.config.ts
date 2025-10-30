@@ -56,13 +56,13 @@ export default defineNuxtConfig({
                     content: '200',
                 },
             ],
+            link: [
+                {
+                    rel: 'stylesheet',
+                    href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;900&family=Roboto:wght@400;500;700&display=swap',
+                },
+            ],
         },
-    },
-    modules: ['@pinia/nuxt'],
-    imports: {
-        dirs: [
-            'composables/**',
-        ],
     },
     css: ['@/assets/sass/main.scss'],
     vite: {
@@ -76,5 +76,9 @@ export default defineNuxtConfig({
                 },
             },
         },
+    },
+    modules: ['@pinia/nuxt'],
+    imports: {
+        dirs: ['composables/**'],
     },
 });
