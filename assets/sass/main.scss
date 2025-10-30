@@ -1,8 +1,5 @@
-@import '@/assets/sass/normalize.css' layer(normalize);
-@import '@/assets/sass/reset.css' layer(reset);
-@import '@/assets/sass/fonts.css' layer(fonts);
-
-@layer normalize, reset, fonts;
+@use 'normalize' as *;
+@use 'reset' as *;
 
 html {
     scroll-behavior: smooth;
@@ -16,13 +13,24 @@ html.dark {
     color: $color-white;
 }
 
-body {
-    min-height: 100dvh;
+body #__nuxt {
     color: $color-black;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex: 1 1 0;
+}
+
+img {
+    object-fit: cover;
 }
 
 .container {
-    $padding: 15px;
+    $padding: 32px;
     max-width: calc(1361px + $padding);
     padding: 0px $padding;
     margin: auto;
