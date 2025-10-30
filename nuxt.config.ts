@@ -56,12 +56,6 @@ export default defineNuxtConfig({
                     content: '200',
                 },
             ],
-            link: [
-                {
-                    rel: 'stylesheet',
-                    href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;900&family=Roboto:wght@400;500;700&display=swap',
-                },
-            ],
         },
     },
     css: ['@/assets/sass/main.scss'],
@@ -77,7 +71,13 @@ export default defineNuxtConfig({
             },
         },
     },
-    modules: ['@pinia/nuxt'],
+    modules: ['@pinia/nuxt', '@nuxtjs/google-fonts'],
+    googleFonts: {
+        families: {
+            Montserrat: [300, 500, 900],
+            Roboto: [400, 500, 700],
+        },
+    },
     imports: {
         dirs: ['composables/**'],
     },
