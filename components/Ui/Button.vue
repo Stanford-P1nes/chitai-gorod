@@ -42,13 +42,13 @@ const props = defineProps({
 
 <template>
     <button
-        class="ui-search-button"
+        class="ui-button"
         :disable="disable"
     >
         <template v-if="variant === 'secondary'">
             <img
                 v-if="src"
-                class="ui-search-button__icon"
+                class="ui-button__icon"
                 :src="src"
                 :alt="alt"
             />
@@ -60,7 +60,7 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-.ui-search-button {
+.ui-button {
     border-radius: 8px;
     padding: 12px;
     background-color: $color-orange;
