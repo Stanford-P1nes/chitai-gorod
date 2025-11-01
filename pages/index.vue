@@ -1,5 +1,7 @@
 <template>
-    <div>
-        
-    </div>
+    <main>
+        <div class='container'>
+            <UiInput />
+        </div>
+    </main>
 </template>
