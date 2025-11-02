@@ -23,11 +23,11 @@
 
 <style lang="scss">
 .app-search {
-    width: 100%;
+    flex-grow: 4;
 
     &__form {
         display: flex;
-        border-radius: 8px;
+        border-radius: $border-r-md;
         background-color: $color-gray;
     }
     

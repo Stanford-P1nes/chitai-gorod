@@ -28,6 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
                 :src="src"
                 :alt="alt"
             />
+            <p v-if='text'>{{ text }}</p>
         </template>
         <template v-else>
             {{ text }}
@@ -43,6 +44,8 @@ const props = withDefaults(defineProps<Props>(), {
     color: $color-white;
     font-weight: 700;
     line-height: $line-height-xl;
+    display: flex;
+    align-items: center;
     &:disabled {
         opacity: 0.6;
         cursor: not-allowed;
