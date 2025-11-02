@@ -14,30 +14,6 @@ const props = withDefaults(defineProps<Props>(), {
     alt: 'Изображение',
     disable: false,
 });
-
-// const props = defineProps({
-//     variant: {
-//         type: String,
-//         default: 'primary',
-//         validator: value => ['primary', 'secondary'].includes(value),
-//     },
-//     text: {
-//         type: String,
-//         default: '',
-//     },
-//     src: {
-//         type: String,
-//         default: '@/assets/images/ico/image-not-found-01.svg',
-//     },
-//     alt: {
-//         type: String,
-//         default: 'Изображение',
-//     },
-//     disable: {
-//         type: Boolean,
-//         default: false,
-//     },
-// });
 </script>
 
 <template>
