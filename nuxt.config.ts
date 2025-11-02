@@ -4,6 +4,10 @@ import { defineNuxtConfig } from 'nuxt/config';
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
+    typescript: {
+        typeCheck: true,
+        strict: true
+    },
     app: {
         head: {
             htmlAttrs: { lang: 'ru' },
@@ -72,13 +76,13 @@ export default defineNuxtConfig({
         },
     },
     modules: ['@pinia/nuxt', '@nuxtjs/google-fonts'],
-    googleFonts: {
-        families: {
-            Montserrat: [300, 500, 900],
-            Roboto: [400, 500, 700],
-        },
-    },
+    // googleFonts: {
+    //     families: {
+    //         Montserrat: [300, 500, 900],
+    //         Roboto: [400, 500, 700],
+    //     },
+    // },
     imports: {
-        dirs: ['composables/**'],
+        dirs: ['composables/**', 'types/**'],
     },
 });
