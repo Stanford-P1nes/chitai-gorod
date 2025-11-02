@@ -27,7 +27,7 @@
 
     &__form {
         display: flex;
-        border-radius: $gap-sm;
+        border-radius: $border-r-md;
         background-color: $color-gray;
     }
     
