@@ -1,42 +1,20 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
+import { Country, countryData } from '~/types/country';
 
-const icons = {
-    russia: '/ico-flags/russia.svg',
-    usa: '/ico-flags/usa.svg',
-    china: '/ico-flags/china.svg',
-    germany: '/ico-flags/germany.svg',
-    france: '/ico-flags/france.svg',
-    kazakhstan: '/ico-flags/kazakhstan.svg',
-};
+// Теперь используем импортированные данные
+const country = ref<Country>(Country.RUSSIA);
+const showListCountry = ref<boolean>(false);
+const phoneNumber = ref<string>('');
 
-const country = ref('russia');
-
-const showListCountry = ref(false);
-
-const toggleCountryList = () => {
+const toggleCountryList = (): void => {
     showListCountry.value = !showListCountry.value;
 };
 
-const placeholders = {
-    russia: '+7 (988) 777 66-55',
-    usa: '+1 (555) 123-4567',
-    china: '+86 138 0013 8000',
-    germany: '+49 1512 3456789',
-    france: '+33 6 12 34 56 78',
-    kazakhstan: '+7 701 123 4567',
-};
-
-const vMask = {
-    russia: '+7 (###) ###-####',
-    usa: '+1 (###) ###-####',
-    china: '+86 ### #### ####',
-    germany: '+49 #### ########',
-    france: '+33 # ## ## ## ##',
-    kazakhstan: '+7 ### ### ####',
-};
-
-const inputPhoneModel = red('');
+// Получаем данные из централизованного объекта
+const getCurrentFlag = (): string => countryData[country.value].flag;
+const getCurrentPlaceholder = (): string => countryData[country.value].placeholder;
+const getCountryName = (countryCode: Country): string => countryData[countryCode].name;
 </script>
 
 <template>
@@ -49,7 +27,9 @@ const inputPhoneModel = red('');
                     @click="toggleCountryList"
                 >
                     <img
-                        :src="icons[country]"
+                        v-if="getCurrentFlag()"
+                        class="ui-input__img"
+                        :src="getCurrentFlag()"
                         :alt="`Флаг ${country}`"
                     />
                 </div>
@@ -59,25 +39,25 @@ const inputPhoneModel = red('');
                     v-show="showListCountry"
                     v-model="country"
                 >
-                    <option value="russia">Russia</option>
-                    <option value="usa">Usa</option>
-                    <option value="china">China</option>
-                    <option value="germany">Germany</option>
-                    <option value="france">France</option>
-                    <option value="kazakhstan">Kazakhstan</option>
+                    <option
+                        v-for="countryCode in Object.values(Country)"
+                        :key="countryCode"
+                        :value="countryCode"
+                    >
+                        {{ getCountryName(countryCode) }}
+                    </option>
                 </select>
             </div>
             <input
                 type="tel"
                 class="ui-input__input"
                 id="phone-number"
-                :placeholder="placeholders[country]"
-                v-mask="vMask[country]"
-                v-model="inputPhoneModel"
+                :placeholder="getCurrentPlaceholder()"
+                v-model="phoneNumber"
                 autocomplete="off"
                 autofocus
                 required
-                @click="toggleInputPhoneNumber"
+                @focus="toggleCountryList"
             />
         </div>
     </div>
@@ -101,11 +81,11 @@ const inputPhoneModel = red('');
         width: 20px;
         height: 20px;
         cursor: pointer;
+    }
 
-        img {
-            width: 100%;
-            height: 100%;
-        }
+    &__img {
+        width: 100%;
+        height: 100%;
     }
 
     &__select {
