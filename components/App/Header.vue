@@ -14,7 +14,9 @@ function toggleTheme() {
             <div class="app-header__row">
                 <AppLogo />
                 <div class='app-header__catalog'>
+                    <UiButton variant='secondary' src='/ico/books.svg' alt='Иконка книг' text='Каталог' />
                     <AppSearch />
+                    <AppControls />
                 </div>
             </div>
         </div>
@@ -45,6 +47,8 @@ function toggleTheme() {
         width: 100%;
         padding: 0px 24px;
         display: flex;
+        align-items: center;
+        gap: $gap-sm;
     }
 }
 
