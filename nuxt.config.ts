@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     typescript: {
         typeCheck: true,
-        strict: true
+        strict: true,
     },
     app: {
         head: {
@@ -77,6 +77,7 @@ export default defineNuxtConfig({
     },
     modules: ['@pinia/nuxt', '@nuxtjs/google-fonts'],
     // googleFonts: {
+    //     display: 'swap',
     //     families: {
     //         Montserrat: [300, 500, 900],
     //         Roboto: [400, 500, 700],
