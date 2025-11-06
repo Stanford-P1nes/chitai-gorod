@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useSwiper } from '#imports';
 import { ref } from 'vue';
+import { products } from '~/data/products';
 
+// SWIPER
 const swiperBasicRef = ref(null);
 const swiper = useSwiper(swiperBasicRef, {
     effect: 'creative',
@@ -10,6 +12,8 @@ const swiper = useSwiper(swiperBasicRef, {
         delay: 2000,
     },
 });
+
+// DATA PRODUCTS
 </script>
 
 <template>
@@ -35,11 +39,12 @@ const swiper = useSwiper(swiperBasicRef, {
                 </div>
             </header>
             <section class="products-cards products-shelf__products-cards">
-                <AppProductCard />
-                <AppProductCard />
-                <AppProductCard />
-                <AppProductCard />
-                <AppProductCard />
+                <AppProductCard
+                    v-if="products.length"
+                    v-for="product in products"
+                    :key="product.id"
+                    :product="product"
+                />
             </section>
         </section>
     </div>

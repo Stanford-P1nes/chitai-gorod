@@ -1,9 +1,17 @@
+<script setup lang='ts'>
+import type { Product } from '~/types/product';
+
+defineProps<{
+    product: Product
+}>()
+</script>
+
 <template>
     <article class="product-card">
         <div class="product-card__image-wrapper">
             <img
-                src="./../../assets/images/posters/Фото-Гарри-Поттера.webp"
-                alt=""
+                :src="product.img"
+                :alt="product.alt"
                 class="product-card__img"
             />
         </div>
@@ -16,15 +24,11 @@
                 </div>
             </div>
             <div class="product-card__caption">
-                <p class="product-card__title">Гарри Поттер</p>
-                <p class="product-card__subtitle">Джоа́н Ро́улинг</p>
+                <p class="product-card__title">{{ product.name }}</p>
+                <p class="product-card__subtitle">{{ product.author }}</p>
             </div>
             <div class="rating product-card__rating">
-                <span class="rating__icon"></span>
-                <span class="rating__icon"></span>
-                <span class="rating__icon"></span>
-                <span class="rating__icon"></span>
-                <span class="rating__icon"></span>
+                <span v-for='star in product.rating' :key='star' class="rating__icon"></span>
             </div>
             <div class="product-card__actions">
                 <UiButton
