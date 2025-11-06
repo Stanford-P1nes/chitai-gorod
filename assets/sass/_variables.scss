@@ -32,9 +32,12 @@ $color-border: #E2E2E2;
 $padding-wrap: 32px;
 
 $border: 1px solid $color-border;
+$border-banner: 1px solid $color-gray;
 
 $border-r-sm: 4px;
 $border-r-md: 8px;
+$border-r-lg: 16px;
+$border-r-xl: 24px;
 
 $box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.04);
 $box-shadow-btn: 0 0 6px $color-success;
@@ -44,3 +47,5 @@ $gap-sm: 8px;
 $gap-md: 12px;
 $gap-lg: 16px;
 $gap-xl: 24px;
+$gap-xxl: 32px;
+$gap-page: 80px;

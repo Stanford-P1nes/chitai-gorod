@@ -21,7 +21,7 @@ body #__nuxt {
 }
 
 main {
-    display: flex;
+    padding: 28px 0px 0px;
     flex: 1 1 0;
 }
 
@@ -30,8 +30,7 @@ img {
 }
 
 .container {
-    $padding: 32px;
-    max-width: calc(1361px + $padding);
-    padding: 0px $padding;
+    max-width: calc(1361px + $padding-wrap);
+    padding: 0px $padding-wrap;
     margin: 0 auto;
 }

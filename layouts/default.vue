@@ -1,6 +1,10 @@
 <template>
     <AppTopHeader />
     <AppHeader />
-    <slot />
+    <main>
+        <div class='container'>
+            <slot />
+        </div>
+    </main>
     <AppFooter />
 </template>
