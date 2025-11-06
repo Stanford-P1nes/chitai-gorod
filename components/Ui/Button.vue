@@ -38,7 +38,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style lang="scss">
 .ui-button {
-    border-radius: 8px;
+    border-radius: $border-r-md;
     padding: 12px;
     background-color: $color-orange;
     color: $color-white;
@@ -46,6 +46,7 @@ const props = withDefaults(defineProps<Props>(), {
     line-height: $line-height-xl;
     display: flex;
     align-items: center;
+    justify-content: center;
     &:disabled {
         opacity: 0.6;
         cursor: not-allowed;
