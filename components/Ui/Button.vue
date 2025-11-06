@@ -10,7 +10,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
     variant: 'primary',
     text: '',
-    src: '@/assets/images/ico/image-not-found-01.svg',
+    src: '/ico/image-not-found-01.svg',
     alt: 'Изображение',
     disable: false,
 });
@@ -52,8 +52,8 @@ const props = withDefaults(defineProps<Props>(), {
     }
 
     &__icon {
-        width: 24px;
-        height: 24px;
+        width: 100%;
+        height: 100%;
     }
 }
 </style>

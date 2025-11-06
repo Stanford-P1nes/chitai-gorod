@@ -14,7 +14,7 @@ function toggleTheme() {
             <div class="app-header__row">
                 <AppLogo />
                 <div class='app-header__catalog'>
-                    <UiButton variant='secondary' src='/ico/books.svg' alt='Иконка книг' text='Каталог' />
+                    <UiButton variant='secondary' src='/ico/books-catalog.svg' alt='Иконка книг' text='Каталог' />
                     <AppSearch />
                     <AppControls />
                 </div>
