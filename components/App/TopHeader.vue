@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { menu } from '~/data/menu';
+</script>
+
 <template>
     <div class="header-top">
         <div class="header-top__wrapper container">
@@ -21,47 +25,16 @@
             <div class="header-top__menu">
                 <menu class="header-menu">
                     <ul class="header-menu__list">
-                        <li class="header-menu__item">
+                        <li
+                            v-for="(item, idx) in menu"
+                            :key="idx"
+                            class="header-menu__item"
+                        >
                             <nuxt-link
                                 class="header-menu__link"
-                                to=""
-                            >Магазины</nuxt-link>
-                        </li>
-                        <li class="header-menu__item">
-                            <nuxt-link
-                                class="header-menu__link"
-                                to=""
-                            >Акции</nuxt-link>
-                        </li>
-                        <li class="header-menu__item">
-                            <nuxt-link
-                                class="header-menu__link"
-                                to=""
-                            >Распродажа</nuxt-link>
-                        </li>
-                        <li class="header-menu__item">
-                            <nuxt-link
-                                class="header-menu__link"
-                                to=""
-                            >Сертификаты</nuxt-link>
-                        </li>
-                        <li class="header-menu__item">
-                            <nuxt-link
-                                class="header-menu__link"
-                                to=""
-                            >Программа лояльности</nuxt-link>
-                        </li>
-                        <li class="header-menu__item">
-                            <nuxt-link
-                                class="header-menu__link"
-                                to=""
-                            >Блог</nuxt-link>
-                        </li>
-                        <li class="header-menu__item">
-                            <nuxt-link
-                                class="header-menu__link"
-                                to=""
-                            >Ешё</nuxt-link>
+                                :to="item.link"
+                                :title='item.name'
+                            >{{ item.name }}</nuxt-link>
                         </li>
                     </ul>
                 </menu>
@@ -98,7 +71,7 @@
                     height: 16px;
                 }
             }
-            
+
             &__side {
                 font-family: $font-family-title;
                 font-weight: 300;
