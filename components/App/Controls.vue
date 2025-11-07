@@ -1,45 +1,24 @@
+<script setup lang="ts">
+import { controls } from '~/data/controls'
+</script>
+
 <template>
     <div class="controls">
-        <button class="controls__button controls__button--hover">
+        <nuxt-link
+            v-for="control in controls"
+            :key="control.id"
+            :to="control.link"
+            class="controls__button controls__button--hover"
+        >
             <div class="controls__icon">
                 <img
-                    src="@/public/ico/person.svg"
-                    alt=""
+                    :src="control.icon"
+                    :alt="control.alt"
                     class="controls__img"
                 />
             </div>
-            <span class="controls__text">Войти</span>
-        </button>
-        <button class="controls__button controls__button--hover">
-            <div class="controls__icon">
-                <img
-                    src="@/public/ico/box.svg"
-                    alt=""
-                    class="controls__img"
-                />
-            </div>
-            <span class="controls__text controls__button--hover">Заказы</span>
-        </button>
-        <button class="controls__button controls__button--hover">
-            <div class="controls__icon">
-                <img
-                    src="@/public/ico/bookmark.svg"
-                    alt=""
-                    class="controls__img"
-                />
-            </div>
-            <span class="controls__text">Избранное</span>
-        </button>
-        <button class="controls__button controls__button--hover">
-            <div class="controls__icon">
-                <img
-                    src="@/public/ico/basket.svg"
-                    alt=""
-                    class="controls__img"
-                />
-            </div>
-            <span class="controls__text">Корзина</span>
-        </button>
+            <span class="controls__text">{{ control.name }}</span>
+        </nuxt-link>
     </div>
 </template>
 
