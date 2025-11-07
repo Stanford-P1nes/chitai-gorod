@@ -34,3 +34,39 @@ img {
     padding: 0px $padding-wrap;
     margin: 0 auto;
 }
+
+.swiper-basic-buttons {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+
+    &__button {
+        position: relative;
+        width: 64px;
+        height: 64px;
+        border-radius: $border-r-lg;
+        border: $border-white;
+        backdrop-filter: blur(5px);
+
+        &:first-child {
+            left: 10px;
+        }
+        &:last-child {
+            right: 10px;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+
+        &--left {
+            transform: rotate(180deg);
+        }
+    }
+}
