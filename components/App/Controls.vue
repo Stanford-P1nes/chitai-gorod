@@ -40,12 +40,23 @@ import { controls } from '~/data/controls'
         &--hover {
             &:hover {
                 .controls__text {
-                    text-shadow: $box-shadow-btn;
+                    color: $color-success;
                 }
 
                 .controls__img {
-                    // если нужно стилизовать иконку тоже
-                    filter: drop-shadow($box-shadow-btn);
+                    animation: controls-img 1s ease forwards;
+                }
+
+                @keyframes controls-img {
+                    0% {
+                        transform: translateY(0px);
+                    }
+                    40% {
+                        transform: translateY(-10px);
+                    }
+                    100% {
+                        transform: translateY(0px);
+                    }
                 }
             }
         }

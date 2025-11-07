@@ -3,7 +3,7 @@ import type { Product } from '~/types/product';
 export const products: Product[] = [
     {
         id: 0,
-        img: '../assets/images/posters/Фото-Гарри-Поттера.webp',
+        img: '/images/posters/Фото-Гарри-Поттера.webp',
         alt: 'Обложка фильма "Гарри Поттер"',
         price: 1105,
         oldPrice: 1299,
@@ -15,7 +15,7 @@ export const products: Product[] = [
     },
     {
         id: 1,
-        img: '../assets/images/posters/Сто-лет-одиночества.webp',
+        img: '/images/posters/Сто-лет-одиночества.webp',
         alt: 'Обложка фильма "Сто лет одиночества"',
         price: 1105,
         oldPrice: 1299,
@@ -27,7 +27,7 @@ export const products: Product[] = [
     },
     {
         id: 2,
-        img: '../assets/images/posters/Пусть-идет-снег.webp',
+        img: '/images/posters/Пусть-идет-снег.webp',
         alt: 'Обложка книги "Пусть идет снег"',
         price: 1105,
         oldPrice: 1299,
@@ -39,7 +39,7 @@ export const products: Product[] = [
     },
     {
         id: 3,
-        img: '../assets/images/posters/Преступление-и-наказание.webp',
+        img: '/images/posters/Преступление-и-наказание.webp',
         alt: 'Обложка книги "Преступление и наказание"',
         price: 1105,
         oldPrice: 1299,
@@ -51,7 +51,7 @@ export const products: Product[] = [
     },
     {
         id: 4,
-        img: '../assets/images/posters/Постер-Буратино.webp',
+        img: '/images/posters/Постер-Буратино.webp',
         alt: 'Обложка фильма "Постер Буратино"',
         price: 1105,
         oldPrice: 1299,
@@ -63,7 +63,7 @@ export const products: Product[] = [
     },
     {
         id: 5,
-        img: '../assets/images/posters/Первопоселенцы-Дикого-Поля.webp',
+        img: '/images/posters/Первопоселенцы-Дикого-Поля.webp',
         alt: 'Обложка книги "Первопоселенцы Дикого Поля"',
         price: 1105,
         oldPrice: 1299,
@@ -75,7 +75,7 @@ export const products: Product[] = [
     },
     {
         id: 6,
-        img: '../assets/images/posters/Мастер-и-Маргарита.webp',
+        img: '/images/posters/Мастер-и-Маргарита.webp',
         alt: 'Обложка книги "Мастер и Маргарита"',
         price: 1105,
         oldPrice: 1299,
@@ -87,7 +87,7 @@ export const products: Product[] = [
     },
     {
         id: 7,
-        img: '../assets/images/posters/Идиот.webp',
+        img: '/images/posters/Идиот.webp',
         alt: 'Обложка фильма "Идиот"',
         price: 1105,
         oldPrice: 1299,
@@ -99,7 +99,7 @@ export const products: Product[] = [
     },
     {
         id: 8,
-        img: '../assets/images/posters/Война-и-мир.webp',
+        img: '/images/posters/Война-и-мир.webp',
         alt: 'Обложка книги "Война и мир"',
         price: 1105,
         oldPrice: 1299,
@@ -111,7 +111,7 @@ export const products: Product[] = [
     },
     {
         id: 9,
-        img: '../assets/images/posters/Властелин-колец.webp',
+        img: '/images/posters/Властелин-колец.webp',
         alt: 'Обложка фильма "Властелин колец"',
         price: 1105,
         oldPrice: 1299,
@@ -123,7 +123,7 @@ export const products: Product[] = [
     },
     {
         id: 10,
-        img: '../assets/images/posters/В-поисках-Аляски.webp',
+        img: '/images/posters/В-поисках-Аляски.webp',
         alt: 'Обложка фильма "В поисках Аляски"',
         price: 1105,
         oldPrice: 1299,
@@ -135,7 +135,7 @@ export const products: Product[] = [
     },
     {
         id: 11,
-        img: '../assets/images/posters/Богатый-Папа-бедный-Папа.webp',
+        img: '/images/posters/Богатый-Папа-бедный-Папа.webp',
         alt: 'Обложка книги "Богатый Папа, бедный Папа"',
         price: 1105,
         oldPrice: 1299,
@@ -147,7 +147,7 @@ export const products: Product[] = [
     },
     {
         id: 12,
-        img: '../assets/images/posters/Алхимик.webp',
+        img: '/images/posters/Алхимик.webp',
         alt: 'Обложка книги "Алхимик"',
         price: 1105,
         oldPrice: 1299,
@@ -159,7 +159,7 @@ export const products: Product[] = [
     },
     {
         id: 13,
-        img: '../assets/images/posters/1984.webp',
+        img: '/images/posters/1984.webp',
         alt: 'Обложка книги "1984"',
         price: 1105,
         oldPrice: 1299,

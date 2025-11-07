@@ -7,13 +7,11 @@ import { products } from '~/data/products';
 const swiperBasicRef = ref(null);
 const swiper = useSwiper(swiperBasicRef, {
     effect: 'creative',
-    loop: true,
+    loop: false,
     autoplay: {
-        delay: 2000,
+        delay: 10000,
     },
 });
-
-// DATA PRODUCTS
 </script>
 
 <template>
@@ -39,12 +37,45 @@ const swiper = useSwiper(swiperBasicRef, {
                 </div>
             </header>
             <section class="products-cards products-shelf__products-cards">
-                <AppProductCard
-                    v-if="products.length"
-                    v-for="product in products"
-                    :key="product.id"
-                    :product="product"
-                />
+                <ClientOnly>
+                    <swiper-container
+                        ref="swiperBasicRef"
+                        :slides-per-view="5"
+                        :space-between="50"
+                        class="products-cards__swiper-container"
+                    >
+                        <swiper-slide
+                            v-if="products.length"
+                            v-for="product in products"
+                            :key="product.id"
+                            class="products-cards__swiper-slide"
+                        >
+                            <AppProductCard :product="product" />
+                        </swiper-slide>
+                    </swiper-container>
+                    <div class="swiper-basic-buttons products-cards__swiper-basic-buttons">
+                        <button
+                            class="swiper-basic-buttons__button"
+                            @click="swiper.prev()"
+                        >
+                            <img
+                                src="/ico/arrow.svg"
+                                alt="Стрелка направо"
+                                class="swiper-basic-buttons__img swiper-basic-buttons__img--left"
+                            />
+                        </button>
+                        <button
+                            class="swiper-basic-buttons__button"
+                            @click="swiper.next()"
+                        >
+                            <img
+                                src="/ico/arrow.svg"
+                                alt="Стрелка направо"
+                                class="swiper-basic-buttons__img swiper-basic-buttons__img--right"
+                            />
+                        </button>
+                    </div>
+                </ClientOnly>
             </section>
         </section>
     </div>
@@ -105,8 +136,7 @@ const swiper = useSwiper(swiperBasicRef, {
 }
 
 .products-cards {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: $gap-xxl;
+    position: relative;
+    overflow: hidden;
 }
 </style>

@@ -1,24 +1,7 @@
 <script setup lang="ts">
 import { useSwiper } from '#imports';
 import { ref } from 'vue';
-
-const slides = ref([
-    {
-        id: 0,
-        img: '/banners/banner-1.webp',
-        alt: 'World book day',
-    },
-    {
-        id: 1,
-        img: '/banners/banner-2.webp',
-        alt: 'World book day',
-    },
-    {
-        id: 2,
-        img: '/banners/banner-3.webp',
-        alt: 'World book day',
-    },
-]);
+import { banners } from '~/data/banners'
 
 const swiperBasicRef = ref(null);
 const swiper = useSwiper(swiperBasicRef, {
@@ -42,14 +25,15 @@ const swiper = useSwiper(swiperBasicRef, {
                     style="--swiper-theme-color: #ffffff"
                 >
                     <swiper-slide
-                        v-for="(slide, idx) in slides"
-                        :key="idx"
+                        v-for="banner in banners"
+                        :key="banner.id"
                         class="main-banners__slide"
+                        :title='banner.title'
                     >
                         <img
                             class="main-banners__img"
-                            :src="slide.img"
-                            :alt="slide.alt"
+                            :src="banner.img"
+                            :alt="banner.alt"
                         />
                     </swiper-slide>
                 </swiper-container>
@@ -139,17 +123,6 @@ const swiper = useSwiper(swiperBasicRef, {
     &__slider-wrapper {
         position: relative;
     }
-
-    &__swiper-basic-buttons {
-        width: 100%;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: space-between;
-        z-index: 1000;
-    }
 }
 
 .main-banners {
@@ -161,22 +134,6 @@ const swiper = useSwiper(swiperBasicRef, {
     &__img {
         width: 100%;
         height: 100%;
-    }
-}
-
-.swiper-basic-buttons {
-    &__button {
-        width: 64px;
-        height: 64px;
-    }
-
-    &__img {
-        width: 100%;
-        height: 100%;
-
-        &--left {
-            transform: rotate(180deg);
-        }
     }
 }
 
