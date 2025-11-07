@@ -6,144 +6,150 @@
                     <a
                         href="tel:8 988 644-87-39"
                         class="app-footer__phone"
+                        title='Позвонить на номер телефона'
                         >8 988 644-87-39</a
                     >
                     <div class="app-footer__contacts-links">
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
+                            title='Вопросы и ответы'
                             >Вопросы и ответы
                         </nuxt-link>
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
+                            title='Поучаствовать в интервью'
                             >Поучаствовать в интервью
                         </nuxt-link>
                     </div>
                     <div class="app-copyright app-footer__copyright-desktop">
-                        <p>&copy 2025, Читай-город</p>
+                        <p aria-hidden="true">&copy 2025, Читай-город</p>
                     </div>
                 </div>
 
                 <div class="app-footer__item app-footer__item--info-links">
-                    <p class="app-footer__info-links-header">Интернет-магазин</p>
+                    <p class="app-footer__info-links-header" aria-hidden="true">Интернет-магазин</p>
                     <div class="app-footer__info-links-content">
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
+                            title='Акции'
                             >Акции</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
+                            title='Распродажа'
                             >Распродажа</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
+                            title='Доставка и оплата'
                             >Доставка и оплата</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
+                            title='Программа лояльности'
                             >Программа лояльности</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
+                            title='Подарочные сертификаты'
                             >Подарочные сертификаты</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
+                            title='Правила продажи'
                             >Правила продажи</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
+                            title='Политика конфиденциальности'
                             >Политика конфиденциальности</nuxt-link
                         >
                     </div>
                 </div>
 
                 <div class="app-footer__item app-footer__item--info-links">
-                    <p class="app-footer__info-links-header">Интернет-магазин</p>
+                    <p class="app-footer__info-links-header" aria-hidden="true">Розничная сеть</p>
                     <div class="app-footer__info-links-content">
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Акции</nuxt-link
+                            title='Адреса магазинов'
+                            >Адреса магазинов</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Распродажа</nuxt-link
+                            title='Книжний дозор'
+                            >Книжний дозор</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Доставка и оплата</nuxt-link
+                            title='О компании'
+                            >О компании</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Программа лояльности</nuxt-link
+                            title='Читай-город для бизнеса'
+                            >Читай-город для бизнеса</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Подарочные сертификаты</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            >Правила продажи</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            >Политика конфиденциальности</nuxt-link
+                            title='Хотите у нас работать'
+                            >Хотите у нас работать</nuxt-link
                         >
                     </div>
                 </div>
 
                 <div class="app-footer__item app-footer__item--info-links">
-                    <p class="app-footer__info-links-header">Интернет-магазин</p>
+                    <p class="app-footer__info-links-header" aria-hidden="true">Знаем, что почитать</p>
                     <div class="app-footer__info-links-content">
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Акции</nuxt-link
+                            title='Скоро в продаже'
+                            >Скоро в продаже</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Распродажа</nuxt-link
+                            title='Эксклюзивные новинки'
+                            >Эксклюзивные новинки</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Доставка и оплата</nuxt-link
+                            title='Лучшие из лучших'
+                            >Лучшие из лучших</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Программа лояльности</nuxt-link
+                            title='Читай-журнал'
+                            >Читай-журнал</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Подарочные сертификаты</nuxt-link
+                            title='Книжные циклы'
+                            >Книжные циклы</nuxt-link
                         >
                         <nuxt-link
                             to="/"
                             class="app-footer__info-links-link"
-                            >Правила продажи</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            >Политика конфиденциальности</nuxt-link
+                            title='Что ещё почитать?'
+                            >Что ещё почитать?</nuxt-link
                         >
                     </div>
                 </div>
@@ -158,6 +164,7 @@
                         <a
                             href=""
                             class="app-footer__recom-tech-link"
+                            title='Принимаем к оплате'
                         >
                             <span
                                 class="app-footer__payments-icon app-footer__payments-icon--visa"
@@ -172,6 +179,7 @@
                         <a
                             href=""
                             class="app-footer__recom-tech-link"
+                            title='рекомендательные технологии'
                         >
                             рекомендательные технологии.</a
                         >
