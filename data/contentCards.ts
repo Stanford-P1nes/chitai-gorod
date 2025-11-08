@@ -3,7 +3,7 @@ import type { ContentCard } from '~/types/contentCard';
 export const contentCards: ContentCard[] = [
     {
         id: 0,
-        img: '@/assets/images/contents/Автор-1.webp',
+        img: '/images/contents/Автор-1.webp',
         alt: 'Изображение из четырёх книг: Джоель Дикеер ужасно катастрофический поход в зоопарк, Медные монеты, Затеренная библиотека, Эмма.',
         title: 'Согреют осенью: 10 главных новинок октября',
         subtitle: 'Сюжеты Жоэля Диккера, Му Сули, Алексея Иванова',
@@ -11,7 +11,7 @@ export const contentCards: ContentCard[] = [
     },
     {
         id: 1,
-        img: '@/assets/images/contents/Автор-2.webp',
+        img: '/images/contents/Автор-2.webp',
         alt: 'Изображение из четырёх книг: Хеллоуин в книжном «Леенивые кости», Граф Аверин Колдун российской империи, Убийства на выставки собак, Волкодав.',
         title: 'Книги недели',
         subtitle: 'Детективы и подарочное издание «Графа Аверина»',
@@ -19,7 +19,7 @@ export const contentCards: ContentCard[] = [
     },
     {
         id: 2,
-        img: '@/assets/images/contents/Автор-3.webp',
+        img: '/images/contents/Автор-3.webp',
         alt: 'Изображение из четырёх книг: Задача трёх тел, Удержать небо, Шаровая молния, О муровьях динозавров.',
         title: 'В каком порядке читать научную фантастику Лю Цысиня',
         subtitle: '«Задача трёх тел», «Удержать небо» и не только',
