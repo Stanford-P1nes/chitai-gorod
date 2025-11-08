@@ -3,12 +3,16 @@ import { useSwiper } from '#imports';
 import { ref } from 'vue';
 import { banners } from '~/data/banners';
 
-const swiperBasicRef = ref(null);
-const swiper = useSwiper(swiperBasicRef, {
+const bannersSwiper = ref(null);
+const bannerSwiperInstance = useSwiper(bannersSwiper, {
     effect: 'creative',
     loop: true,
+    pagination: {
+        clickable: true,
+    },
     autoplay: {
         delay: 2000,
+        disableOnInteraction: true,
     },
 });
 </script>
@@ -18,10 +22,8 @@ const swiper = useSwiper(swiperBasicRef, {
         <div class="common-main-banners__slider-wrapper">
             <ClientOnly>
                 <swiper-container
-                    ref="swiperBasicRef"
+                    ref="bannersSwiper"
                     class="main-banners common-main-banners__main-banners"
-                    :loop="true"
-                    :pagination="{ clickable: true }"
                     style="--swiper-theme-color: #ffffff"
                 >
                     <swiper-slide
@@ -40,7 +42,7 @@ const swiper = useSwiper(swiperBasicRef, {
 
                 <button
                     class="swiper-basic-button swiper-basic-button--left"
-                    @click="swiper.prev()"
+                    @click="bannerSwiperInstance.prev()"
                 >
                     <img
                         src="/ico/arrow.svg"
@@ -50,7 +52,7 @@ const swiper = useSwiper(swiperBasicRef, {
                 </button>
                 <button
                     class="swiper-basic-button swiper-basic-button--right"
-                    @click="swiper.next()"
+                    @click="bannerSwiperInstance.next()"
                 >
                     <img
                         src="/ico/arrow.svg"

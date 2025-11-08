@@ -5,14 +5,35 @@ import { products } from '~/data/products';
 import { contentCards } from '~/data/contentCards';
 
 // SWIPER
-const productsSwiper = ref(null);
+const productsNewSwiper = ref(null);
+const productsExclusiveSwiper = ref(null);
+const productsRatingsSwiper = ref(null);
 const contentSwiper = ref(null);
 
-const productsSwiperInstance = useSwiper(productsSwiper, {
+const productsNewSwiperInstance = useSwiper(productsNewSwiper, {
     effect: 'creative',
     loop: false,
     autoplay: {
-        delay: 10000,
+        delay: 5000,
+        disableOnInteraction: true,
+    },
+});
+
+const productsExclusiveSwiperInstance = useSwiper(productsExclusiveSwiper, {
+    effect: 'creative',
+    loop: false,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: true,
+    },
+});
+
+const productsRatingsSwiperInstance = useSwiper(productsRatingsSwiper, {
+    effect: 'creative',
+    loop: false,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: true,
     },
 });
 
@@ -20,7 +41,8 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
     effect: 'creative',
     loop: false,
     autoplay: {
-        delay: 10000,
+        delay: 5000,
+        disableOnInteraction: true,
     },
 });
 </script>
@@ -50,7 +72,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
             <section class="products-cards products-shelf__products-cards">
                 <ClientOnly>
                     <swiper-container
-                        ref="productsSwiper"
+                        ref="productsNewSwiper"
                         :slides-per-view="5"
                         :space-between="50"
                     >
@@ -63,10 +85,10 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if='products.length > 5'>
+                    <template v-if="products.length > 5">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
-                            @click="productsSwiperInstance.prev()"
+                            @click="productsNewSwiperInstance.prev()"
                         >
                             <img
                                 src="/ico/arrow.svg"
@@ -76,7 +98,123 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         </button>
                         <button
                             class="swiper-basic-button swiper-basic-button--right"
-                            @click="productsSwiperInstance.next()"
+                            @click="productsNewSwiperInstance.next()"
+                        >
+                            <img
+                                src="/ico/arrow.svg"
+                                alt="Стрелка направо"
+                                class="swiper-basic-button__img swiper-basic-button__img--right"
+                            />
+                        </button>
+                    </template>
+                </ClientOnly>
+            </section>
+        </section>
+        <section class="products-shelf page__products-shelf">
+            <header class="shelf-header products-shelf__header">
+                <div class="shelf-header__wrapper">
+                    <h2 class="shelf-header__heading">Эксклюзив</h2>
+                    <nuxt-link
+                        to="/"
+                        class="shelf-header__see-all"
+                    >
+                        Смотреть ещё
+                        <img
+                            src="/ico/arrow-right.svg"
+                            alt="Иконка стрелка направо оранжевого цвета"
+                            class="shelf-header__see-all-img"
+                        />
+                    </nuxt-link>
+                </div>
+            </header>
+            <section class="products-cards products-shelf__products-cards">
+                <ClientOnly>
+                    <swiper-container
+                        ref="productsExclusiveSwiper"
+                        :slides-per-view="5"
+                        :space-between="50"
+                    >
+                        <swiper-slide
+                            v-if="products.length"
+                            v-for="product in products"
+                            :key="product.id"
+                        >
+                            <AppProductCard :product="product" />
+                        </swiper-slide>
+                    </swiper-container>
+                    <!-- BUTTONS -->
+                    <template v-if="products.length > 5">
+                        <button
+                            class="swiper-basic-button swiper-basic-button--left"
+                            @click="productsExclusiveSwiperInstance.prev()"
+                        >
+                            <img
+                                src="/ico/arrow.svg"
+                                alt="Стрелка направо"
+                                class="swiper-basic-button__img swiper-basic-button__img--left"
+                            />
+                        </button>
+                        <button
+                            class="swiper-basic-button swiper-basic-button--right"
+                            @click="productsExclusiveSwiperInstance.next()"
+                        >
+                            <img
+                                src="/ico/arrow.svg"
+                                alt="Стрелка направо"
+                                class="swiper-basic-button__img swiper-basic-button__img--right"
+                            />
+                        </button>
+                    </template>
+                </ClientOnly>
+            </section>
+        </section>
+        <section class="products-shelf page__products-shelf">
+            <header class="shelf-header products-shelf__header">
+                <div class="shelf-header__wrapper">
+                    <h2 class="shelf-header__heading">Рейтинги</h2>
+                    <nuxt-link
+                        to="/"
+                        class="shelf-header__see-all"
+                    >
+                        Смотреть ещё
+                        <img
+                            src="/ico/arrow-right.svg"
+                            alt="Иконка стрелка направо оранжевого цвета"
+                            class="shelf-header__see-all-img"
+                        />
+                    </nuxt-link>
+                </div>
+            </header>
+            <section class="products-cards products-shelf__products-cards">
+                <ClientOnly>
+                    <swiper-container
+                        ref="productsRatingsSwiper"
+                        :slides-per-view="5"
+                        :space-between="50"
+                    >
+                        <swiper-slide
+                            v-if="products.length"
+                            v-for="product in products"
+                            :key="product.id"
+                        >
+                            <AppProductCard :product="product" />
+                        </swiper-slide>
+                    </swiper-container>
+                    <!-- BUTTONS -->
+                    <template v-if="products.length > 5">
+                        <button
+                            class="swiper-basic-button swiper-basic-button--left"
+                            @click="productsRatingsSwiperInstance.prev()"
+                        >
+                            <img
+                                src="/ico/arrow.svg"
+                                alt="Стрелка направо"
+                                class="swiper-basic-button__img swiper-basic-button__img--left"
+                            />
+                        </button>
+                        <button
+                            class="swiper-basic-button swiper-basic-button--right"
+                            @click="productsRatingsSwiperInstance.next()"
                         >
                             <img
                                 src="/ico/arrow.svg"
@@ -121,7 +259,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if='contentCards.length > 3'>
+                    <template v-if="contentCards.length > 3">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="contentSwiperInstance.prev()"
