@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSwiper } from '#imports';
 import { ref } from 'vue';
-import { banners } from '~/data/banners'
+import { banners } from '~/data/banners';
 
 const swiperBasicRef = ref(null);
 const swiper = useSwiper(swiperBasicRef, {
@@ -28,7 +28,7 @@ const swiper = useSwiper(swiperBasicRef, {
                         v-for="banner in banners"
                         :key="banner.id"
                         class="main-banners__slide"
-                        :title='banner.title'
+                        :title="banner.title"
                     >
                         <img
                             class="main-banners__img"
@@ -38,28 +38,26 @@ const swiper = useSwiper(swiperBasicRef, {
                     </swiper-slide>
                 </swiper-container>
 
-                <div class="swiper-basic-buttons common-main-banners__swiper-basic-buttons">
-                    <button
-                        class="swiper-basic-buttons__button"
-                        @click="swiper.prev()"
-                    >
-                        <img
-                            src="/ico/arrow.svg"
-                            alt="Стрелка направо"
-                            class="swiper-basic-buttons__img swiper-basic-buttons__img--left"
-                        />
-                    </button>
-                    <button
-                        class="swiper-basic-buttons__button"
-                        @click="swiper.next()"
-                    >
-                        <img
-                            src="/ico/arrow.svg"
-                            alt="Стрелка направо"
-                            class="swiper-basic-buttons__img swiper-basic-buttons__img--right"
-                        />
-                    </button>
-                </div>
+                <button
+                    class="swiper-basic-button swiper-basic-button--left"
+                    @click="swiper.prev()"
+                >
+                    <img
+                        src="/ico/arrow.svg"
+                        alt="Стрелка направо"
+                        class="swiper-basic-button__img swiper-basic-button__img--left"
+                    />
+                </button>
+                <button
+                    class="swiper-basic-button swiper-basic-button--right"
+                    @click="swiper.next()"
+                >
+                    <img
+                        src="/ico/arrow.svg"
+                        alt="Стрелка направо"
+                        class="swiper-basic-button__img swiper-basic-button__img--right"
+                    />
+                </button>
             </ClientOnly>
         </div>
 

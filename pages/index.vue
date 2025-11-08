@@ -5,8 +5,18 @@ import { products } from '~/data/products';
 import { contentCards } from '~/data/contentCards';
 
 // SWIPER
-const swiperBasicRef = ref(null);
-const swiper = useSwiper(swiperBasicRef, {
+const productsSwiper = ref(null);
+const contentSwiper = ref(null);
+
+const productsSwiperInstance = useSwiper(productsSwiper, {
+    effect: 'creative',
+    loop: false,
+    autoplay: {
+        delay: 10000,
+    },
+});
+
+const contentSwiperInstance = useSwiper(contentSwiper, {
     effect: 'creative',
     loop: false,
     autoplay: {
@@ -40,7 +50,7 @@ const swiper = useSwiper(swiperBasicRef, {
             <section class="products-cards products-shelf__products-cards">
                 <ClientOnly>
                     <swiper-container
-                        ref="swiperBasicRef"
+                        ref="productsSwiper"
                         :slides-per-view="5"
                         :space-between="50"
                     >
@@ -52,28 +62,29 @@ const swiper = useSwiper(swiperBasicRef, {
                             <AppProductCard :product="product" />
                         </swiper-slide>
                     </swiper-container>
-                    <div v-if='products.length > 5' class="swiper-basic-buttons products-cards__swiper-basic-buttons">
+                    <!-- BUTTONS -->
+                    <template v-if='products.length > 5'>
                         <button
-                            class="swiper-basic-buttons__button"
-                            @click="swiper.prev()"
+                            class="swiper-basic-button swiper-basic-button--left"
+                            @click="productsSwiperInstance.prev()"
                         >
                             <img
                                 src="/ico/arrow.svg"
                                 alt="Стрелка направо"
-                                class="swiper-basic-buttons__img swiper-basic-buttons__img--left"
+                                class="swiper-basic-button__img swiper-basic-button__img--left"
                             />
                         </button>
                         <button
-                            class="swiper-basic-buttons__button"
-                            @click="swiper.next()"
+                            class="swiper-basic-button swiper-basic-button--right"
+                            @click="productsSwiperInstance.next()"
                         >
                             <img
                                 src="/ico/arrow.svg"
                                 alt="Стрелка направо"
-                                class="swiper-basic-buttons__img swiper-basic-buttons__img--right"
+                                class="swiper-basic-button__img swiper-basic-button__img--right"
                             />
                         </button>
-                    </div>
+                    </template>
                 </ClientOnly>
             </section>
         </section>
@@ -97,7 +108,7 @@ const swiper = useSwiper(swiperBasicRef, {
             <section class="products-cards products-shelf__products-cards">
                 <ClientOnly>
                     <swiper-container
-                        ref="swiperBasicRef"
+                        ref="contentSwiper"
                         :slides-per-view="3"
                         :space-between="50"
                     >
@@ -109,28 +120,29 @@ const swiper = useSwiper(swiperBasicRef, {
                             <AppContentCard :contentCard="contentCard" />
                         </swiper-slide>
                     </swiper-container>
-                    <div v-if='contentCards.length > 3' class="swiper-basic-buttons products-cards__swiper-basic-buttons">
+                    <!-- BUTTONS -->
+                    <template v-if='contentCards.length > 3'>
                         <button
-                            class="swiper-basic-buttons__button"
-                            @click="swiper.prev()"
+                            class="swiper-basic-button swiper-basic-button--left"
+                            @click="contentSwiperInstance.prev()"
                         >
                             <img
                                 src="/ico/arrow.svg"
                                 alt="Стрелка направо"
-                                class="swiper-basic-buttons__img swiper-basic-buttons__img--left"
+                                class="swiper-basic-button__img swiper-basic-button__img--left"
                             />
                         </button>
                         <button
-                            class="swiper-basic-buttons__button"
-                            @click="swiper.next()"
+                            class="swiper-basic-button swiper-basic-button--right"
+                            @click="contentSwiperInstance.next()"
                         >
                             <img
                                 src="/ico/arrow.svg"
                                 alt="Стрелка направо"
-                                class="swiper-basic-buttons__img swiper-basic-buttons__img--right"
+                                class="swiper-basic-button__img swiper-basic-button__img--right"
                             />
                         </button>
-                    </div>
+                    </template>
                 </ClientOnly>
             </section>
         </section>

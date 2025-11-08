@@ -49,9 +49,11 @@ defineProps<{
 
 <style lang="scss">
 .product-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    z-index: 2000;
 
     &__image-wrapper {
         border-radius: 4px;
@@ -64,6 +66,7 @@ defineProps<{
     &__img {
         width: 100%;
         height: 100%;
+        user-select: none;
     }
 
     &__content {
