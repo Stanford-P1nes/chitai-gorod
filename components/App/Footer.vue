@@ -1,26 +1,29 @@
+<script setup lang="ts">
+import { useFooter } from '#imports';
+
+const footer = await useFooter();
+</script>
+
 <template>
     <footer class="app-footer">
         <div class="container app-footer__container">
             <div class="app-footer__content">
+                <!-- CONTACTS -->
                 <div class="app-footer__item app-footer__item--information">
                     <a
-                        href="tel:8 988 644-87-39"
+                        :href="`tel:${footer.contacts.phone}`"
                         class="app-footer__phone"
-                        title='Позвонить на номер телефона'
-                        >8 988 644-87-39</a
+                        title="Позвонить на номер телефона"
+                        >{{ footer.contacts.phone }}</a
                     >
                     <div class="app-footer__contacts-links">
                         <nuxt-link
+                            v-for="link in footer.contacts.links"
+                            :key="link.to"
                             to="/"
                             class="app-footer__info-links-link"
-                            title='Вопросы и ответы'
-                            >Вопросы и ответы
-                        </nuxt-link>
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Поучаствовать в интервью'
-                            >Поучаствовать в интервью
+                            :title="link.title"
+                            >{{ link.title }}
                         </nuxt-link>
                     </div>
                     <div class="app-copyright app-footer__copyright-desktop">
@@ -28,160 +31,61 @@
                     </div>
                 </div>
 
-                <div class="app-footer__item app-footer__item--info-links">
-                    <p class="app-footer__info-links-header" aria-hidden="true">Интернет-магазин</p>
+                <!-- COLUMNS -->
+                <div
+                    v-for="column in footer.columns"
+                    class="app-footer__item app-footer__item--info-links"
+                >
+                    <p
+                        class="app-footer__info-links-header"
+                        aria-hidden="true"
+                    >
+                        {{ column.title }}
+                    </p>
                     <div class="app-footer__info-links-content">
                         <nuxt-link
+                            v-for="link in column.links"
+                            :key="link.to"
                             to="/"
                             class="app-footer__info-links-link"
-                            title='Акции'
-                            >Акции</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Распродажа'
-                            >Распродажа</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Доставка и оплата'
-                            >Доставка и оплата</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Программа лояльности'
-                            >Программа лояльности</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Подарочные сертификаты'
-                            >Подарочные сертификаты</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Правила продажи'
-                            >Правила продажи</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Политика конфиденциальности'
-                            >Политика конфиденциальности</nuxt-link
+                            :title="link.title"
+                            >{{ link.title }}</nuxt-link
                         >
                     </div>
                 </div>
 
-                <div class="app-footer__item app-footer__item--info-links">
-                    <p class="app-footer__info-links-header" aria-hidden="true">Розничная сеть</p>
-                    <div class="app-footer__info-links-content">
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Адреса магазинов'
-                            >Адреса магазинов</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Книжний дозор'
-                            >Книжний дозор</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='О компании'
-                            >О компании</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Читай-город для бизнеса'
-                            >Читай-город для бизнеса</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Хотите у нас работать'
-                            >Хотите у нас работать</nuxt-link
-                        >
-                    </div>
-                </div>
-
-                <div class="app-footer__item app-footer__item--info-links">
-                    <p class="app-footer__info-links-header" aria-hidden="true">Знаем, что почитать</p>
-                    <div class="app-footer__info-links-content">
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Скоро в продаже'
-                            >Скоро в продаже</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Эксклюзивные новинки'
-                            >Эксклюзивные новинки</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Лучшие из лучших'
-                            >Лучшие из лучших</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Читай-журнал'
-                            >Читай-журнал</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Книжные циклы'
-                            >Книжные циклы</nuxt-link
-                        >
-                        <nuxt-link
-                            to="/"
-                            class="app-footer__info-links-link"
-                            title='Что ещё почитать?'
-                            >Что ещё почитать?</nuxt-link
-                        >
-                    </div>
-                </div>
-
+                <!-- PAYMENT -->
                 <div class="app-footer__item app-footer__item--social-block">
-                    <AppSocial />
+                    <AppSocial :socials="footer.contacts.socials" />
                 </div>
 
+                <!-- NOTE -->
                 <div class="app-footer__item app-footer__item--payments-and-recom-tech">
                     <div class="app-footer__payments">
                         Принимаем к оплате
                         <a
-                            href=""
+                            href="#"
                             class="app-footer__recom-tech-link"
-                            title='Принимаем к оплате'
+                            title="Принимаем к оплате"
                         >
                             <span
-                                class="app-footer__payments-icon app-footer__payments-icon--visa"
-                            ></span>
-                            <span
-                                class="app-footer__payments-icon app-footer__payments-icon--mir"
+                                v-for="(payment, idx) in footer.payment"
+                                :key="idx"
+                                :class="[
+                                    'app-footer__payments-icon',
+                                    `app-footer__payments-icon--${payment}`,
+                                ]"
                             ></span>
                         </a>
                     </div>
                     <div class="app-footer__recom-tech">
-                        На информационном ресурсе применяются
-                        <a
-                            href=""
+                        {{ footer.note.text }}
+                        <nuxt-link
+                            :to="footer.note.link.to"
                             class="app-footer__recom-tech-link"
-                            title='рекомендательные технологии'
+                            title="рекомендательные технологии"
                         >
-                            рекомендательные технологии.</a
+                            {{ footer.note.link.title }}</nuxt-link
                         >
                     </div>
                 </div>

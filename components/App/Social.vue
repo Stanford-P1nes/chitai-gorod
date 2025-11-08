@@ -1,24 +1,17 @@
+<script setup lang='ts'>
+type Social = { icon: string; url: string };
+const props = defineProps<{ socials: Social[] }>()
+</script>
+
 <template>
     <div class="app-social-links">
         <a
-            href=""
-            class="app-social-links__icon app-social-links__icon--vk"
-        ></a>
-        <a
-            href=""
-            class="app-social-links__icon app-social-links__icon--instagram"
-        ></a>
-        <a
-            href=""
-            class="app-social-links__icon app-social-links__icon--tiktok"
-        ></a>
-        <a
-            href=""
-            class="app-social-links__icon app-social-links__icon--youtube"
-        ></a>
-        <a
-            href=""
-            class="app-social-links__icon app-social-links__icon--telegram"
+            v-for="social in props.socials"
+            :key='social.icon'
+            :href="social.url"
+            :class="['app-social-links__icon', `app-social-links__icon--${social.icon}`]"
+            target='_blank'
+            rel="noopener noreferrer"
         ></a>
     </div>
 </template>
