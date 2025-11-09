@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { useSwiper } from '#imports';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { products } from '~/data/products';
 import { contentCards } from '~/data/contentCards';
+import { useProductStore } from '~/stores/products';
+
+// STORES
+const { productsData, getProductsData, filterProducts } = useProductStore();
+
+onMounted(async () => {
+    await getProductsData();
+});
 
 // SWIPER
 const productsNewSwiper = ref(null);
@@ -77,15 +85,15 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         :space-between="50"
                     >
                         <swiper-slide
-                            v-if="products.length"
-                            v-for="product in products"
+                            v-if="productsData.length"
+                            v-for="product in filterProducts('new')"
                             :key="product.id"
                         >
                             <AppProductCard :product="product" />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="products.length > 5">
+                    <template v-if="filterProducts('new').length > 5">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="productsNewSwiperInstance.prev()"
@@ -135,15 +143,15 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         :space-between="50"
                     >
                         <swiper-slide
-                            v-if="products.length"
-                            v-for="product in products"
+                            v-if="productsData.length"
+                            v-for="product in filterProducts('exclusive')"
                             :key="product.id"
                         >
                             <AppProductCard :product="product" />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="products.length > 5">
+                    <template v-if="filterProducts('exclusive').length > 5">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="productsExclusiveSwiperInstance.prev()"
@@ -193,15 +201,15 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         :space-between="50"
                     >
                         <swiper-slide
-                            v-if="products.length"
-                            v-for="product in products"
+                            v-if="productsData.length"
+                            v-for="product in filterProducts('ratings')"
                             :key="product.id"
                         >
                             <AppProductCard :product="product" />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="products.length > 5">
+                    <template v-if="filterProducts('ratings').length > 5">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="productsRatingsSwiperInstance.prev()"

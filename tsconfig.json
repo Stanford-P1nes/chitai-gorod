@@ -1,13 +1,17 @@
 {
     "extends": "./.nuxt/tsconfig.json", // Подключение базовых настроек от Nuxt
+    "compilerOptions": {
+        "types": ["nuxt"]
+    },
     "include": [
         "nuxt.config.ts",
         "app.vue",
         "components/**/*",
         "pages/**/*",
-        // "plugins/**/*",
         "composables/**/*",
-        "store/**/*",
-        "types/**/*"
+        "stores/**/*",
+        "types/**/*",
+        "data/**/*",
+        "server/**/*"
     ]
 }

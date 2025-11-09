@@ -1,3 +1,5 @@
+export type ProductStatus = 'new' | 'exclusive' | 'ratings';
+
 export interface Product {
     id: number;
     img: string;
@@ -9,4 +11,5 @@ export interface Product {
     name: string;
     author: string;
     rating: number;
+    status?: ProductStatus;
 }

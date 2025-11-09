@@ -1,3 +1,4 @@
+import { defineEventHandler } from 'h3';
 import type { FooterData } from '~/types/footer';
 
 export default defineEventHandler((): FooterData => {
@@ -56,8 +57,8 @@ export default defineEventHandler((): FooterData => {
             text: 'На информационном ресурсе применяются.',
             link: {
                 title: 'рекомендательные технологии',
-                to: '/'
-            }
+                to: '/',
+            },
         },
     };
 });

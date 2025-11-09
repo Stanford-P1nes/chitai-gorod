@@ -77,6 +77,6 @@ export default defineNuxtConfig({
     },
     modules: ['@pinia/nuxt', '@nuxtjs/google-fonts', 'nuxt-swiper'],
     imports: {
-        dirs: ['composables/**', 'types/**'],
+        dirs: ['./composables/**', './types/**', './stores/**'],
     },
 });
