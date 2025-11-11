@@ -55,14 +55,12 @@ defineProps<{
         font-weight: 400;
         font-size: $font-size-xxxl;
         line-height: $line-height-xxxl;
-        color: $color-black;
     }
 
     &__subtitle {
         font-weight: 400;
         font-size: $font-size-md;
         line-height: $line-height-xl;
-        color: $color-darkgray;
 
         &--absolute::after {
             content: '';

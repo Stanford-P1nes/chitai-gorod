@@ -19,6 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
     <button
         class="ui-button"
+        :class='{"ui-button--icon": src}'
         :disable="disable"
     >
         <template v-if="variant === 'secondary'">
@@ -38,18 +39,21 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style lang="scss">
 .ui-button {
-    border-radius: $border-r-md;
-    padding: 12px;
-    background-color: $color-orange;
-    color: $color-white;
+    @include LampEffect($b-r: $border-r-md, $bg: $color-active);
+    padding: $padding-ui;
     font-weight: 700;
     line-height: $line-height-xl;
     display: flex;
     align-items: center;
     justify-content: center;
+
     &:disabled {
         opacity: 0.6;
         cursor: not-allowed;
+    }
+
+    &--icon {
+        padding: $padding-ui-icon;
     }
 
     &__icon {

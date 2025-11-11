@@ -12,4 +12,5 @@ export interface Product {
     author: string;
     rating: number;
     status?: ProductStatus;
+    to: string;
 }

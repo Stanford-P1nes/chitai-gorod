@@ -14,6 +14,7 @@ defineProps<{
                 :alt="product.alt"
                 class="product-card__img"
             />
+            <nuxt-link :to="product.to" class='product-card__link'></nuxt-link>
         </div>
         <div class="product-card__content">
             <div class="product-card-price product-card__price">
@@ -38,7 +39,7 @@ defineProps<{
                 />
                 <UiButton
                     variant="secondary"
-                    src="/ico/bookmark-white.svg"
+                    src="/ico/bookmark.svg"
                     alt="Белая иконка закладка"
                     class="product-card__button product-card__button--bookmark"
                 />
@@ -52,15 +53,16 @@ defineProps<{
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     z-index: 2000;
+    gap: $gap-sm;
 
     &__image-wrapper {
+        position: relative;
         border-radius: 4px;
         height: 345px;
         max-height: 345px;
-        background-color: $color-gray;
         overflow: hidden;
+        @include LampEffect($b-r: $border-r-lg);
     }
 
     &__img {
@@ -72,7 +74,9 @@ defineProps<{
     &__content {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        @include LampEffect($b-r: $border-r-lg);
+        padding: $padding-xs;
+        gap: $gap-sm;
     }
 
     &__caption {
@@ -85,14 +89,12 @@ defineProps<{
         font-weight: 400;
         font-size: $font-size-lg;
         line-height: $line-height-xl;
-        color: $color-black;
     }
 
     &__subtitle {
         font-weight: 400;
         font-size: $font-size-sm;
         line-height: $line-height-sm;
-        color: $color-darkgray;
     }
 
     &__actions {
@@ -113,6 +115,14 @@ defineProps<{
             padding: 8px;
         }
     }
+
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
 }
 
 .product-card-price {
@@ -124,7 +134,6 @@ defineProps<{
         font-weight: 500;
         font-size: $font-size-lg;
         line-height: $line-height-md;
-        color: $color-black;
     }
 
     &__side {
@@ -137,7 +146,7 @@ defineProps<{
         font-weight: 400;
         font-size: $font-size-sm;
         line-height: $line-height-md;
-        color: $color-black;
+        color: $color-red;
     }
 
     &__discount {
@@ -147,7 +156,6 @@ defineProps<{
         background-color: $color-red;
         font-size: $font-size-sm;
         line-height: $line-height-sm;
-        color: $color-white;
     }
 }
 

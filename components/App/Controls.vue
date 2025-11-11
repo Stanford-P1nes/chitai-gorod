@@ -17,7 +17,6 @@ import { controls } from '~/data/controls'
                     class="controls__img"
                 />
             </div>
-            <span class="controls__text">{{ control.name }}</span>
         </nuxt-link>
     </div>
 </template>
@@ -35,16 +34,13 @@ import { controls } from '~/data/controls'
         flex-grow: 1;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
 
         &--hover {
             &:hover {
-                .controls__text {
-                    color: $color-success;
-                }
-
                 .controls__img {
-                    animation: controls-img 1s ease forwards;
+                    animation: controls-img 1s ease infinite;
                 }
 
                 @keyframes controls-img {
@@ -71,15 +67,6 @@ import { controls } from '~/data/controls'
         width: 100%;
         height: 100%;
         transition: filter 0.2s linear;
-    }
-
-    &__text {
-        font-family: $font-family-text;
-        font-weight: 400;
-        font-size: $font-size-xs;
-        line-height: $line-height-xs;
-        color: $color-black;
-        transition: text-shadow 0.2s linear;
     }
 }
 </style>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useSwiper } from '#imports';
 import { onMounted, ref } from 'vue';
-import { products } from '~/data/products';
 import { contentCards } from '~/data/contentCards';
 import { useProductStore } from '~/stores/products';
 
@@ -82,7 +81,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                     <swiper-container
                         ref="productsNewSwiper"
                         :slides-per-view="5"
-                        :space-between="50"
+                        :space-between="20"
                     >
                         <swiper-slide
                             v-if="productsData.length"
@@ -140,7 +139,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                     <swiper-container
                         ref="productsExclusiveSwiper"
                         :slides-per-view="5"
-                        :space-between="50"
+                        :space-between="20"
                     >
                         <swiper-slide
                             v-if="productsData.length"
@@ -198,7 +197,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                     <swiper-container
                         ref="productsRatingsSwiper"
                         :slides-per-view="5"
-                        :space-between="50"
+                        :space-between="20"
                     >
                         <swiper-slide
                             v-if="productsData.length"
@@ -256,7 +255,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                     <swiper-container
                         ref="contentSwiper"
                         :slides-per-view="3"
-                        :space-between="50"
+                        :space-between="20"
                     >
                         <swiper-slide
                             v-if="contentCards.length"
@@ -303,9 +302,8 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
     justify-content: flex-start;
     flex-direction: column;
     gap: $gap-page;
-    border-radius: $border-r-xl;
-    background-color: $color-white;
-    padding: $padding-wrap;
+    @include LampEffect;
+    padding: $padding-lg;
 
     &__products-shelf {
         width: 100%;
@@ -315,6 +313,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
 .products-shelf {
     &__header {
         margin-bottom: 40px;
+        border-bottom: 1px solid #595959;
     }
 }
 
@@ -330,7 +329,6 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
         font-weight: 500;
         font-size: $font-size-xxxl;
         line-height: $line-height-xxxxl;
-        color: $color-black;
     }
 
     &__see-all {

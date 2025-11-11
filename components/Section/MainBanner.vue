@@ -39,7 +39,6 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
                         />
                     </swiper-slide>
                 </swiper-container>
-
                 <button
                     class="swiper-basic-button swiper-basic-button--left"
                     @click="bannerSwiperInstance.prev()"
@@ -127,11 +126,11 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
 
 .main-banners {
     height: 400px;
-    max-width: 850px;
-    border-radius: $border-r-sm;
-    overflow: hidden;
+    max-width: 745px;
+    @include LampEffect($b-r: $border-r-lg);
 
     &__img {
+        user-select: none;
         width: 100%;
         height: 100%;
     }
@@ -140,37 +139,33 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
 .main-mini-banners {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     flex-direction: column;
     gap: $gap-xl;
 
     &__banner {
         width: 100%;
         flex-grow: 1;
-        border: $border-banner;
-        border-radius: $border-r-sm;
         padding: 20px;
+        @include LampEffect($b-r: $border-r-lg);
     }
 
     &__banner-wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: $border-r-xl;
+        gap: $gap-sm;
     }
 
     &__title {
         font-weight: 400;
         font-size: $line-height-sm;
         line-height: $line-height-xxl;
-        color: $color-black;
     }
 
     &__subtitle {
         font-weight: 400;
         font-size: $font-size-xs;
         line-height: $line-height-lg;
-        color: $color-darkgray;
     }
 
     &__banner-image {

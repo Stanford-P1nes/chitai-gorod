@@ -123,7 +123,6 @@ const footer = await useFooter();
         font-weight: 400;
         font-size: $font-size-md;
         line-height: $line-height-md;
-        color: $color-black;
     }
 
     &__contacts-links {
@@ -136,14 +135,12 @@ const footer = await useFooter();
         font-weight: 400;
         font-size: $font-size-sm;
         line-height: $line-height-md;
-        color: $color-black;
     }
 
     &__copyright-desktop {
         font-weight: 400;
         font-size: $font-size-sm;
         line-height: $line-height-md;
-        color: $color-lightgray;
     }
 
     // info-links
@@ -152,7 +149,6 @@ const footer = await useFooter();
         font-weight: 400;
         font-size: $font-size-md;
         line-height: $line-height-md;
-        color: $color-black;
     }
 
     &__info-links-content {
@@ -167,7 +163,6 @@ const footer = await useFooter();
         font-weight: 400;
         font-size: $font-size-md;
         line-height: $line-height-md;
-        color: $color-black;
     }
 
     // payments-and-recom-tech
@@ -180,7 +175,6 @@ const footer = await useFooter();
         font-weight: 400;
         font-size: $font-size-sm;
         line-height: $line-height-md;
-        color: $color-darkgray;
     }
 
     &__recom-tech-link {
@@ -219,14 +213,12 @@ const footer = await useFooter();
         font-weight: 400;
         font-size: $font-size-sm;
         line-height: $line-height-md;
-        color: $color-lightgray;
     }
 
     &__recom-tech-link {
         font-weight: 400;
         font-size: $font-size-sm;
         line-height: $line-height-md;
-        color: $color-darkgray;
     }
 }
 </style>

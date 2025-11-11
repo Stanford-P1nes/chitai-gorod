@@ -32,26 +32,35 @@ const props = defineProps<{ socials: Social[] }>()
             background-image: url('@/public/ico/vk.svg');
             background-size: cover;
             background-repeat: no-repeat;
+            filter: invert(1);
         }
+
         &--instagram {
             background-image: url('@/public/ico/instagram.svg');
             background-size: cover;
             background-repeat: no-repeat;
+            filter: invert(1);
         }
+
         &--tiktok {
             background-image: url('@/public/ico/tiktok.svg');
             background-size: cover;
             background-repeat: no-repeat;
+            filter: invert(1);
         }
+
         &--youtube {
             background-image: url('@/public/ico/youtube.svg');
             background-size: cover;
             background-repeat: no-repeat;
+            filter: invert(1);
         }
+
         &--telegram {
             background-image: url('@/public/ico/telegram.svg');
             background-size: cover;
             background-repeat: no-repeat;
+            filter: invert(1);
         }
     }
 }

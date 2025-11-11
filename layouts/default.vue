@@ -1,5 +1,4 @@
 <template>
-    <AppTopHeader />
     <AppHeader />
     <main>
         <div class='container'>

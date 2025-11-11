@@ -84,11 +84,9 @@ const selectCountry = (selectedCountry: Country): void => {
 
     &__wrapper {
         display: flex;
-        gap: 12px;
-        padding: 12px 20px;
-        border: $border;
-        border-radius: $border-r-md;
-        background-color: $color-white;
+        gap: $gap-md;
+        //padding: 12px 20px;
+        @include LampEffect;
     }
 
     &__icon {
@@ -120,7 +118,6 @@ const selectCountry = (selectedCountry: Country): void => {
         font-weight: 400;
         font-size: $font-size-lg;
         line-height: $line-height-xl;
-        color: $color-black;
         overflow: hidden;
         max-height: 0;
         opacity: 0;
@@ -144,7 +141,6 @@ const selectCountry = (selectedCountry: Country): void => {
         transition: background 0.2s linear;
         &--hover:hover {
             background-color: $color-orange;
-            color: $color-white;
         }
 
         &-content {
@@ -163,7 +159,6 @@ const selectCountry = (selectedCountry: Country): void => {
             font-weight: 400;
             font-size: $font-size-md;
             line-height: $line-height-xl;
-            color: $color-black;
         }
     }
 
@@ -172,7 +167,6 @@ const selectCountry = (selectedCountry: Country): void => {
         font-weight: 400;
         font-size: $font-size-lg;
         line-height: $line-height-xl;
-        color: $color-black;
     }
 }
 </style>

@@ -13,6 +13,7 @@ export const products: Product[] = [
         author: 'Джоа́н Ро́улинг',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 1,
@@ -26,6 +27,7 @@ export const products: Product[] = [
         author: 'Габриэля Гарсиа Маркеса',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 2,
@@ -39,6 +41,7 @@ export const products: Product[] = [
         author: 'Морин Джонсон',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 3,
@@ -52,6 +55,7 @@ export const products: Product[] = [
         author: 'Фёдора Достоевского',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 4,
@@ -65,6 +69,7 @@ export const products: Product[] = [
         author: 'Алексея Толстого',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 5,
@@ -78,6 +83,7 @@ export const products: Product[] = [
         author: 'Погорелов С. А.',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 6,
@@ -91,6 +97,7 @@ export const products: Product[] = [
         author: 'Михаила Булгакова',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 7,
@@ -104,6 +111,7 @@ export const products: Product[] = [
         author: 'Фёдора Достоевского',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 8,
@@ -117,6 +125,7 @@ export const products: Product[] = [
         author: 'Льва Толстого',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 9,
@@ -130,6 +139,7 @@ export const products: Product[] = [
         author: 'Дж.Р.Р.',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 10,
@@ -143,6 +153,7 @@ export const products: Product[] = [
         author: 'Джон Грин',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 11,
@@ -156,6 +167,7 @@ export const products: Product[] = [
         author: 'Роберт Кийосаки Шэрон Лехтер',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 12,
@@ -169,6 +181,7 @@ export const products: Product[] = [
         author: 'Пауло Коэльо',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 13,
@@ -182,6 +195,7 @@ export const products: Product[] = [
         author: 'Джорджа Оруэлла',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 14,
@@ -195,6 +209,7 @@ export const products: Product[] = [
         author: 'Эрих Мария Ремарк',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 15,
@@ -208,6 +223,7 @@ export const products: Product[] = [
         author: 'Харпер Ли',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 16,
@@ -221,6 +237,7 @@ export const products: Product[] = [
         author: 'Антуан де Сент-Экзюпери',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 17,
@@ -234,6 +251,7 @@ export const products: Product[] = [
         author: 'Фрэнк Герберт',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 18,
@@ -247,6 +265,7 @@ export const products: Product[] = [
         author: 'Джером Д. Сэлинджер',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 19,
@@ -260,6 +279,7 @@ export const products: Product[] = [
         author: 'Михаил Булгаков',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 20,
@@ -273,6 +293,7 @@ export const products: Product[] = [
         author: 'Фрэнсис Скотт Фицджеральд',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 21,
@@ -286,6 +307,7 @@ export const products: Product[] = [
         author: 'Оскар Уайльд',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 22,
@@ -299,6 +321,7 @@ export const products: Product[] = [
         author: 'Герман Мелвилл',
         rating: 4,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 23,
@@ -312,6 +335,7 @@ export const products: Product[] = [
         author: 'Аркадий и Борис Стругацкие',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 24,
@@ -325,6 +349,7 @@ export const products: Product[] = [
         author: 'Дэниел Киз',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 25,
@@ -338,6 +363,7 @@ export const products: Product[] = [
         author: 'Джоа́н Ро́улинг',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 26,
@@ -351,6 +377,7 @@ export const products: Product[] = [
         author: 'Станислав Лем',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 27,
@@ -364,6 +391,7 @@ export const products: Product[] = [
         author: 'Теодор Драйзер',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 28,
@@ -377,6 +405,7 @@ export const products: Product[] = [
         author: 'Владимир Набоков',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 29,
@@ -390,6 +419,7 @@ export const products: Product[] = [
         author: 'Пауло Линс',
         rating: 4,
         status: 'new',
+        to: '/'
     },
     {
         id: 30,
@@ -403,6 +433,7 @@ export const products: Product[] = [
         author: 'Николай Гоголь',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
     {
         id: 31,
@@ -416,6 +447,7 @@ export const products: Product[] = [
         author: 'Дэн Браун',
         rating: 5,
         status: 'exclusive',
+        to: '/'
     },
     {
         id: 32,
@@ -429,6 +461,7 @@ export const products: Product[] = [
         author: 'Энди Вейр',
         rating: 5,
         status: 'new',
+        to: '/'
     },
     {
         id: 33,
@@ -442,5 +475,6 @@ export const products: Product[] = [
         author: 'Грегори Дэвид Робертс',
         rating: 5,
         status: 'ratings',
+        to: '/'
     },
 ];
