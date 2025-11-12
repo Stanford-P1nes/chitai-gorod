@@ -28,18 +28,18 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
     <section class="common-main-banners">
         <div class="common-main-banners__slider-wrapper">
             <ClientOnly>
-                <UiSkeleton
-                    v-if="loading"
-                    width="745px"
-                    height="400px"
-                />
                 <swiper-container
-                    v-else
                     ref="bannersSwiper"
                     class="main-banners common-main-banners__main-banners"
                     style="--swiper-theme-color: #ffffff"
                 >
+                    <UiSkeleton
+                        v-if="loading"
+                        width="745px"
+                        height="400px"
+                    />
                     <swiper-slide
+                        v-else
                         v-for="banner in bannerData"
                         :key="banner.id"
                         class="main-banners__slide"
@@ -53,7 +53,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
                     </swiper-slide>
                 </swiper-container>
                 <button
-                    v-if="bannerData"
+                    v-if="bannerData.length > 1"
                     class="swiper-basic-button swiper-basic-button--left"
                     @click="bannerSwiperInstance.prev()"
                 >
@@ -64,7 +64,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
                     />
                 </button>
                 <button
-                    v-if="bannerData"
+                    v-if="bannerData.length > 1"
                     class="swiper-basic-button swiper-basic-button--right"
                     @click="bannerSwiperInstance.next()"
                 >
