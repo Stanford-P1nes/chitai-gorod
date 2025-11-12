@@ -9,7 +9,7 @@ import { useProductStore } from '~/stores/products';
 const store = useProductStore();
 
 // state как refs
-const { productsData } = storeToRefs(store);
+const { productsData, loading } = storeToRefs(store);
 
 // actions/getters — берём напрямую из store
 const { loadingProducts, getByStatus } = store;
@@ -100,7 +100,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                             v-for="product in getStatusNew"
                             :key="product.id"
                         >
-                            <AppProductCard :product="product" />
+                            <AppProductCard :product="product" :loading='loading' />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
@@ -158,7 +158,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                             v-for="product in getStatusExclusive"
                             :key="product.id"
                         >
-                            <AppProductCard :product="product" />
+                            <AppProductCard :product="product" :loading='loading' />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
@@ -216,7 +216,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                             v-for="product in getStatusRatings"
                             :key="product.id"
                         >
-                            <AppProductCard :product="product" />
+                            <AppProductCard :product="product" :loading='loading' />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->

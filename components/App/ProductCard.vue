@@ -2,13 +2,15 @@
 import type { Product } from '~/types/product';
 
 defineProps<{
-    product: Product
+    product: Product,
+    loading: {type: String, default: false}
 }>()
 </script>
 
 <template>
     <article class="product-card">
-        <div class="product-card__image-wrapper">
+        <UiSkeleton v-if='loading' width='204px' height='343px' />
+        <div v-else class="product-card__image-wrapper">
             <img
                 :src="product.img"
                 :alt="product.alt"
@@ -16,7 +18,8 @@ defineProps<{
             />
             <nuxt-link :to="product.to" class='product-card__link'></nuxt-link>
         </div>
-        <div class="product-card__content">
+        <UiSkeleton v-if='loading' width='204px' height='170px' />
+        <div v-else class="product-card__content">
             <div class="product-card-price product-card__price">
                 <span class="product-card-price__price"> 1 105 ₽ </span>
                 <div class="product-card-price__side">

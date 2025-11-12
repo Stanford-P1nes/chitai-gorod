@@ -1,12 +1,17 @@
 import type { Product } from '../types/product';
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 import { defineStore } from 'pinia';
 import { useFetch } from '#imports';
 
 export const useProductStore = defineStore('products', () => {
     const productsData = ref<Product[]>([]);
+    const loading = ref(false)
 
     async function loadingProducts() {
+        loading.value = true
+
+        await nextTick();
+
         try {
             console.log('Загрузка продуктов...');
 
@@ -34,6 +39,8 @@ export const useProductStore = defineStore('products', () => {
         } catch (error) {
             console.log('Произошла ошибка во время получения данных: ', error);
             return [];
+        } finally {
+            loading.value = false;
         }
     }
 
@@ -44,6 +51,7 @@ export const useProductStore = defineStore('products', () => {
 
     return {
         productsData,
+        loading,
         loadingProducts,
         getByStatus,
     };
