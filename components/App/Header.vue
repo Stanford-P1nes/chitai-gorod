@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useSidebar } from '~/composables/useSidebar';
+
+const { toggleSidebar } = useSidebar();
 
 const isDark = ref(false);
 
@@ -9,18 +12,6 @@ function toggleTheme() {
 </script>
 
 <template>
-    <!-- <header class="app-header">
-        <div class="app-header__wrapper container">
-            <div class="app-header__row">
-                <AppLogo />
-                <div class='app-header__catalog'>
-                    <UiButton variant='secondary' src='/ico/books-catalog.svg' alt='Иконка книг' text='Каталог' />
-                    <AppSearch />
-                    <AppControls />
-                </div>
-            </div>
-        </div>
-    </header> -->
     <header class="app-header">
         <div class="container">
             <div class="app-header__inner">
@@ -35,6 +26,7 @@ function toggleTheme() {
                             src="/ico/books-catalog.svg"
                             alt="Иконка книг"
                             text="Каталог"
+                            @click="toggleSidebar"
                         />
                         <AppSearch />
                         <AppControls />
@@ -62,6 +54,7 @@ function toggleTheme() {
 
     &__inner {
         @include LampEffect;
+        border-top: none;
         border-radius: 0 0 24px 24px;
     }
 
