@@ -6,7 +6,7 @@ import { useFetch } from '#imports';
 export const useProductStore = defineStore('products', () => {
     const productsData = ref<Product[]>([]);
 
-    async function getProductsData() {
+    async function loadingProducts() {
         try {
             console.log('Загрузка продуктов...');
 
@@ -37,14 +37,14 @@ export const useProductStore = defineStore('products', () => {
         }
     }
 
-    function filterProducts(status: Product['status']) {
+    function getByStatus(status: Product['status']) {
         if (!status) return [];
         return productsData.value.filter(el => el.status === status);
     }
 
     return {
         productsData,
-        getProductsData,
-        filterProducts,
+        loadingProducts,
+        getByStatus,
     };
 });

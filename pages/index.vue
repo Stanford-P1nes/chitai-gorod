@@ -1,15 +1,27 @@
 <script setup lang="ts">
 import { useSwiper } from '#imports';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import { contentCards } from '~/data/contentCards';
+// PINIA
+import { storeToRefs } from 'pinia'
 import { useProductStore } from '~/stores/products';
 
-// STORES
-const { productsData, getProductsData, filterProducts } = useProductStore();
+const store = useProductStore();
+
+// state как refs
+const { productsData } = storeToRefs(store);
+
+// actions/getters — берём напрямую из store
+const { loadingProducts, getByStatus } = store;
 
 onMounted(async () => {
-    await getProductsData();
+    await loadingProducts(); // вызываем action как функцию
 });
+
+// делаем вычисляемые наборы, чтобы они обновлялись когда productsData меняется
+const getStatusNew = computed(() => getByStatus('new'));
+const getStatusExclusive = computed(() => getByStatus('exclusive'));
+const getStatusRatings = computed(() => getByStatus('ratings'));
 
 // SWIPER
 const productsNewSwiper = ref(null);
@@ -84,15 +96,15 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         :space-between="20"
                     >
                         <swiper-slide
-                            v-if="productsData.length"
-                            v-for="product in filterProducts('new')"
+                            v-if="getStatusNew.length"
+                            v-for="product in getStatusNew"
                             :key="product.id"
                         >
                             <AppProductCard :product="product" />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="filterProducts('new').length > 5">
+                    <template v-if="getStatusNew.length > 5">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="productsNewSwiperInstance.prev()"
@@ -142,15 +154,15 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         :space-between="20"
                     >
                         <swiper-slide
-                            v-if="productsData.length"
-                            v-for="product in filterProducts('exclusive')"
+                            v-if="getStatusExclusive.length"
+                            v-for="product in getStatusExclusive"
                             :key="product.id"
                         >
                             <AppProductCard :product="product" />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="filterProducts('exclusive').length > 5">
+                    <template v-if="getStatusExclusive.length > 5">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="productsExclusiveSwiperInstance.prev()"
@@ -200,15 +212,15 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         :space-between="20"
                     >
                         <swiper-slide
-                            v-if="productsData.length"
-                            v-for="product in filterProducts('ratings')"
+                            v-if="getStatusRatings.length"
+                            v-for="product in getStatusRatings"
                             :key="product.id"
                         >
                             <AppProductCard :product="product" />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="filterProducts('ratings').length > 5">
+                    <template v-if="getStatusRatings.length > 5">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="productsRatingsSwiperInstance.prev()"
