@@ -16,11 +16,11 @@ $breakpoints: (
     }
 }
 
-@mixin LampEffect($b-r: $border-r-xl, $bg: $color-bg-components) {
+@mixin LampEffect($b-r: $border-r-xl, $bg: $color-bg-components, $overflow: hidden) {
     border: 1px solid #595959;
     border-radius: $b-r;
     backdrop-filter: blur(20px);
     box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25), inset 0 0 23px 0 rgba(0, 0, 0, 0.25);
     background: $bg;
-    overflow: hidden;
+    overflow: $overflow;
 }
