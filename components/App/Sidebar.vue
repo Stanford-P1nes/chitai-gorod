@@ -6,6 +6,13 @@ import { categories } from '~/data/categories';
 const { isSidebarOpen, closeSidebar } = useSidebar();
 
 const click = ref<string | null>(null);
+function toggleClick (e: any): void {
+    if (!click.value) {
+        click.value = e
+    } else {
+        click.value = null
+    }
+}
 </script>
 
 <template>
@@ -18,7 +25,7 @@ const click = ref<string | null>(null);
                 <li
                     v-for="(category, idx) in categories"
                     :key="category.id"
-                    @click="click = category.id"
+                    @click="toggleClick(category.id)"
                     class="sidebar__route"
                     :style="`--i:${idx}`"
                 >
