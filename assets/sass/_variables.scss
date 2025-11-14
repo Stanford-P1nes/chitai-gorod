@@ -9,7 +9,7 @@ $font-size-xl: 20px;
 $font-size-xxl: 24px;
 $font-size-xxxl: 32px;
 
-$line-height-xs: 13px;
+$line-height-xs: 12px;
 $line-height-sm: 16px;
 $line-height-md: 20px;
 $line-height-lg: 22px;
@@ -18,24 +18,27 @@ $line-height-xxl: 26px;
 $line-height-xxxl: 32px;
 $line-height-xxxxl: 40px;
 
+$color-orange: #FF4D00;
 $color-background: #0f0f0f;
 $color-bg-components: rgba(#2e2e2e, .5);
+$color-darkgray: #737373;
 $color-text: #FFFFFF;
 $color-link: #0059FF;
 $color-active: rgba(0, 89, 255, 0.1);
+$color-active-red: rgba(255, 0, 0, 0.5);
+$color-border: #595959;
 
-$color-orange: #FF4D00;
 $color-white: #FFFFFF;
 $color-white-a: rgba(255, 255, 255, 0.3);
 $color-black: #000000;
-$color-darkgray: #737373;
 $color-gray: #F1F1F1;
 $color-light: #CECECE;
 $color-success: rgba(0, 255, 68, 20);
 $color-lightgray: #A8A8A8;
-$color-border: #E2E2E2;
 $color-red: #FF0000;
 
+$padding-xxxs: 4px;
+$padding-xxs: 8px;
 $padding-xs: 12px;
 $padding-sm: 16px;
 $padding-md: 24px;
@@ -43,9 +46,7 @@ $padding-lg: 32px;
 $padding-ui: 12px 16px;
 $padding-ui-icon: 12px;
 
-$border: 2px solid $color-border;
-$border-white: 2px solid $color-white;
-$border-banner: 1px solid $color-gray;
+$border: 1px solid $color-border;
 
 $border-r-sm: 4px;
 $border-r-md: 8px;

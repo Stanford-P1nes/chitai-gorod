@@ -17,10 +17,25 @@ $breakpoints: (
 }
 
 @mixin LampEffect($b-r: $border-r-xl, $bg: $color-bg-components, $overflow: hidden) {
-    border: 1px solid #595959;
+    border: $border;
     border-radius: $b-r;
     backdrop-filter: blur(20px);
     box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25), inset 0 0 23px 0 rgba(0, 0, 0, 0.25);
     background: $bg;
     overflow: $overflow;
+}
+
+@mixin animateDropdown($second: .3s) {
+    animation: dropdown .3s ease forwards;
+
+    @keyframes dropdown {
+        from {
+            filter: blur(10px);
+            transform: scale(1, 0);
+        }
+        to {
+            filter: blur(0);
+            transform: scale(1, 1);
+        }
+    }
 }

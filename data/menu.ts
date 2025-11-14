@@ -17,12 +17,4 @@ export const menu: Menu[] = [
         name: 'Сертификаты',
         link: '/',
     },
-    {
-        name: 'Программа лояльности',
-        link: '/',
-    },
-    {
-        name: 'Блог',
-        link: '/',
-    },
 ];
