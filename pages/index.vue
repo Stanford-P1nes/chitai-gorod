@@ -1,7 +1,41 @@
 <script setup lang="ts">
 import { useSwiper } from '#imports';
-import { onMounted, ref, computed } from 'vue';
+import { onMounted, ref, computed, onUnmounted } from 'vue';
 import { contentCards } from '~/data/contentCards';
+
+// WINDOW WIDTH
+const windowWidth = ref(0)
+
+onMounted(() => {
+    windowWidth.value = window.innerWidth
+
+    const handleResize = () => {
+        windowWidth.value = window.innerWidth
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    onUnmounted(() => {
+        window.removeEventListener('resize', handleResize)
+    })
+})
+
+const slidesPerView = computed(() => {
+    if (windowWidth.value < 360) return 1.5
+    if (windowWidth.value < 480) return 2
+    if (windowWidth.value < 620) return 3
+    if (windowWidth.value < 768) return 3.5
+    if (windowWidth.value < 1024) return 4
+    if (windowWidth.value < 1200) return 5
+    return 5; 
+})
+
+const contentsPerView = computed(() => {
+    if (windowWidth.value < 480) return 1
+    if (windowWidth.value < 768) return 2
+    return 3; 
+})
+
 // PINIA
 import { storeToRefs } from 'pinia'
 import { useProductStore } from '~/stores/products';
@@ -92,7 +126,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                 <ClientOnly>
                     <swiper-container
                         ref="productsNewSwiper"
-                        :slides-per-view="5"
+                        :slides-per-view="slidesPerView"
                         :space-between="20"
                     >
                         <swiper-slide
@@ -104,7 +138,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="getStatusNew.length > 5">
+                    <template v-if="getStatusNew.length > slidesPerView">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="productsNewSwiperInstance.prev()"
@@ -150,7 +184,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                 <ClientOnly>
                     <swiper-container
                         ref="productsExclusiveSwiper"
-                        :slides-per-view="5"
+                        :slides-per-view="slidesPerView"
                         :space-between="20"
                     >
                         <swiper-slide
@@ -162,7 +196,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="getStatusExclusive.length > 5">
+                    <template v-if="getStatusExclusive.length > slidesPerView">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="productsExclusiveSwiperInstance.prev()"
@@ -208,7 +242,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                 <ClientOnly>
                     <swiper-container
                         ref="productsRatingsSwiper"
-                        :slides-per-view="5"
+                        :slides-per-view="slidesPerView"
                         :space-between="20"
                     >
                         <swiper-slide
@@ -220,7 +254,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="getStatusRatings.length > 5">
+                    <template v-if="getStatusRatings.length > slidesPerView">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="productsRatingsSwiperInstance.prev()"
@@ -266,7 +300,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                 <ClientOnly>
                     <swiper-container
                         ref="contentSwiper"
-                        :slides-per-view="3"
+                        :slides-per-view="contentsPerView"
                         :space-between="20"
                     >
                         <swiper-slide
@@ -278,7 +312,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="contentCards.length > 3">
+                    <template v-if="contentCards.length > contentsPerView">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="contentSwiperInstance.prev()"
@@ -317,6 +351,18 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
     @include LampEffect;
     padding: $padding-lg;
 
+    @include media(laptop) {
+        padding: $padding-md;
+    }
+
+    @include media(tablet) {
+        padding: $padding-sm;
+    }
+
+    @include media(mobile) {
+        padding: $padding-xs;
+    }
+
     &__products-shelf {
         width: 100%;
     }
@@ -341,6 +387,11 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
         font-weight: 500;
         font-size: $font-size-xxxl;
         line-height: $line-height-xxxxl;
+        text-wrap: nowrap;
+        
+        @include media(tablet) {
+            font-size: $font-size-xxl;
+        }
     }
 
     &__see-all {
@@ -351,6 +402,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
         display: flex;
         align-items: center;
         gap: $gap-md;
+        text-wrap: nowrap;
     }
 
     &__see-all-img {

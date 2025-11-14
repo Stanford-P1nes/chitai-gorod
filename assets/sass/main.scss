@@ -39,8 +39,16 @@ img {
 
 .container {
     max-width: calc(1200px + $padding-lg);
-    padding: 0px $padding-lg;
+    padding: 0px $padding-md;
     margin: 0 auto;
+
+    @include media(laptop) {
+        padding: 0px $padding-sm;
+    }
+
+    @include media(tablet) {
+        padding: 0px $padding-xxs;
+    }
 }
 
 .swiper-basic-button {

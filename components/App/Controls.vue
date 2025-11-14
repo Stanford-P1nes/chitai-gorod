@@ -1,14 +1,25 @@
 <script setup lang="ts">
-import { controls } from '~/data/controls'
+import { ref } from 'vue';
+import { controls } from '~/data/controls';
+
+const totalCount = ref<number | null>(null);
+function controlClick(n: number): void {
+    const step = 100 / controls.length;
+    totalCount.value = n * step;
+}
 </script>
 
 <template>
-    <div class="controls">
+    <div
+        class="controls"
+        :style="`--n:${totalCount}%`"
+    >
         <nuxt-link
             v-for="control in controls"
             :key="control.id"
             :to="control.link"
             class="controls__button controls__button--hover"
+            @click="controlClick(control.id)"
         >
             <div class="controls__icon">
                 <img
@@ -23,12 +34,27 @@ import { controls } from '~/data/controls'
 
 <style lang="scss">
 .controls {
+    position: relative;
     height: 48px;
     display: flex;
-    flex-grow: 1;
+    width: 244px;
     justify-content: space-between;
+    padding: $padding-xxxs;
+    gap: $gap-md;
+    @include LampEffect($b-r: $border-r-md);
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 21%;
+        height: 38px;
+        @include LampEffect($b-r: $border-r-md, $bg: $color-active);
+        transition: margin 0.2s ease;
+        margin-left: var(--n);
+    }
 
     &__button {
+        position: relative;
         height: 100%;
         flex-basis: 55px;
         flex-grow: 1;
@@ -36,37 +62,28 @@ import { controls } from '~/data/controls'
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        z-index: 1000;
 
         &--hover {
-            &:hover {
+            &:hover,
+            &:active,
+            &:focus {
                 .controls__img {
-                    animation: controls-img 1s ease infinite;
-                }
-
-                @keyframes controls-img {
-                    0% {
-                        transform: translateY(0px);
-                    }
-                    40% {
-                        transform: translateY(-10px);
-                    }
-                    100% {
-                        transform: translateY(0px);
-                    }
+                    transform: scale(0.9);
                 }
             }
         }
     }
 
     &__icon {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
     }
 
     &__img {
         width: 100%;
         height: 100%;
-        transition: filter 0.2s linear;
+        transition: transform 0.2s ease;
     }
 }
 </style>

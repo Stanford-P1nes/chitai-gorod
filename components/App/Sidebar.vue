@@ -6,11 +6,11 @@ import { categories } from '~/data/categories';
 const { isSidebarOpen, closeSidebar } = useSidebar();
 
 const click = ref<string | null>(null);
-function toggleClick (e: any): void {
-    if (!click.value) {
-        click.value = e
+function toggleClick(e: any): void {
+    if (click.value === e) {
+        click.value = null;
     } else {
-        click.value = null
+        click.value = e;
     }
 }
 </script>
@@ -45,7 +45,10 @@ function toggleClick (e: any): void {
                     </ul>
                 </li>
             </ul>
-            <button class='sidebar__button' @click='closeSidebar'></button>
+            <button
+                class="sidebar__button"
+                @click="closeSidebar"
+            ></button>
         </aside>
     </transition>
 </template>
@@ -53,7 +56,7 @@ function toggleClick (e: any): void {
 <style scoped lang="scss">
 .slide-enter-active,
 .slide-leave-active {
-    transition: transform .4s ease, opacity .4s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .slide-enter-from,

@@ -1,7 +1,7 @@
 <template>
-    <a class="app-logo">
+    <nuxt-link to='/' class="app-logo">
         <p class='app-logo__text'>ЧИ<span class='app-logo__accent'>Т</span>АЙ Г<span class='app-logo__accent'>О</span>Р<span class='app-logo__accent'>О</span>Д</p>
-    </a>
+    </nuxt-link>
 </template>
 
 <style lang='scss' scoped>

@@ -31,7 +31,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
                 <swiper-container
                     ref="bannersSwiper"
                     class="main-banners common-main-banners__main-banners"
-                    style="--swiper-theme-color: #ffffff"
+                    style="--swiper-theme-color: #2e2e2e"
                 >
                     <UiSkeleton
                         v-if="loading"
@@ -131,11 +131,18 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
 
 <style lang="scss">
 .common-main-banners {
+    width: 100%;
     display: flex;
     gap: $gap-xxl;
 
+    @include media(desktop) {
+        flex-direction: column;
+    }
+
     &__slider-wrapper {
         position: relative;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -143,6 +150,9 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
     height: 400px;
     max-width: 745px;
     @include LampEffect($b-r: $border-r-lg);
+    @include media(desktop) {
+        max-width: none;
+    }
 
     &__img {
         user-select: none;
@@ -157,17 +167,29 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
     flex-direction: column;
     gap: $gap-xl;
 
+    @include media(desktop) {
+        flex-direction: row;
+    }
+
     &__banner {
         width: 100%;
-        flex-grow: 1;
-        padding: 20px;
+        height: 100%;
+        padding: $padding-sm;
         @include LampEffect($b-r: $border-r-lg);
     }
 
+    &__banner-information {
+        @include media(laptop) {
+            display: none;
+        }
+    }
+
     &__banner-wrapper {
+        height: 100%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
         gap: $gap-sm;
     }
 
@@ -187,16 +209,15 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: $border-r-md;
-        padding: 5px;
-        height: 100%;
-        overflow: hidden;
-        background-color: $color-gray;
+        padding: $padding-xxxs;
+        min-width: 53px;
+        min-height: 53px;
+        @include LampEffect($b-r: $border-r-md);
     }
 
     &__img {
-        width: 100%;
-        height: 100%;
+        width: 43px;
+        height: 43px;
     }
 }
 </style>

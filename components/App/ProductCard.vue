@@ -62,7 +62,6 @@ defineProps<{
     &__image-wrapper {
         position: relative;
         border-radius: 4px;
-        height: 345px;
         max-height: 345px;
         overflow: hidden;
         @include LampEffect($b-r: $border-r-lg);
@@ -80,6 +79,10 @@ defineProps<{
         @include LampEffect($b-r: $border-r-lg);
         padding: $padding-xs;
         gap: $gap-sm;
+
+        @include media(tablet) {
+            padding: $padding-xxs;
+        }
     }
 
     &__caption {
@@ -90,14 +93,15 @@ defineProps<{
 
     &__title {
         font-weight: 400;
-        font-size: $font-size-lg;
-        line-height: $line-height-xl;
+        font-size: $font-size-md;
+        line-height: $line-height-lg;
     }
 
     &__subtitle {
         font-weight: 400;
         font-size: $font-size-sm;
         line-height: $line-height-sm;
+        color: $color-darkgray;
     }
 
     &__actions {
@@ -137,6 +141,7 @@ defineProps<{
         font-weight: 500;
         font-size: $font-size-lg;
         line-height: $line-height-md;
+        text-wrap: nowrap;
     }
 
     &__side {
@@ -150,15 +155,16 @@ defineProps<{
         font-size: $font-size-sm;
         line-height: $line-height-md;
         color: $color-red;
+        text-wrap: nowrap;
     }
 
     &__discount {
-        border-radius: $border-r-xxl;
-        padding: 0px 4px;
-        font-weight: 400;
-        background-color: $color-red;
+        padding: 2px 2px;
+        font-weight: 700;
         font-size: $font-size-sm;
         line-height: $line-height-sm;
+        text-wrap: nowrap;
+        @include LampEffect($b-r: $border-r-sm, $bg: $color-active-red)
     }
 }
 

@@ -57,8 +57,8 @@ const props = withDefaults(defineProps<Props>(), {
     }
 
     &__icon {
-        width: 100%;
-        height: 100%;
+        width: 24px;
+        height: 24px;
     }
 }
 </style>

@@ -6,8 +6,8 @@ const footer = await useFooter();
 
 <template>
     <footer class="app-footer">
-        <div class="container app-footer__container">
-            <div class="app-footer__content">
+        <div class="container">
+            <div class="app-footer__inner">
                 <!-- CONTACTS -->
                 <div class="app-footer__item app-footer__item--information">
                     <a
@@ -96,13 +96,24 @@ const footer = await useFooter();
 
 <style lang="scss">
 .app-footer {
-    &__container {
-        padding: 56px 52px 30px;
-    }
-
-    &__content {
+    &__inner {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        gap: $gap-xl;
+        padding-top: 56px;
+        padding-bottom: 30px;
+        padding-left: $padding-lg;
+        padding-right: $padding-lg;
+
+        @include media(laptop) {
+            grid-template-columns: repeat(3, 1fr);
+            padding-left: $padding-sm;
+            padding-right: $padding-sm;
+        }
+
+        @include media(tablet) {
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 
     &__item {
@@ -113,15 +124,18 @@ const footer = await useFooter();
         gap: $gap-xl;
 
         &--payments-and-recom-tech {
-            padding-top: 40px;
             gap: 0;
             grid-column: span 3;
+            
+            @include media(laptop) {
+                grid-column: span 1;
+            }
         }
     }
 
     &__phone {
         font-weight: 400;
-        font-size: $font-size-md;
+        font-size: $font-size-lg;
         line-height: $line-height-md;
     }
 
@@ -147,8 +161,9 @@ const footer = await useFooter();
 
     &__info-links-header {
         font-weight: 400;
-        font-size: $font-size-md;
+        font-size: $font-size-lg;
         line-height: $line-height-md;
+        color: $color-orange;
     }
 
     &__info-links-content {
