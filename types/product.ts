@@ -13,4 +13,6 @@ export interface Product {
     rating: number;
     status?: ProductStatus;
     to: string;
+    category: string;
+    subcategory: string;
 }

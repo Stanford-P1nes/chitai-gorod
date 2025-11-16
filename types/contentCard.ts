@@ -1,8 +1,8 @@
 export interface ContentCard {
-    id: number,
-    img: string,
-    alt: string,
-    title: string,
-    subtitle: string,
-    link: string,
+    id: number;
+    img: string;
+    alt: string;
+    title: string;
+    subtitle: string;
+    link: string;
 }
