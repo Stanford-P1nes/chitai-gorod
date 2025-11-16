@@ -23,12 +23,14 @@ const props = withDefaults(defineProps<Props>(), {
         :disable="disable"
     >
         <template v-if="variant === 'secondary'">
-            <img
-                v-if="src"
-                class="ui-button__icon"
-                :src="src"
-                :alt="alt"
-            />
+            <div class='ui-button__icon-wrapper'>
+                <img
+                    v-if="src"
+                    class="ui-button__icon"
+                    :src="src"
+                    :alt="alt"
+                />
+            </div>
             <p v-if='text'>{{ text }}</p>
         </template>
         <template v-else>
@@ -40,12 +42,16 @@ const props = withDefaults(defineProps<Props>(), {
 <style lang="scss">
 .ui-button {
     @include LampEffect($b-r: $border-r-md, $bg: $color-active);
-    padding: $padding-ui;
+    padding: 12px 16px;
     font-weight: 700;
     line-height: $line-height-xl;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    font-weight: 400;
+    font-size: $font-size-md;
+    line-height: $line-height-md;
 
     &:disabled {
         opacity: 0.6;
@@ -53,12 +59,17 @@ const props = withDefaults(defineProps<Props>(), {
     }
 
     &--icon {
-        padding: $padding-ui-icon;
+        padding: 12px;
+    }
+
+    &__icon-wrapper {
+        min-width: 24px;
+        min-height: 24px;
     }
 
     &__icon {
-        width: 24px;
-        height: 24px;
+        width: 100%;
+        height: 100%;
     }
 }
 </style>

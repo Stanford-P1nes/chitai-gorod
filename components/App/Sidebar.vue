@@ -38,8 +38,8 @@ function toggleClick(e: any): void {
                             class="sidebar__route sidebar__route--inner"
                             :style="`--i:${idx}`"
                         >
-                            <router-link :to="`/category/${category.slug}/${child.slug}`">
-                                <UiButton :text="child.title" />
+                            <router-link :to="`/catalog/${category.slug}/${child.slug}/`">
+                                <UiButton :text="child.title" @click='closeSidebar' />
                             </router-link>
                         </li>
                     </ul>
@@ -70,10 +70,20 @@ function toggleClick(e: any): void {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 40%;
+    width: 600px;
     @include LampEffect($b-r: $border-r-md, $overflow: visible);
     margin: 10px;
     z-index: 10000;
+
+    @include media(laptop) {
+        width: 400px;
+    }
+
+    @include media(tablet) {
+        width: 100%;
+        margin: 0;
+        @include LampEffect($b-r: 0, $overflow: visible);
+    }
 
     &__wrapper {
         padding: $padding-sm;
