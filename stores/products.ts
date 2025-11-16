@@ -5,10 +5,10 @@ import { useFetch } from '#imports';
 
 export const useProductStore = defineStore('products', () => {
     const productsData = ref<Product[]>([]);
-    const loading = ref(false)
+    const loading = ref(false);
 
     async function loadingProducts() {
-        loading.value = true
+        loading.value = true;
 
         await nextTick();
 
@@ -21,9 +21,9 @@ export const useProductStore = defineStore('products', () => {
             });
 
             // await new Promise(resolve => setTimeout(resolve, 2000));
-            
+
             console.log('Необработанный ответ:', { data, error });
-            
+
             if (error.value) {
                 console.error('Ошибка при получении данных:', error.value);
                 return;
@@ -44,6 +44,18 @@ export const useProductStore = defineStore('products', () => {
         }
     }
 
+    function getByCategory(params: {
+        category?: Product['category'];
+        subcategory?: Product['subcategory'];
+    }) {
+        return productsData.value.filter(el => {
+            return (
+                (!params.category || el.category === params.category) &&
+                (!params.subcategory || el.subcategory === params.subcategory)
+            );
+        });
+    }
+
     function getByStatus(status: Product['status']) {
         if (!status) return [];
         return productsData.value.filter(el => el.status === status);
@@ -53,6 +65,7 @@ export const useProductStore = defineStore('products', () => {
         productsData,
         loading,
         loadingProducts,
+        getByCategory,
         getByStatus,
     };
 });

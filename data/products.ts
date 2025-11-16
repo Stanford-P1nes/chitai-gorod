@@ -10,10 +10,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: 'Гарри Поттер',
-        author: 'Джоа́н Ро́улинг',
+        author: 'Джоан Роулинг',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'fantasy',
     },
     {
         id: 1,
@@ -24,10 +26,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: 'Сто лет одиночества',
-        author: 'Габриэля Гарсиа Маркеса',
+        author: 'Габриэль Гарсиа Маркес',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 2,
@@ -41,7 +45,9 @@ export const products: Product[] = [
         author: 'Морин Джонсон',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'modern',
     },
     {
         id: 3,
@@ -52,10 +58,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: 'Преступление и наказание',
-        author: 'Фёдора Достоевского',
+        author: 'Фёдор Достоевский',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'classics',
     },
     {
         id: 4,
@@ -66,10 +74,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: 'Постер Буратино',
-        author: 'Алексея Толстого',
+        author: 'Алексей Толстой',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'childrens',
+        subcategory: 'fairy-tales',
     },
     {
         id: 5,
@@ -83,7 +93,9 @@ export const products: Product[] = [
         author: 'Погорелов С. А.',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'nonfiction',
+        subcategory: 'history',
     },
     {
         id: 6,
@@ -94,10 +106,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: 'Мастер и Маргарита',
-        author: 'Михаила Булгакова',
+        author: 'Михаил Булгаков',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'classics',
     },
     {
         id: 7,
@@ -108,10 +122,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: 'Идиот',
-        author: 'Фёдора Достоевского',
+        author: 'Фёдор Достоевский',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'classics',
     },
     {
         id: 8,
@@ -122,10 +138,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: 'Война и мир',
-        author: 'Льва Толстого',
+        author: 'Лев Толстой',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'classics',
     },
     {
         id: 9,
@@ -136,10 +154,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: 'Властелин колец',
-        author: 'Дж.Р.Р.',
+        author: 'Дж. Р. Р. Толкин',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'fantasy',
     },
     {
         id: 10,
@@ -153,7 +173,9 @@ export const products: Product[] = [
         author: 'Джон Грин',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'modern',
     },
     {
         id: 11,
@@ -164,10 +186,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: 'Богатый Папа, бедный Папа',
-        author: 'Роберт Кийосаки Шэрон Лехтер',
+        author: 'Роберт Кийосаки',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'nonfiction',
+        subcategory: 'business',
     },
     {
         id: 12,
@@ -181,7 +205,9 @@ export const products: Product[] = [
         author: 'Пауло Коэльо',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 13,
@@ -192,10 +218,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-15%',
         name: '1984',
-        author: 'Джорджа Оруэлла',
+        author: 'Джордж Оруэлл',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'classics',
     },
     {
         id: 14,
@@ -209,7 +237,9 @@ export const products: Product[] = [
         author: 'Эрих Мария Ремарк',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 15,
@@ -223,7 +253,9 @@ export const products: Product[] = [
         author: 'Харпер Ли',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'classics',
     },
     {
         id: 16,
@@ -237,7 +269,9 @@ export const products: Product[] = [
         author: 'Антуан де Сент-Экзюпери',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'childrens',
+        subcategory: 'school',
     },
     {
         id: 17,
@@ -251,7 +285,9 @@ export const products: Product[] = [
         author: 'Фрэнк Герберт',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'fantasy',
     },
     {
         id: 18,
@@ -265,7 +301,9 @@ export const products: Product[] = [
         author: 'Джером Д. Сэлинджер',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 19,
@@ -279,7 +317,9 @@ export const products: Product[] = [
         author: 'Михаил Булгаков',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'classics',
     },
     {
         id: 20,
@@ -293,7 +333,9 @@ export const products: Product[] = [
         author: 'Фрэнсис Скотт Фицджеральд',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 21,
@@ -307,7 +349,9 @@ export const products: Product[] = [
         author: 'Оскар Уайльд',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 22,
@@ -321,7 +365,9 @@ export const products: Product[] = [
         author: 'Герман Мелвилл',
         rating: 4,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 23,
@@ -332,10 +378,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-14%',
         name: 'Пикник на обочине',
-        author: 'Аркадий и Борис Стругацкие',
+        author: 'Стругацкие',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'fantasy',
     },
     {
         id: 24,
@@ -349,7 +397,9 @@ export const products: Product[] = [
         author: 'Дэниел Киз',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'modern',
     },
     {
         id: 25,
@@ -360,10 +410,12 @@ export const products: Product[] = [
         currency: '₽',
         discount: '-13%',
         name: 'Гарри Поттер и Тайная комната',
-        author: 'Джоа́н Ро́улинг',
+        author: 'Джоан Роулинг',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'fantasy',
     },
     {
         id: 26,
@@ -377,7 +429,9 @@ export const products: Product[] = [
         author: 'Станислав Лем',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'fantasy',
     },
     {
         id: 27,
@@ -391,7 +445,9 @@ export const products: Product[] = [
         author: 'Теодор Драйзер',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 28,
@@ -405,7 +461,9 @@ export const products: Product[] = [
         author: 'Владимир Набоков',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 29,
@@ -419,7 +477,9 @@ export const products: Product[] = [
         author: 'Пауло Линс',
         rating: 4,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'foreign',
     },
     {
         id: 30,
@@ -433,7 +493,9 @@ export const products: Product[] = [
         author: 'Николай Гоголь',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'classics',
     },
     {
         id: 31,
@@ -447,7 +509,9 @@ export const products: Product[] = [
         author: 'Дэн Браун',
         rating: 5,
         status: 'exclusive',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'detective',
     },
     {
         id: 32,
@@ -461,7 +525,9 @@ export const products: Product[] = [
         author: 'Энди Вейр',
         rating: 5,
         status: 'new',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'science',
     },
     {
         id: 33,
@@ -475,6 +541,8 @@ export const products: Product[] = [
         author: 'Грегори Дэвид Робертс',
         rating: 5,
         status: 'ratings',
-        to: '/'
+        to: '/',
+        category: 'fiction',
+        subcategory: 'modern',
     },
 ];
