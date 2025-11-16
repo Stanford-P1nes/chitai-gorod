@@ -5,6 +5,7 @@ html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     font-family: $font-family-text;
+    font-size: $font-size-md;
     background: $color-background;
     color: $color-text;
 }
@@ -34,7 +35,14 @@ img {
 }
 
 .page {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: $gap-page;
     @include LampEffect;
+    padding: $padding-lg;
 }
 
 .container {
