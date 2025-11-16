@@ -55,12 +55,13 @@ function toggleTheme() {
                         <AppSearch />
                         <AppControls v-if="showElement" />
                     </div>
-                    <div class="app-header__row app-header__row--tablet">
+                    <div class="app-header__row app-header__row--media">
                         <UiButton
                             variant="secondary"
                             src="/ico/books-catalog.svg"
                             alt="Иконка книг"
                             text="Каталог"
+                            @click="toggleSidebar"
                         />
                         <AppControls />
                     </div>
@@ -74,7 +75,7 @@ function toggleTheme() {
 .app-header {
     position: sticky;
     top: 0;
-    z-index: 2000;
+    z-index: 9000;
 
     &__inner {
         @include LampEffect;
@@ -104,7 +105,7 @@ function toggleTheme() {
         align-items: center;
         gap: $gap-sm;
 
-        &--tablet {
+        &--media {
             display: none;
 
             @include media(tablet) {
