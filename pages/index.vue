@@ -2,6 +2,9 @@
 import { useSwiper } from '#imports';
 import { onMounted, ref, computed, onUnmounted } from 'vue';
 import { contentCards } from '~/data/contentCards';
+import { useRoute } from 'vue-router';
+
+const route = useRoute()
 
 // WINDOW WIDTH
 const windowWidth = ref(0)
@@ -42,17 +45,14 @@ import { useProductStore } from '~/stores/products';
 
 const store = useProductStore();
 
-// state как refs
 const { productsData, loading } = storeToRefs(store);
 
-// actions/getters — берём напрямую из store
 const { loadingProducts, getByStatus } = store;
 
 onMounted(async () => {
-    await loadingProducts(); // вызываем action как функцию
+    await loadingProducts();
 });
 
-// делаем вычисляемые наборы, чтобы они обновлялись когда productsData меняется
 const getStatusNew = computed(() => getByStatus('new'));
 const getStatusExclusive = computed(() => getByStatus('exclusive'));
 const getStatusRatings = computed(() => getByStatus('ratings'));
@@ -342,15 +342,6 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
 
 <style lang="scss">
 .page {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    gap: $gap-page;
-    @include LampEffect;
-    padding: $padding-lg;
-
     @include media(laptop) {
         padding: $padding-md;
     }

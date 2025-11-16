@@ -1,25 +1,42 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import type { Product } from '~/types/product';
 
 defineProps<{
-    product: Product,
-    loading: {type: String, default: false}
-}>()
+    product: Product;
+    loading?: { type: String; default: false };
+}>();
 </script>
 
 <template>
     <article class="product-card">
-        <UiSkeleton v-if='loading' width='204px' height='343px' />
-        <div v-else class="product-card__image-wrapper">
+        <UiSkeleton
+            v-if="loading"
+            width="204px"
+            height="343px"
+        />
+        <div
+            v-else
+            class="product-card__image-wrapper"
+        >
             <img
                 :src="product.img"
                 :alt="product.alt"
                 class="product-card__img"
             />
-            <nuxt-link :to="product.to" class='product-card__link'></nuxt-link>
+            <nuxt-link
+                :to="product.to"
+                class="product-card__link"
+            ></nuxt-link>
         </div>
-        <UiSkeleton v-if='loading' width='204px' height='170px' />
-        <div v-else class="product-card__content">
+        <UiSkeleton
+            v-if="loading"
+            width="204px"
+            height="170px"
+        />
+        <div
+            v-else
+            class="product-card__content"
+        >
             <div class="product-card-price product-card__price">
                 <span class="product-card-price__price"> 1 105 ₽ </span>
                 <div class="product-card-price__side">
@@ -32,7 +49,11 @@ defineProps<{
                 <p class="product-card__subtitle">{{ product.author }}</p>
             </div>
             <div class="rating product-card__rating">
-                <span v-for='star in product.rating' :key='star' class="rating__icon"></span>
+                <span
+                    v-for="star in product.rating"
+                    :key="star"
+                    class="rating__icon"
+                ></span>
             </div>
             <div class="product-card__actions">
                 <UiButton
@@ -164,7 +185,7 @@ defineProps<{
         font-size: $font-size-sm;
         line-height: $line-height-sm;
         text-wrap: nowrap;
-        @include LampEffect($b-r: $border-r-sm, $bg: $color-active-red)
+        @include LampEffect($b-r: $border-r-sm, $bg: $color-active-red);
     }
 }
 

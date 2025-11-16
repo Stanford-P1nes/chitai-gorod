@@ -30,13 +30,13 @@
         
         &__input-wrapper {
             width: 100%;
-            padding: $padding-ui;
+            padding: 12px 16px;
         }
         
         &__input {
             width: 100%;
             font-weight: 400;
-            font-size: $font-size-lg;
+            font-size: $font-size-md;
         }
     }
 }

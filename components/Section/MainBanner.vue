@@ -203,6 +203,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
         font-weight: 400;
         font-size: $font-size-xs;
         line-height: $line-height-lg;
+        color: $color-darkgray;
     }
 
     &__banner-image {
