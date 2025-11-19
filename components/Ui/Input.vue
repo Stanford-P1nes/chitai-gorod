@@ -22,58 +22,56 @@ const selectCountry = (selectedCountry: Country): void => {
 
 <template>
     <div class="ui-input">
-        <div class="ui-input__wrapper">
-            <div class="ui-input__item">
-                <div
-                    class="ui-input__icon"
-                    aria-hidden="true"
-                    @click="toggleCountryList"
-                >
-                    <img
-                        v-if="getCurrentFlag()"
-                        class="ui-input__img"
-                        :src="getCurrentFlag()"
-                        :alt="`Флаг ${country}`"
-                    />
-                </div>
-                <div
-                    class="ui-input__select"
-                    :class="{ 'ui-input__select--active': showListCountry }"
-                >
-                    <button
-                        v-for="countryCode in Object.values(Country)"
-                        :key="countryCode"
-                        :value="countryCode"
-                        class="ui-input__button ui-input__button--hover"
-                        @click="selectCountry(countryCode)"
-                    >
-                        <div class="ui-input__button-content">
-                            <img
-                                :src="countryData[countryCode].flag"
-                                :alt="countryData[countryCode].name"
-                                class="ui-input__button-flag"
-                            />
-                            <span class="ui-input__button-name">
-                                {{ countryData[countryCode].name }}
-                            </span>
-                            <span class="ui-input__button-placeholder">
-                                {{ countryData[countryCode].placeholder }}
-                            </span>
-                        </div>
-                    </button>
-                </div>
+        <div class="ui-input__item">
+            <div
+                class="ui-input__icon"
+                aria-hidden="true"
+                @click="toggleCountryList"
+            >
+                <img
+                    v-if="getCurrentFlag()"
+                    class="ui-input__img"
+                    :src="getCurrentFlag()"
+                    :alt="`Флаг ${country}`"
+                />
             </div>
-            <input
-                type="tel"
-                class="ui-input__input"
-                id="phone-number"
-                :placeholder="getCurrentPlaceholder()"
-                v-model="phoneNumber"
-                autocomplete="off"
-                autofocus
-                required
-            />
+            <div
+                class="ui-input__select"
+                :class="{ 'ui-input__select--active': showListCountry }"
+            >
+                <button
+                    v-for="countryCode in Object.values(Country)"
+                    :key="countryCode"
+                    :value="countryCode"
+                    class="ui-input__button ui-input__button--hover"
+                    @click="selectCountry(countryCode)"
+                >
+                    <div class="ui-input__button-content">
+                        <img
+                            :src="countryData[countryCode].flag"
+                            :alt="countryData[countryCode].name"
+                            class="ui-input__button-flag"
+                        />
+                        <span class="ui-input__button-name">
+                            {{ countryData[countryCode].name }}
+                        </span>
+                        <span class="ui-input__button-placeholder">
+                            {{ countryData[countryCode].placeholder }}
+                        </span>
+                    </div>
+                </button>
+            </div>
         </div>
+        <input
+            type="tel"
+            class="ui-input__input"
+            id="phone-number"
+            :placeholder="getCurrentPlaceholder()"
+            v-model="phoneNumber"
+            autocomplete="off"
+            autofocus
+            required
+        />
     </div>
 </template>
 
@@ -81,13 +79,12 @@ const selectCountry = (selectedCountry: Country): void => {
 .ui-input {
     position: relative;
     width: 100%;
-
-    &__wrapper {
-        display: flex;
-        gap: $gap-md;
-        //padding: 12px 20px;
-        @include LampEffect;
-    }
+    height: max-content;
+    z-index: 1000;
+    display: flex;
+    gap: $gap-md;
+    padding: $padding-xs $padding-md;
+    @include LampEffect($b-r: $border-r-md, $overflow: visible);
 
     &__icon {
         width: 20px;
@@ -106,38 +103,29 @@ const selectCountry = (selectedCountry: Country): void => {
         left: 0;
         top: 100%;
         width: 100%;
-        border: $border;
-        border-radius: $border-r-md;
-        background-color: $color-white-a; 
-        padding: 2px;
+        padding: $padding-xxs;
         display: flex;
         flex-direction: column;
         gap: $gap-xs;
         cursor: pointer;
-        font-family: $font-family-text;
-        font-weight: 400;
-        font-size: $font-size-lg;
-        line-height: $line-height-xl;
-        overflow: hidden;
-        max-height: 0;
+
+        @include LampEffect($b-r: $border-r-md, $overflow: auto);
+        height: 165px;
         opacity: 0;
         transform: translateY(-10px);
         transition: all 0.3s ease;
 
         &--active {
-            max-height: 1000px;
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(5px);
         }
     }
 
     &__button {
-        flex-grow: 1;
+        min-height: 50px;
         text-align: start;
         padding: 12px 17px;
-        border: $border;
-        border-radius: $border-r-sm;
-        background-color: $color-white;
+        @include LampEffect($b-r: $border-r-md);
         transition: background 0.2s linear;
         &--hover:hover {
             background-color: $color-orange;
@@ -154,7 +142,8 @@ const selectCountry = (selectedCountry: Country): void => {
             user-select: none;
         }
 
-        &-name, &-placeholder {
+        &-name,
+        &-placeholder {
             font-family: $font-family-text;
             font-weight: 400;
             font-size: $font-size-md;
@@ -163,6 +152,7 @@ const selectCountry = (selectedCountry: Country): void => {
     }
 
     &__input {
+        width: 100%;
         font-family: $font-family-text;
         font-weight: 400;
         font-size: $font-size-lg;
