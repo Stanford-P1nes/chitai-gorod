@@ -23,10 +23,30 @@ $breakpoints: (
     box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25), inset 0 0 23px 0 rgba(0, 0, 0, 0.25);
     background: $bg;
     overflow: $overflow;
+
+    /* Firefox */
+    * {
+        scrollbar-width: auto;
+        scrollbar-color: $color-text transparent;
+    }
+
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+        width: 24px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: $color-bg-components;
+        border-radius: $border-r-lg;
+    }
 }
 
-@mixin animateDropdown($second: .3s) {
-    animation: dropdown .3s ease forwards;
+@mixin animateDropdown($second: 0.3s) {
+    animation: dropdown 0.3s ease forwards;
 
     @keyframes dropdown {
         from {
