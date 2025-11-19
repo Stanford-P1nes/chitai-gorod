@@ -6,5 +6,6 @@
             <slot />
         </div>
     </main>
+    <UiModal />
     <AppFooter />
 </template>
