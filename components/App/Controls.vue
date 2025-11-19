@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import type { Control } from '~/types/control';
 import { controls } from '~/data/controls';
+import { useModal } from '~/composables/useModal';
+
+const { openModal, closeModal } = useModal();
 
 const totalCount = ref<number | null>(null);
-function controlClick(n: number): void {
+function controlClick(idx: Control['id'], name: Control['name']): void {
     const step = 100 / controls.length;
-    totalCount.value = n * step;
+    totalCount.value = idx * step;
+    openModal(name);
 }
 </script>
 
@@ -14,12 +19,11 @@ function controlClick(n: number): void {
         class="controls"
         :style="`--n:${totalCount}%`"
     >
-        <nuxt-link
+        <button
             v-for="control in controls"
             :key="control.id"
-            :to="control.link"
             class="controls__button controls__button--hover"
-            @click="controlClick(control.id)"
+            @click="controlClick(control.id, control.name)"
         >
             <div class="controls__icon">
                 <img
@@ -28,7 +32,7 @@ function controlClick(n: number): void {
                     class="controls__img"
                 />
             </div>
-        </nuxt-link>
+        </button>
     </div>
 </template>
 
