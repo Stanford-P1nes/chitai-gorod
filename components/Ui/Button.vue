@@ -43,7 +43,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style lang="scss">
 .ui-button {
-    // @include LampEffect($b-r: $border-r-md, $bg: $color-active);
     padding: 12px 16px;
     font-weight: 700;
     line-height: $line-height-xl;

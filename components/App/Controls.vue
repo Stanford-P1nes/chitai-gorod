@@ -4,7 +4,7 @@ import type { Control } from '~/types/control';
 import { controls } from '~/data/controls';
 import { useModal } from '~/composables/useModal';
 
-const { openModal, closeModal } = useModal();
+const { isModalOpen, openModal, closeModal } = useModal();
 
 const totalCount = ref<number | null>(null);
 function controlClick(idx: Control['id'], name: Control['name']): void {
@@ -17,6 +17,7 @@ function controlClick(idx: Control['id'], name: Control['name']): void {
 <template>
     <div
         class="controls"
+        :class="{ 'controls--unactive': !isModalOpen, 'controls--active': isModalOpen }"
         :style="`--n:${totalCount}%`"
     >
         <button
@@ -52,9 +53,16 @@ function controlClick(idx: Control['id'], name: Control['name']): void {
         position: absolute;
         width: 21%;
         height: 38px;
-        @include LampEffect($b-r: $border-r-md, $bg: $color-active);
         transition: margin 0.2s ease;
         margin-left: var(--n);
+    }
+
+    &--unactive::before {
+        @include LampEffect($b-r: $border-r-md, $bg: $color-unactive);
+    }
+
+    &--active::before {
+        @include LampEffect($b-r: $border-r-md, $bg: $color-active);
     }
 
     &__button {
