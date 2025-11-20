@@ -379,10 +379,6 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
         font-size: $font-size-xxxl;
         line-height: $line-height-xxxxl;
         text-wrap: nowrap;
-        
-        @include media(tablet) {
-            font-size: $font-size-xxl;
-        }
     }
 
     &__see-all {
