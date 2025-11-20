@@ -13,6 +13,7 @@
             variant="secondary"
             src="/ico/search.svg"
             alt="Кнопка с иконкой лупы для поиска"
+            color='active'
         />
     </div>
 </template>

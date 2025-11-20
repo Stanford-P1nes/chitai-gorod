@@ -50,6 +50,7 @@ function toggleTheme() {
                             src="/ico/books-catalog.svg"
                             alt="Иконка книг"
                             text="Каталог"
+                            color='active'
                             @click="toggleSidebar"
                         />
                         <AppSearch />
@@ -61,6 +62,7 @@ function toggleTheme() {
                             src="/ico/books-catalog.svg"
                             alt="Иконка книг"
                             text="Каталог"
+                            color='active'
                             @click="toggleSidebar"
                         />
                         <AppControls />
