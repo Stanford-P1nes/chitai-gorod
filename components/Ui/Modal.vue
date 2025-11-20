@@ -3,23 +3,6 @@ import { ref, computed, watch, nextTick } from 'vue'
 import { useModal } from '~/composables/useModal';
 
 const { isModalOpen, modalContent, closeModal } = useModal();
-
-const modalWidth = ref<number>(0)
-const modalElement = ref<HTMLButtonElement | null>(null)
-
-watch(isModalOpen, async (newVal) => {
-    if (newVal) {
-        await nextTick();
-        
-        modalElement.value = document.querySelector('.ui-modal') as HTMLButtonElement;
-        if (modalElement.value) {
-            modalWidth.value = (modalElement.value.offsetWidth + 460);
-            console.log('Modal width:', modalWidth.value);
-        }
-    } else {
-        modalWidth.value = 0;
-    }
-});
 </script>
 
 <template>
@@ -27,7 +10,6 @@ watch(isModalOpen, async (newVal) => {
         <article
             v-if="isModalOpen"
             class="ui-modal"
-            :style="{ '--width': modalWidth + 'px' }"
         >
             <AppAuthModal v-if="modalContent === 'Login'" />
             <AppOrdersModal v-if="modalContent === 'Orders'" />
@@ -58,10 +40,9 @@ watch(isModalOpen, async (newVal) => {
 
 .ui-modal {
     position: fixed;
-    left: calc(50% - var(--width) / 2);
+    left: calc(50% - 460px / 2);
     bottom: 0;
-    width: var(--width);
-    min-height: 300px;
+    width: 460px;
     @include LampEffect;
     z-index: 9000;
 

@@ -20,7 +20,7 @@
                 <div class="basket-card__actions">
                     <UiButton
                         variant="secondary"
-                        src="/ico/bookmark.svg"
+                        src="/ico/like.svg"
                         alt="Иконка избранное"
                         class='basket-card__button'
                     />
@@ -39,11 +39,13 @@
 <style scoped lang="scss">
 .basket-card {
     width: 100%;
+    height: 125px;
     display: flex;
     align-items: flex-start;
 
     &__image-wrapper {
         width: 100px;
+        height: 100%;
         @include LampEffect($b-r: $border-r-md);
     }
 
@@ -54,16 +56,21 @@
 
     &__content {
         width: 100%;
+        height: 100%;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        height: 100%;
         padding: 0 20px;
     }
 
     &__description {
+        height: 100%;
         display: flex;
         flex-direction: column;
+    }
+
+    &__cost {
+        text-align: end;
     }
 
     &__price {
@@ -88,10 +95,10 @@
     }
 
     &__info {
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        height: 100%;
     }
 
     &__actions {

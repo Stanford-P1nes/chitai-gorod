@@ -4,6 +4,7 @@ interface Props {
     text?: string;
     src?: string;
     alt?: string;
+    color: 'default' | 'active' | 'unactive' | 'red';
     disable?: boolean;
 }
 
@@ -12,6 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
     text: '',
     src: '/ico/image-not-found-01.svg',
     alt: 'Изображение',
+    color: 'default',
     disable: false,
 });
 </script>
@@ -19,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
     <button
         class="ui-button"
-        :class='{"ui-button--icon": src}'
+        :class='{"ui-button--icon": src, "ui-button--default": color === "default", "ui-button--active": color === "active", "ui-button--unactive": color === "unactive", "ui-button--red": color === "red"}'
         :disable="disable"
     >
         <template v-if="variant === 'secondary'">
@@ -41,7 +43,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style lang="scss">
 .ui-button {
-    @include LampEffect($b-r: $border-r-md, $bg: $color-active);
+    // @include LampEffect($b-r: $border-r-md, $bg: $color-active);
     padding: 12px 16px;
     font-weight: 700;
     line-height: $line-height-xl;
@@ -62,9 +64,31 @@ const props = withDefaults(defineProps<Props>(), {
         padding: 12px;
     }
 
+    &--default {
+        @include LampEffect($b-r: $border-r-md, $bg: $color-bg-components);
+        color: $color-text;
+    }
+
+    &--active {
+        @include LampEffect($b-r: $border-r-md, $bg: $color-active);
+        color: $color-text;
+    }
+
+    &--unactive {
+        @include LampEffect($b-r: $border-r-md, $bg: $color-unactive);
+        color: $color-darkgray;
+    }
+
+    &--red {
+        @include LampEffect($b-r: $border-r-md, $bg: $color-active-red);
+        color: $color-text;
+    }
+
     &__icon-wrapper {
         min-width: 24px;
         min-height: 24px;
+        width: 24px;
+        height: 24px;
     }
 
     &__icon {

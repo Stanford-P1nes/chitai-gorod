@@ -63,9 +63,9 @@ defineProps<{
                 />
                 <UiButton
                     variant="secondary"
-                    src="/ico/bookmark.svg"
+                    src="/ico/like.svg"
                     alt="Белая иконка закладка"
-                    class="product-card__button product-card__button--bookmark"
+                    class="product-card__button product-card__button--like"
                 />
             </div>
         </div>
@@ -74,11 +74,12 @@ defineProps<{
 
 <style lang="scss">
 .product-card {
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     z-index: 2000;
-    gap: $gap-sm;
+    grid-gap: $gap-sm;
 
     &__image-wrapper {
         position: relative;
@@ -127,20 +128,20 @@ defineProps<{
 
     &__actions {
         display: flex;
+        height: 32px;
         gap: 4px;
     }
 
     &__button {
-        height: 32px;
         &--buy {
             flex-grow: 1;
             font-weight: 400;
             font-size: $font-size-sm;
             line-height: $line-height-sm;
         }
-        &--bookmark {
-            width: 32px;
-            padding: 8px;
+        &--like {
+            aspect-ratio: 1;
+            padding: 12px;
         }
     }
 
@@ -157,6 +158,21 @@ defineProps<{
     display: flex;
     align-items: center;
     gap: $gap-sm;
+
+    @include media(tablet) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    @include media(mobile) {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    @include media(small-mobile) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
     &__price {
         font-weight: 500;

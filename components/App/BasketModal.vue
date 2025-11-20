@@ -1,6 +1,4 @@
-<script setup lang='ts'>
-import { products } from '~/data/products';
-</script>
+<script setup lang="ts"></script>
 
 <template>
     <div class="basket-content">
@@ -8,7 +6,7 @@ import { products } from '~/data/products';
             <h3 class="basket-content__title">Корзина</h3>
         </section>
         <section class="basket-content__main">
-            <div class='basket-content__swiper'>
+            <div class="basket-content__cards">
                 <AppBasketCard />
                 <AppBasketCard />
                 <AppBasketCard />
@@ -21,6 +19,7 @@ import { products } from '~/data/products';
 <style scoped lang="scss">
 .basket-content {
     padding: 0 $padding-lg;
+    animation: modal-right 0.4s ease forwards;
 
     &__header {
         padding: 36px 0 20px;
@@ -36,10 +35,10 @@ import { products } from '~/data/products';
         padding-top: 5px;
         padding-bottom: 25px;
         overflow-y: auto;
-        height: 300px;
+        height: 350px;
     }
 
-    &__swiper {
+    &__cards {
         display: flex;
         flex-direction: column;
         gap: $gap-lg;
