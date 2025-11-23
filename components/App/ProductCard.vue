@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { Product } from '~/types/product';
+import type { Loading } from '~/types/loading';
 
 defineProps<{
     product: Product;
-    loading?: { type: String; default: false };
+    loading?: Loading;
 }>();
 </script>
 
@@ -28,6 +29,7 @@ defineProps<{
                 class="product-card__link"
             ></nuxt-link>
         </div>
+
         <UiSkeleton
             v-if="loading"
             width="204px"
@@ -84,9 +86,14 @@ defineProps<{
     &__image-wrapper {
         position: relative;
         border-radius: 4px;
-        max-height: 345px;
+        height: 345px;
         overflow: hidden;
+
         @include LampEffect($b-r: $border-r-lg);
+
+        @include media(tablet) {
+            height: 280px;
+        }
     }
 
     &__img {
@@ -115,15 +122,15 @@ defineProps<{
 
     &__title {
         font-weight: 400;
-        font-size: $font-size-md;
-        line-height: $line-height-lg;
+        font-size: clamp($font-size-sm, 1.5vw, $font-size-md);
+        line-height: clamp($line-height-md, 1.5vw, $line-height-lg);
     }
 
     &__subtitle {
         font-weight: 400;
-        font-size: $font-size-sm;
-        line-height: $line-height-sm;
         color: $color-darkgray;
+        font-size: clamp($font-size-xs, 1.5vw, $font-size-sm);
+        line-height: clamp($line-height-xs, 1.5vw, $line-height-sm);
     }
 
     &__actions {
@@ -176,8 +183,8 @@ defineProps<{
 
     &__price {
         font-weight: 500;
-        font-size: $font-size-lg;
-        line-height: $line-height-md;
+        font-size: clamp($font-size-md, 1.5vw, $font-size-lg);
+        line-height: clamp($line-height-sm, 1.5vw, $line-height-md);
         text-wrap: nowrap;
     }
 
@@ -189,8 +196,8 @@ defineProps<{
 
     &__oldprice {
         font-weight: 400;
-        font-size: $font-size-sm;
-        line-height: $line-height-md;
+        font-size: clamp($font-size-xs, 1.5vw, $font-size-sm);
+        line-height: clamp($line-height-sm, 1.5vw, $line-height-md);
         color: $color-red;
         text-wrap: nowrap;
     }
