@@ -4,7 +4,7 @@ interface Props {
     text?: string;
     src?: string;
     alt?: string;
-    color: 'default' | 'active' | 'unactive' | 'red';
+    color?: 'default' | 'active' | 'unactive' | 'red';
     disable?: boolean;
 }
 

@@ -33,6 +33,12 @@ const slidesPerView = computed(() => {
     return 5; 
 })
 
+const slidesPerGap = computed(() => {
+    if (windowWidth.value < 768) return 10
+    if (windowWidth.value < 1200) return 20
+    return 20; 
+})
+
 const contentsPerView = computed(() => {
     if (windowWidth.value < 480) return 1
     if (windowWidth.value < 768) return 2
@@ -45,7 +51,7 @@ import { useProductStore } from '~/stores/products';
 
 const store = useProductStore();
 
-const { productsData, loading } = storeToRefs(store);
+const { loading } = storeToRefs(store);
 
 const { loadingProducts, getByStatus } = store;
 
@@ -127,7 +133,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                     <swiper-container
                         ref="productsNewSwiper"
                         :slides-per-view="slidesPerView"
-                        :space-between="20"
+                        :space-between="slidesPerGap"
                     >
                         <swiper-slide
                             v-if="getStatusNew.length"
@@ -185,7 +191,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                     <swiper-container
                         ref="productsExclusiveSwiper"
                         :slides-per-view="slidesPerView"
-                        :space-between="20"
+                        :space-between="slidesPerGap"
                     >
                         <swiper-slide
                             v-if="getStatusExclusive.length"
@@ -243,7 +249,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                     <swiper-container
                         ref="productsRatingsSwiper"
                         :slides-per-view="slidesPerView"
-                        :space-between="20"
+                        :space-between="slidesPerGap"
                     >
                         <swiper-slide
                             v-if="getStatusRatings.length"
@@ -301,7 +307,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                     <swiper-container
                         ref="contentSwiper"
                         :slides-per-view="contentsPerView"
-                        :space-between="20"
+                        :space-between="slidesPerGap"
                     >
                         <swiper-slide
                             v-if="contentCards.length"

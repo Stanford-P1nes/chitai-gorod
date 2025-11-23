@@ -29,7 +29,7 @@ function toggleClick(e: any): void {
                     class="sidebar__route"
                     :style="`--i:${idx}`"
                 >
-                    <UiButton :text="category.title" />
+                    <UiButton :text="category.title" color="active" />
 
                     <ul v-if="click === category.id">
                         <li
