@@ -80,7 +80,8 @@ function toggleTheme() {
     z-index: 9000;
 
     &__inner {
-        @include LampEffect;
+        position: relative;
+        @include LampEffect($overflow: visible);
         border-top: none;
         border-radius: 0 0 24px 24px;
     }
