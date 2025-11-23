@@ -58,7 +58,7 @@ function controlClick(idx: Control['id'], name: Control['name']): void {
     }
 
     &--unactive::before {
-        @include LampEffect($b-r: $border-r-md, $bg: $color-unactive);
+        @include LampEffect($b-r: $border-r-md, $bg: transparent);
     }
 
     &--active::before {
