@@ -13,7 +13,7 @@ export const useProductStore = defineStore('products', () => {
         await nextTick();
 
         try {
-            console.log('Загрузка продуктов...');
+            // console.log('Загрузка продуктов...');
 
             const { data, error } = await useFetch<Product[]>('/api/products', {
                 key: 'products',
@@ -22,7 +22,7 @@ export const useProductStore = defineStore('products', () => {
 
             // await new Promise(resolve => setTimeout(resolve, 2000));
 
-            console.log('Необработанный ответ:', { data, error });
+            // console.log('Необработанный ответ:', { data, error });
 
             if (error.value) {
                 console.error('Ошибка при получении данных:', error.value);
@@ -31,8 +31,8 @@ export const useProductStore = defineStore('products', () => {
 
             if (data.value) {
                 productsData.value = data.value;
-                console.log('Ответ:', { data: data.value, error });
-                console.log('Загруженные продукты:', productsData.value);
+                // console.log('Ответ:', { data: data.value, error });
+                // console.log('Загруженные продукты:', productsData.value);
             } else {
                 console.warn('Никакие данные не получены от API');
             }
@@ -61,11 +61,18 @@ export const useProductStore = defineStore('products', () => {
         return productsData.value.filter(el => el.status === status);
     }
 
+    function searchProduct(searchString: string): Product[] {
+        const q = String(searchProduct).trim().toLowerCase();
+        if (!q) return [];
+        return productsData.value.filter(el => (el.name ?? '').toLowerCase().includes(q));
+    }
+
     return {
         productsData,
         loading,
         loadingProducts,
         getByCategory,
         getByStatus,
+        searchProduct,
     };
 });
