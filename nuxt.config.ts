@@ -60,6 +60,14 @@ export default defineNuxtConfig({
                     content: '200',
                 },
             ],
+            link: [
+                { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
+                {
+                    rel: 'stylesheet',
+                    href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap',
+                },
+            ],
         },
     },
     css: ['@/assets/sass/main.scss'],
@@ -75,7 +83,7 @@ export default defineNuxtConfig({
             },
         },
     },
-    modules: ['@pinia/nuxt', '@nuxtjs/google-fonts', 'nuxt-swiper'],
+    modules: ['@pinia/nuxt', 'nuxt-swiper'],
     imports: {
         dirs: ['./composables/**', './types/**', './stores/**'],
     },
