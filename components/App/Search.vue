@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
+import { storeToRefs } from 'pinia'
 import { useProductStore } from '~/stores/products';
 
 const store = useProductStore();
-
-const { searchProduct, loadingProducts } = store;
+const { loading } = storeToRefs(store);
+const { getBySearch, loadingProducts } = store;
 
 onMounted(async () => {
     await loadingProducts();
 });
 
-const searchString = ref('');
+const searchProduct = ref('');
 
-const filteredProducts = computed(() => searchProduct(searchString.value));
+const products = computed(() => getBySearch(searchProduct.value));
 
 function handleSubmit(event: any) {
     event.preventDefault();
@@ -31,7 +32,7 @@ function handleSubmit(event: any) {
                     type="text"
                     placeholder="Найти..."
                     autocomplete="off"
-                    v-model="searchString"
+                    v-model="searchProduct"
                 />
             </div>
         </form>
@@ -42,22 +43,15 @@ function handleSubmit(event: any) {
             color="active"
         />
         <div
-            v-if="filteredProducts.length"
-            class="app-search__drop-product"
+            v-if="products.length"
+            class="app-search__cards"
         >
-            <ClientOnly>
-                <swiper-container :space-between="4">
-                    <swiper-slide
-                        v-for="product in filteredProducts"
-                        :key="product.id"
-                    >
-                        <UiSkeleton
-                            width="100px"
-                            height="150px"
-                        />
-                    </swiper-slide>
-                </swiper-container>
-            </ClientOnly>
+            <AppProductCardMini 
+                v-for="product in products" 
+                :key="product.id"
+                :product='product' 
+                :loading='loading'
+            />
         </div>
     </div>
 </template>
@@ -85,16 +79,18 @@ function handleSubmit(event: any) {
         }
     }
 
-    &__drop-product {
+    &__cards {
         position: absolute;
-        max-width: 100%;
+        width: 100%;
         top: 110%;
         left: 0;
         right: 0;
-        padding: 4px;
+        padding: $padding-1x;
         display: flex;
         gap: $gap-1x;
         @include LampEffect($b-r: $radius-2x, $overflow: auto);
+        overflow-y: hidden;
+        overflow-x: auto;
     }
 }
 </style>
