@@ -8,12 +8,11 @@ import { products } from '~/data/products';
             <h3 class="favorites-content__title">Избранное</h3>
         </section>
         <section class="favorites-content__main">
-            <div class="favorites-content__cards">
-                <AppProductCard
+            <div v-if='products.length' class="favorites-content__cards">
+                <AppProductCardMini
                     v-for="product in products"
                     :key="product.id"
-                    :product="product"
-                    class='favorites-content__card'
+                    :product='product'
                 />
             </div>
         </section>
@@ -38,13 +37,15 @@ import { products } from '~/data/products';
     &__main {
         padding-top: 5px;
         padding-bottom: 25px;
+        height: 500px;
+        overflow: hidden;
         overflow-y: auto;
-        height: 524px;
     }
 
     &__cards {
+        width: 100%;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: $gap-4x;
     }
 }
