@@ -49,6 +49,7 @@ const props = withDefaults(defineProps<Props>(), {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: max-content;
 
     font-weight: 400;
     font-size: $font-size-3x;
