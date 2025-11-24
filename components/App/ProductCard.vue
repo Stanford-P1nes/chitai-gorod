@@ -135,7 +135,6 @@ defineProps<{
 
     &__actions {
         display: flex;
-        height: 32px;
         gap: 4px;
     }
 
