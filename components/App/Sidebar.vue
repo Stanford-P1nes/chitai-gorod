@@ -26,29 +26,44 @@ function toggleClick(e: any): void {
                     v-for="(category, idx) in categories"
                     :key="category.id"
                     @click="toggleClick(category.id)"
-                    class="sidebar__route"
+                    class="sidebar__item sidebar__item--upper"
                     :style="`--i:${idx}`"
                 >
-                    <UiButton :text="category.title" color="active" />
+                    <UiButton
+                        :text="category.title"
+                        color="active"
+                        class="sidebar__button"
+                    />
 
-                    <ul v-if="click === category.id">
+                    <ul
+                        v-if="click === category.id"
+                        class='sidebar__wrapper sidebar__wrapper--inner'
+                    >
                         <li
                             v-for="(child, idx) in category.children"
                             :key="child.id"
-                            class="sidebar__route sidebar__route--inner"
+                            class="sidebar__item sidebar__item--inner"
                             :style="`--i:${idx}`"
                         >
                             <router-link :to="`/catalog/${category.slug}/${child.slug}/`">
-                                <UiButton :text="child.title" @click='closeSidebar' />
+                                <UiButton
+                                    :text="child.title"
+                                    color='active'
+                                    @click="closeSidebar"
+                                />
                             </router-link>
                         </li>
                     </ul>
                 </li>
             </ul>
-            <button
-                class="sidebar__button"
+            <UiButton
+                variant="secondary"
+                src="/ico/close.svg"
+                alt="Иконка крестика"
+                color="active"
                 @click="closeSidebar"
-            ></button>
+                class="sidebar__button-close"
+            ></UiButton>
         </aside>
     </transition>
 </template>
@@ -70,7 +85,6 @@ function toggleClick(e: any): void {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 600px;
     @include LampEffect($b-r: $radius-2x, $overflow: visible);
     margin: 10px;
     z-index: 10000;
@@ -89,29 +103,35 @@ function toggleClick(e: any): void {
         padding: $padding-4x;
         display: flex;
         flex-direction: column;
+        gap: $gap-2x;
+
+        &--inner {
+            padding: 0;
+            gap: $gap-2x;
+            padding-left: $padding-2x;
+            border-left: $border;
+        }
     }
 
-    &__route {
+    &__item {
         opacity: 0;
-        margin: 8px;
         animation: surfer 0.5s ease forwards;
         animation-delay: calc(var(--i) * 0.1s);
         width: max-content;
 
-        &--inner {
-            margin-left: 30px;
+        &--upper {
+            display: flex;
         }
     }
 
     &__button {
+        margin-right: 8px;
+    }
+
+    &__button-close {
         position: absolute;
         top: 0;
-        right: -30px;
-        width: 24px;
-        height: 24px;
-        background-image: url('/ico/close.svg');
-        background-size: cover;
-        background-repeat: no-repeat;
+        left: 101%;
     }
 
     @keyframes surfer {
