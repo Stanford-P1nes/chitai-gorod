@@ -17,7 +17,7 @@
 
 <style scoped lang="scss">
 .orders-content {
-    padding: 0 $padding-lg;
+    padding: 0 $padding-6x;
     animation: modal-right 0.4s ease forwards;
 
     &__header {
@@ -27,20 +27,20 @@
     &__top {
         display: flex;
         align-items: center;
-        gap: $gap-lg;
+        gap: $gap-4x;
         margin-bottom: 20px;
     }
     
     &__bottom {
         display: flex;
         align-items: center;
-        gap: $gap-lg;
+        gap: $gap-4x;
     }
 
     &__navigate {
         font-weight: 700;
-        font-size: $font-size-xxl;
-        line-height: $line-height-xxxl;
+        font-size: $font-size-6x;
+        line-height: $line-height-7x;
         cursor: pointer;
     }
     
@@ -48,8 +48,8 @@
         display: inline-block;
         width: 8px;
         height: 8px;
-        background-color: $color-text;
-        border-radius: $border-r-xxl;
+        background-color: $color-white;
+        border-radius: $radius-5x;
     }
     
     &__main {

@@ -46,7 +46,7 @@
     &__image-wrapper {
         width: 100px;
         height: 100%;
-        @include LampEffect($b-r: $border-r-md);
+        @include LampEffect($b-r: $radius-2x);
     }
 
     &__image {
@@ -74,24 +74,24 @@
     }
 
     &__price {
-        font-size: $font-size-lg;
-        line-height: $line-height-md;
+        font-size: $font-size-4x;
+        line-height: $line-height-3x;
     }
 
     &__oldprice {
         color: $color-red;
-        font-size: $font-size-sm;
-        line-height: $line-height-md;
+        font-size: $font-size-2x;
+        line-height: $line-height-3x;
     }
 
     &__title {
-        font-size: $font-size-md;
-        line-height: $line-height-xl;
+        font-size: $font-size-3x;
+        line-height: $line-height-5x;
     }
 
     &__subtitle {
-        font-size: $font-size-sm;
-        line-height: $line-height-md;
+        font-size: $font-size-2x;
+        line-height: $line-height-3x;
     }
 
     &__info {
@@ -105,7 +105,7 @@
         display: flex;
         height: 50px;
         margin-top: auto;
-        gap: $gap-md;
+        gap: $gap-3x;
     }
 
     &__button {

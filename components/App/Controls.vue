@@ -44,9 +44,9 @@ function controlClick(idx: Control['id'], name: Control['name']): void {
     display: flex;
     width: 244px;
     justify-content: space-between;
-    padding: $padding-xxxs;
-    gap: $gap-md;
-    @include LampEffect($b-r: $border-r-md);
+    padding: $padding-1x;
+    gap: $gap-3x;
+    @include LampEffect($b-r: $radius-2x);
 
     &::before {
         content: '';
@@ -58,11 +58,11 @@ function controlClick(idx: Control['id'], name: Control['name']): void {
     }
 
     &--unactive::before {
-        @include LampEffect($b-r: $border-r-md, $bg: transparent);
+        @include LampEffect($b-r: $radius-2x, $bg: transparent);
     }
 
     &--active::before {
-        @include LampEffect($b-r: $border-r-md, $bg: $color-active);
+        @include LampEffect($b-r: $radius-2x, $bg: $color-active-blue);
     }
 
     &__button {

@@ -66,7 +66,7 @@ function handleSubmit(event: any) {
 .app-search {
     flex-grow: 4;
     display: flex;
-    @include LampEffect($b-r: $border-r-md, $overflow: visible);
+    @include LampEffect($b-r: $radius-2x, $overflow: visible);
 
     .search-form {
         width: 100%;
@@ -81,7 +81,7 @@ function handleSubmit(event: any) {
         &__input {
             width: 100%;
             font-weight: 400;
-            font-size: $font-size-md;
+            font-size: $font-size-3x;
         }
     }
 
@@ -93,8 +93,8 @@ function handleSubmit(event: any) {
         right: 0;
         padding: 4px;
         display: flex;
-        gap: $gap-xs;
-        @include LampEffect($b-r: $border-r-md, $overflow: auto);
+        gap: $gap-1x;
+        @include LampEffect($b-r: $radius-2x, $overflow: auto);
     }
 }
 </style>

@@ -14,7 +14,7 @@
     align-items: center;
 
     &__text {
-        font-family: $font-family-title;
+        font-family: $font-family-1x;
         font-size: 24px;
         font-weight: 900;
         line-height: 29px;

@@ -22,7 +22,7 @@ import { products } from '~/data/products';
 
 <style scoped lang="scss">
 .favorites-content {
-    padding: 0 $padding-lg;
+    padding: 0 $padding-6x;
     animation: modal-right 0.4s ease forwards;
 
     &__header {
@@ -31,8 +31,8 @@ import { products } from '~/data/products';
 
     &__title {
         font-weight: 500;
-        font-size: $font-size-xxl;
-        line-height: $line-height-xxxl;
+        font-size: $font-size-6x;
+        line-height: $line-height-7x;
     }
 
     &__main {
@@ -45,7 +45,7 @@ import { products } from '~/data/products';
     &__cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: $gap-lg;
+        gap: $gap-4x;
     }
 }
 </style>

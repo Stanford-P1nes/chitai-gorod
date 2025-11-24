@@ -16,7 +16,7 @@ $breakpoints: (
     }
 }
 
-@mixin LampEffect($b-r: $border-r-xl, $bg: $color-bg-components, $overflow: hidden) {
+@mixin LampEffect($b-r: $radius-4x, $bg: $color-background-2x, $overflow: hidden) {
     border: $border;
     border-radius: $b-r;
     backdrop-filter: blur(20px);
@@ -27,7 +27,7 @@ $breakpoints: (
     /* Firefox */
     * {
         scrollbar-width: auto;
-        scrollbar-color: $color-text transparent;
+        scrollbar-color: $color-white transparent;
     }
 
     /* Chrome, Edge, and Safari */
@@ -40,8 +40,8 @@ $breakpoints: (
     }
 
     *::-webkit-scrollbar-thumb {
-        background-color: $color-bg-components;
-        border-radius: $border-r-lg;
+        background-color: $color-background-2x;
+        border-radius: $radius-3x;
     }
 }
 

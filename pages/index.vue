@@ -349,15 +349,15 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
 <style lang="scss">
 .page {
     @include media(laptop) {
-        padding: $padding-md;
+        padding: $padding-5x;
     }
 
     @include media(tablet) {
-        padding: $padding-sm;
+        padding: $padding-4x;
     }
 
     @include media(mobile) {
-        padding: $padding-xs;
+        padding: $padding-3x;
     }
 
     &__products-shelf {
@@ -380,21 +380,21 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
     }
 
     &__heading {
-        font-family: $font-family-title;
+        font-family: $font-family-1x;
         font-weight: 500;
-        font-size: $font-size-xxxl;
-        line-height: $line-height-xxxxl;
+        font-size: $font-size-7x;
+        line-height: $line-height-8x;
         text-wrap: nowrap;
     }
 
     &__see-all {
         font-weight: 400;
-        font-size: $font-size-sm;
-        line-height: $line-height-md;
+        font-size: $font-size-2x;
+        line-height: $line-height-3x;
         color: $color-orange;
         display: flex;
         align-items: center;
-        gap: $gap-md;
+        gap: $gap-3x;
         text-wrap: nowrap;
     }
 

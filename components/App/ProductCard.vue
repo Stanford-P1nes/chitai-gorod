@@ -81,7 +81,7 @@ defineProps<{
     display: flex;
     flex-direction: column;
     z-index: 2000;
-    grid-gap: $gap-sm;
+    grid-gap: $gap-2x;
 
     &__image-wrapper {
         position: relative;
@@ -89,7 +89,7 @@ defineProps<{
         height: 345px;
         overflow: hidden;
 
-        @include LampEffect($b-r: $border-r-lg);
+        @include LampEffect($b-r: $radius-3x);
 
         @include media(tablet) {
             height: 280px;
@@ -105,12 +105,12 @@ defineProps<{
     &__content {
         display: flex;
         flex-direction: column;
-        @include LampEffect($b-r: $border-r-lg);
-        padding: $padding-xs;
-        gap: $gap-sm;
+        @include LampEffect($b-r: $radius-3x);
+        padding: $padding-3x;
+        gap: $gap-2x;
 
         @include media(tablet) {
-            padding: $padding-xxs;
+            padding: $padding-2x;
         }
     }
 
@@ -122,15 +122,15 @@ defineProps<{
 
     &__title {
         font-weight: 400;
-        font-size: clamp($font-size-sm, 1.5vw, $font-size-md);
-        line-height: clamp($line-height-md, 1.5vw, $line-height-lg);
+        font-size: clamp($font-size-2x, 1.5vw, $font-size-3x);
+        line-height: clamp($line-height-3x, 1.5vw, $line-height-4x);
     }
 
     &__subtitle {
         font-weight: 400;
         color: $color-darkgray;
-        font-size: clamp($font-size-xs, 1.5vw, $font-size-sm);
-        line-height: clamp($line-height-xs, 1.5vw, $line-height-sm);
+        font-size: clamp($font-size-1x, 1.5vw, $font-size-2x);
+        line-height: clamp($line-height-1x, 1.5vw, $line-height-2x);
     }
 
     &__actions {
@@ -143,8 +143,8 @@ defineProps<{
         &--buy {
             flex-grow: 1;
             font-weight: 400;
-            font-size: $font-size-sm;
-            line-height: $line-height-sm;
+            font-size: $font-size-2x;
+            line-height: $line-height-2x;
         }
         &--like {
             aspect-ratio: 1;
@@ -164,7 +164,7 @@ defineProps<{
 .product-card-price {
     display: flex;
     align-items: center;
-    gap: $gap-sm;
+    gap: $gap-2x;
 
     @include media(tablet) {
         flex-direction: column;
@@ -183,8 +183,8 @@ defineProps<{
 
     &__price {
         font-weight: 500;
-        font-size: clamp($font-size-md, 1.5vw, $font-size-lg);
-        line-height: clamp($line-height-sm, 1.5vw, $line-height-md);
+        font-size: clamp($font-size-3x, 1.5vw, $font-size-4x);
+        line-height: clamp($line-height-2x, 1.5vw, $line-height-3x);
         text-wrap: nowrap;
     }
 
@@ -196,8 +196,8 @@ defineProps<{
 
     &__oldprice {
         font-weight: 400;
-        font-size: clamp($font-size-xs, 1.5vw, $font-size-sm);
-        line-height: clamp($line-height-sm, 1.5vw, $line-height-md);
+        font-size: clamp($font-size-1x, 1.5vw, $font-size-2x);
+        line-height: clamp($line-height-2x, 1.5vw, $line-height-3x);
         color: $color-red;
         text-wrap: nowrap;
     }
@@ -205,16 +205,16 @@ defineProps<{
     &__discount {
         padding: 2px 2px;
         font-weight: 700;
-        font-size: $font-size-sm;
-        line-height: $line-height-sm;
+        font-size: $font-size-2x;
+        line-height: $line-height-2x;
         text-wrap: nowrap;
-        @include LampEffect($b-r: $border-r-sm, $bg: $color-active-red);
+        @include LampEffect($b-r: $radius-1x, $bg: $color-active-blue-red);
     }
 }
 
 .rating {
     display: flex;
-    gap: $gap-xs;
+    gap: $gap-1x;
     &__icon {
         width: 20px;
         height: 20px;

@@ -87,18 +87,18 @@ function toggleTheme() {
     }
 
     &__top {
-        padding: $padding-xxs $padding-md;
+        padding: $padding-2x $padding-5x;
         @include media(laptop) {
-            padding: $padding-xxs $padding-sm;
+            padding: $padding-2x $padding-4x;
         }
     }
     &__bottom {
         display: flex;
         flex-direction: column;
-        gap: $gap-md;
-        padding: $padding-xxs $padding-md 20px;
+        gap: $gap-3x;
+        padding: $padding-2x $padding-5x 20px;
         @include media(laptop) {
-            padding: $padding-xxs $padding-sm 20px;
+            padding: $padding-2x $padding-4x 20px;
         }
     }
 
@@ -106,7 +106,7 @@ function toggleTheme() {
         width: 100%;
         display: flex;
         align-items: center;
-        gap: $gap-sm;
+        gap: $gap-2x;
 
         &--media {
             display: none;

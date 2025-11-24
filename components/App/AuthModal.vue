@@ -21,7 +21,7 @@
 
 <style scoped lang="scss">
 .auth-content {
-    padding: 0 $padding-lg;
+    padding: 0 $padding-6x;
     animation: modal-right 0.4s ease forwards;
 
     &__header {
@@ -30,8 +30,8 @@
 
     &__title {
         font-weight: 500;
-        font-size: $font-size-xxl;
-        line-height: $line-height-xxxl;
+        font-size: $font-size-6x;
+        line-height: $line-height-7x;
     }
 
     &__main {
@@ -41,20 +41,20 @@
     &__form {
         display: flex;
         flex-direction: column;
-        gap: $gap-xl;
+        gap: $gap-5x;
         margin-bottom: 16px;
     }
 
     &__text {
         font-weight: 400;
-        font-size: $font-size-md;
-        line-height: $line-height-xl;
+        font-size: $font-size-3x;
+        line-height: $line-height-5x;
     }
 
     &__annotation {
         font-weight: 400;
-        font-size: $font-size-md;
-        line-height: $line-height-lg;
+        font-size: $font-size-3x;
+        line-height: $line-height-4x;
         color: $color-darkgray;
     }
 }

@@ -14,7 +14,7 @@ defineProps({
 
 <style scoped lang="scss">
 .app-skeleton {
-    @include LampEffect($b-r: $border-r-lg, $bg: linear-gradient(90deg, $color-background 25%, $color-bg-components 50%, $color-background 75%));
+    @include LampEffect($b-r: $radius-3x, $bg: linear-gradient(90deg, $color-background-1x 25%, $color-background-2x 50%, $color-background-1x 75%));
     background-size: 200% 100%;
     animation: shine 1.5s infinite linear;
 }

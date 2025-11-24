@@ -48,12 +48,12 @@ const { isModalOpen, modalContent, closeModal } = useModal();
 
     &__button-close {
         position: absolute;
-        right: $padding-lg;
-        top: $padding-lg;
+        right: $padding-6x;
+        top: $padding-6x;
         width: 35px;
         height: 35px;
-        border-radius: $border-r-xxl;
-        @include LampEffect($b-r: $border-r-xxl, $bg: $color-active);
+        border-radius: $radius-5x;
+        @include LampEffect($b-r: $radius-5x, $bg: $color-active-blue);
     }
 }
 </style>

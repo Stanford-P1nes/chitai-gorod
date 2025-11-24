@@ -18,7 +18,7 @@
 
 <style scoped lang="scss">
 .basket-content {
-    padding: 0 $padding-lg;
+    padding: 0 $padding-6x;
     animation: modal-right 0.4s ease forwards;
 
     &__header {
@@ -27,8 +27,8 @@
 
     &__title {
         font-weight: 500;
-        font-size: $font-size-xxl;
-        line-height: $line-height-xxxl;
+        font-size: $font-size-6x;
+        line-height: $line-height-7x;
     }
 
     &__main {
@@ -41,7 +41,7 @@
     &__cards {
         display: flex;
         flex-direction: column;
-        gap: $gap-lg;
+        gap: $gap-4x;
     }
 }
 </style>

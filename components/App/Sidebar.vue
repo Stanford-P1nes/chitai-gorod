@@ -71,7 +71,7 @@ function toggleClick(e: any): void {
     left: 0;
     bottom: 0;
     width: 600px;
-    @include LampEffect($b-r: $border-r-md, $overflow: visible);
+    @include LampEffect($b-r: $radius-2x, $overflow: visible);
     margin: 10px;
     z-index: 10000;
 
@@ -86,7 +86,7 @@ function toggleClick(e: any): void {
     }
 
     &__wrapper {
-        padding: $padding-sm;
+        padding: $padding-4x;
         display: flex;
         flex-direction: column;
     }

@@ -82,9 +82,9 @@ const selectCountry = (selectedCountry: Country): void => {
     height: max-content;
     z-index: 1000;
     display: flex;
-    gap: $gap-md;
-    padding: $padding-xs $padding-md;
-    @include LampEffect($b-r: $border-r-md, $overflow: visible);
+    gap: $gap-3x;
+    padding: $padding-3x $padding-5x;
+    @include LampEffect($b-r: $radius-2x, $overflow: visible);
 
     &__icon {
         width: 20px;
@@ -103,13 +103,13 @@ const selectCountry = (selectedCountry: Country): void => {
         left: 0;
         top: 100%;
         width: 100%;
-        padding: $padding-xxs;
+        padding: $padding-2x;
         display: flex;
         flex-direction: column;
-        gap: $gap-xs;
+        gap: $gap-1x;
         cursor: pointer;
 
-        @include LampEffect($b-r: $border-r-md, $overflow: auto);
+        @include LampEffect($b-r: $radius-2x, $overflow: auto);
         height: 165px;
         opacity: 0;
         transform: translateY(-10px);
@@ -125,7 +125,7 @@ const selectCountry = (selectedCountry: Country): void => {
         min-height: 50px;
         text-align: start;
         padding: 12px 17px;
-        @include LampEffect($b-r: $border-r-md);
+        @include LampEffect($b-r: $radius-2x);
         transition: background 0.2s linear;
         &--hover:hover {
             background-color: $color-orange;
@@ -144,19 +144,19 @@ const selectCountry = (selectedCountry: Country): void => {
 
         &-name,
         &-placeholder {
-            font-family: $font-family-text;
+            font-family: $font-family-2x;
             font-weight: 400;
-            font-size: $font-size-md;
-            line-height: $line-height-xl;
+            font-size: $font-size-3x;
+            line-height: $line-height-5x;
         }
     }
 
     &__input {
         width: 100%;
-        font-family: $font-family-text;
+        font-family: $font-family-2x;
         font-weight: 400;
-        font-size: $font-size-lg;
-        line-height: $line-height-xl;
+        font-size: $font-size-4x;
+        line-height: $line-height-5x;
     }
 }
 </style>

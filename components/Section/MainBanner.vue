@@ -133,23 +133,29 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
 .common-main-banners {
     width: 100%;
     display: flex;
-    gap: $gap-xxl;
+    justify-content: center;
+    gap: $gap-6x;
 
     @include media(desktop) {
         flex-direction: column;
     }
 
     &__slider-wrapper {
+        flex-grow: 6;
         position: relative;
         display: flex;
         justify-content: center;
+    }
+
+    &__main-mini-banners {
+        flex-grow: 1;
     }
 }
 
 .main-banners {
     height: 400px;
-    max-width: 745px;
-    @include LampEffect($b-r: $border-r-lg);
+    max-width: 748px;
+    @include LampEffect($b-r: $radius-3x);
     @include media(desktop) {
         max-width: none;
     }
@@ -165,7 +171,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: $gap-xl;
+    gap: $gap-5x;
 
     @include media(desktop) {
         flex-direction: row;
@@ -174,8 +180,8 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
     &__banner {
         width: 100%;
         height: 100%;
-        padding: $padding-sm;
-        @include LampEffect($b-r: $border-r-lg);
+        padding: $padding-4x;
+        @include LampEffect($b-r: $radius-3x);
     }
 
     &__banner-information {
@@ -188,21 +194,20 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
-        align-items: center;
-        gap: $gap-sm;
+        justify-content: space-between;
+        gap: $gap-3x;
     }
 
     &__title {
         font-weight: 400;
-        font-size: $line-height-sm;
-        line-height: $line-height-xxl;
+        font-size: $line-height-2x;
+        line-height: $line-height-6x;
     }
 
     &__subtitle {
         font-weight: 400;
-        font-size: $font-size-xs;
-        line-height: $line-height-lg;
+        font-size: $font-size-1x;
+        line-height: $line-height-4x;
         color: $color-darkgray;
     }
 
@@ -210,10 +215,10 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: $padding-xxxs;
+        padding: $padding-1x;
         min-width: 53px;
         min-height: 53px;
-        @include LampEffect($b-r: $border-r-md);
+        @include LampEffect($b-r: $radius-2x);
     }
 
     &__img {

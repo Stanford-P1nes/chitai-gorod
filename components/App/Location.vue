@@ -34,9 +34,9 @@
     }
 
     &__side {
-        font-family: $font-family-title;
+        font-family: $font-family-1x;
         font-weight: 300;
-        font-size: $font-size-sm;
+        font-size: $font-size-2x;
         line-height: 16px;
         text-wrap: nowrap;
     }

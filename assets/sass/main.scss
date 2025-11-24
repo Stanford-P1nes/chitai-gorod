@@ -4,29 +4,29 @@
 html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
-    font-family: $font-family-text;
-    font-size: $font-size-md;
-    background: $color-background;
-    color: $color-text;
+    font-family: $font-family-2x;
+    font-size: $font-size-3x;
+    background: $color-background-1x;
+    color: $color-white;
 }
 
 html.dark {
-    background: $color-gray;
-    color: $color-text;
+    background: $color-darkgray;
+    color: $color-white;
 }
 
 body #__nuxt {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    gap: $gap-xl;
+    gap: $gap-5x;
 }
 
 span,
 button,
 input,
 textarea {
-    color: $color-text;
+    color: $color-white;
 }
 
 main {
@@ -41,22 +41,22 @@ img {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: $gap-page;
+    gap: $gap-7x;
     @include LampEffect;
-    padding: $padding-lg;
+    padding: $padding-6x;
 }
 
 .container {
-    max-width: calc(1200px + $padding-lg);
-    padding: 0px $padding-md;
+    max-width: calc(1200px + $padding-6x);
+    padding: 0px $padding-5x;
     margin: 0 auto;
 
     @include media(laptop) {
-        padding: 0px $padding-sm;
+        padding: 0px $padding-4x;
     }
 
     @include media(tablet) {
-        padding: 0px $padding-xxs;
+        padding: 0px $padding-2x;
     }
 }
 
@@ -65,7 +65,7 @@ img {
     width: 64px;
     height: 64px;
     z-index: 1000;
-    @include LampEffect($b-r: $border-r-md, $bg: $color-active);
+    @include LampEffect($b-r: $radius-2x, $bg: $color-active-blue);
     transition: transform 0.1s ease;
 
     &:active {

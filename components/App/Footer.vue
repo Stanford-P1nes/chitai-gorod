@@ -99,16 +99,16 @@ const footer = await useFooter();
     &__inner {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: $gap-xl;
+        gap: $gap-5x;
         padding-top: 56px;
         padding-bottom: 30px;
-        padding-left: $padding-lg;
-        padding-right: $padding-lg;
+        padding-left: $padding-6x;
+        padding-right: $padding-6x;
 
         @include media(laptop) {
             grid-template-columns: repeat(3, 1fr);
-            padding-left: $padding-sm;
-            padding-right: $padding-sm;
+            padding-left: $padding-4x;
+            padding-right: $padding-4x;
         }
 
         @include media(tablet) {
@@ -121,7 +121,7 @@ const footer = await useFooter();
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
-        gap: $gap-xl;
+        gap: $gap-5x;
 
         &--payments-and-recom-tech {
             gap: 0;
@@ -135,8 +135,8 @@ const footer = await useFooter();
 
     &__phone {
         font-weight: 400;
-        font-size: $font-size-lg;
-        line-height: $line-height-md;
+        font-size: $font-size-4x;
+        line-height: $line-height-3x;
     }
 
     &__contacts-links {
@@ -147,22 +147,22 @@ const footer = await useFooter();
 
     &__info-links-link {
         font-weight: 400;
-        font-size: $font-size-sm;
-        line-height: $line-height-md;
+        font-size: $font-size-2x;
+        line-height: $line-height-3x;
     }
 
     &__copyright-desktop {
         font-weight: 400;
-        font-size: $font-size-sm;
-        line-height: $line-height-md;
+        font-size: $font-size-2x;
+        line-height: $line-height-3x;
     }
 
     // info-links
 
     &__info-links-header {
         font-weight: 400;
-        font-size: $font-size-lg;
-        line-height: $line-height-md;
+        font-size: $font-size-4x;
+        line-height: $line-height-3x;
         color: $color-orange;
     }
 
@@ -171,13 +171,13 @@ const footer = await useFooter();
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
-        gap: $gap-md;
+        gap: $gap-3x;
     }
 
     &__info-links-link {
         font-weight: 400;
-        font-size: $font-size-md;
-        line-height: $line-height-md;
+        font-size: $font-size-3x;
+        line-height: $line-height-3x;
     }
 
     // payments-and-recom-tech
@@ -186,10 +186,10 @@ const footer = await useFooter();
         align-items: center;
         justify-content: flex-start;
         flex-direction: row;
-        gap: $gap-md;
+        gap: $gap-3x;
         font-weight: 400;
-        font-size: $font-size-sm;
-        line-height: $line-height-md;
+        font-size: $font-size-2x;
+        line-height: $line-height-3x;
     }
 
     &__recom-tech-link {
@@ -226,14 +226,14 @@ const footer = await useFooter();
         flex-direction: row;
         gap: 0px;
         font-weight: 400;
-        font-size: $font-size-sm;
-        line-height: $line-height-md;
+        font-size: $font-size-2x;
+        line-height: $line-height-3x;
     }
 
     &__recom-tech-link {
         font-weight: 400;
-        font-size: $font-size-sm;
-        line-height: $line-height-md;
+        font-size: $font-size-2x;
+        line-height: $line-height-3x;
     }
 }
 </style>

@@ -31,7 +31,7 @@ defineProps<{
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: $gap-sm;
+    gap: $gap-2x;
 
     &__image-wrapper {
         width: 100%;
@@ -48,19 +48,19 @@ defineProps<{
     &__content {
         display: flex;
         flex-direction: column;
-        gap: $gap-sm;
+        gap: $gap-2x;
     }
 
     &__title {
         font-weight: 400;
-        font-size: $font-size-xxl;
-        line-height: $line-height-xxl;
+        font-size: $font-size-6x;
+        line-height: $line-height-6x;
     }
 
     &__subtitle {
         font-weight: 400;
-        font-size: $font-size-md;
-        line-height: $line-height-xl;
+        font-size: $font-size-3x;
+        line-height: $line-height-5x;
         color: $color-darkgray;
 
         &--absolute::after {

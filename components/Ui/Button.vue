@@ -45,14 +45,14 @@ const props = withDefaults(defineProps<Props>(), {
 .ui-button {
     padding: 12px 16px;
     font-weight: 700;
-    line-height: $line-height-xl;
+    line-height: $line-height-5x;
     display: flex;
     align-items: center;
     justify-content: center;
 
     font-weight: 400;
-    font-size: $font-size-md;
-    line-height: $line-height-md;
+    font-size: $font-size-3x;
+    line-height: $line-height-3x;
 
     &:disabled {
         opacity: 0.6;
@@ -64,23 +64,23 @@ const props = withDefaults(defineProps<Props>(), {
     }
 
     &--default {
-        @include LampEffect($b-r: $border-r-md, $bg: $color-bg-components);
-        color: $color-text;
+        @include LampEffect($b-r: $radius-2x, $bg: $color-background-2x);
+        color: $color-white;
     }
 
     &--active {
-        @include LampEffect($b-r: $border-r-md, $bg: $color-active);
-        color: $color-text;
+        @include LampEffect($b-r: $radius-2x, $bg: $color-active-blue);
+        color: $color-white;
     }
 
     &--unactive {
-        @include LampEffect($b-r: $border-r-md, $bg: $color-unactive);
+        @include LampEffect($b-r: $radius-2x, $bg: $color-unactive);
         color: $color-darkgray;
     }
 
     &--red {
-        @include LampEffect($b-r: $border-r-md, $bg: $color-active-red);
-        color: $color-text;
+        @include LampEffect($b-r: $radius-2x, $bg: $color-active-blue-red);
+        color: $color-white;
     }
 
     &__icon-wrapper {

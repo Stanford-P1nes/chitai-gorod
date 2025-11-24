@@ -84,7 +84,7 @@ function toggleClick(): void {
     &__list {
         display: flex;
         align-items: center;
-        gap: $gap-lg;
+        gap: $gap-4x;
 
         &--dropdown {
             position: absolute;
@@ -92,8 +92,8 @@ function toggleClick(): void {
             right: 0;
             flex-direction: column;
             text-align: right;
-            padding: $padding-xxs;
-            @include LampEffect($b-r: $border-r-md);
+            padding: $padding-2x;
+            @include LampEffect($b-r: $radius-2x);
             // animation: dropdown .2s ease forwards;
             z-index: 1000;
             @include animateDropdown;
@@ -101,10 +101,10 @@ function toggleClick(): void {
     }
 
     &__link {
-        font-family: $font-family-title;
+        font-family: $font-family-1x;
         font-weight: 300;
-        font-size: $font-size-sm;
-        line-height: $line-height-xl;
+        font-size: $font-size-2x;
+        line-height: $line-height-5x;
         text-wrap: nowrap;
         cursor: pointer;
     }
