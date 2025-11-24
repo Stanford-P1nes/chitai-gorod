@@ -85,10 +85,10 @@ const props = withDefaults(defineProps<Props>(), {
     }
 
     &__icon-wrapper {
-        min-width: 24px;
-        min-height: 24px;
-        width: 24px;
-        height: 24px;
+        min-width: 16px;
+        min-height: 16px;
+        width: 16px;
+        height: 16px;
     }
 
     &__icon {
