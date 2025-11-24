@@ -4,12 +4,13 @@ import type { Loading } from '~/types/loading';
 
 defineProps<{
     product: Product;
-    loading?: boolean;
+    loading?: Loading;
 }>();
 </script>
 
 <template>
     <article class="product-card-mini">
+        <UiSkeleton v-if='loading' width='100%' height='100%' />
         <div class="product-card-mini__image-wrapper">
             <img
                 class="product-card-mini_image"
@@ -29,9 +30,23 @@ defineProps<{
 <style scoped lang="scss">
 .product-card-mini {
     position: relative;
+    min-width: 114px;
+    min-height: 194px;
+    max-width: 114px;
+    max-height: 194px;
     @include LampEffect($b-r: $radius-2x);
     cursor: pointer;
     z-index: 1000;
+
+    &__image-wrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__image-wrapper {
+        width: 100%;
+        height: 100%;
+    }
 
     &__button-close {
         position: absolute;
