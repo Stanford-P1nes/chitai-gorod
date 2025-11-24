@@ -61,7 +61,7 @@ export const useProductStore = defineStore('products', () => {
         return productsData.value.filter(el => el.status === status);
     }
 
-    function searchProduct(searchString: string): Product[] {
+    function getBySearch(searchProduct: string): Product[] {
         const q = String(searchProduct).trim().toLowerCase();
         if (!q) return [];
         return productsData.value.filter(el => (el.name ?? '').toLowerCase().includes(q));
@@ -73,6 +73,6 @@ export const useProductStore = defineStore('products', () => {
         loadingProducts,
         getByCategory,
         getByStatus,
-        searchProduct,
+        getBySearch,
     };
 });
