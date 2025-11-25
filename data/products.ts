@@ -2,7 +2,7 @@ import type { Product } from '~/types/product';
 
 export const products: Product[] = [
     {
-        id: 0,
+        id: 1,
         img: '/images/posters/Фото-Гарри-Поттера.webp',
         alt: 'Обложка фильма "Гарри Поттер"',
         price: 1105,
@@ -11,6 +11,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Гарри Поттер',
         author: 'Джоан Роулинг',
+        description:
+            'Первая книга легендарной саги о мальчике, который выжил. Волшебство, дружба и смелость — история, пленившая сердца миллионов.',
+        tag: 'Волшебный мир начинается здесь',
+        characteristics: 'Жанр: Фэнтези; Возраст: 12+; Издательство: Росмэн',
         rating: 5,
         status: 'new',
         to: '/',
@@ -18,7 +22,7 @@ export const products: Product[] = [
         subcategory: 'fantasy',
     },
     {
-        id: 1,
+        id: 2,
         img: '/images/posters/Сто-лет-одиночества.webp',
         alt: 'Обложка фильма "Сто лет одиночества"',
         price: 1105,
@@ -27,6 +31,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Сто лет одиночества',
         author: 'Габриэль Гарсиа Маркес',
+        description:
+            'Магический реализм в лучшем его проявлении. Эпопея о семье Буэндиа, наполненная чудесами, страстью и тайнами.',
+        tag: 'Книга, изменившая мировую литературу',
+        characteristics: 'Жанр: Магический реализм; Возраст: 16+; Издательство: АСТ',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -34,7 +42,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 2,
+        id: 3,
         img: '/images/posters/Пусть-идет-снег.webp',
         alt: 'Обложка книги "Пусть идет снег"',
         price: 1105,
@@ -43,6 +51,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Пусть идет снег',
         author: 'Морин Джонсон',
+        description:
+            'Три нежных рождественских истории о любви, случайностях и чудесах, которые происходят в самый неожиданный момент.',
+        tag: 'Идеальная зимняя книга',
+        characteristics: 'Жанр: Романтика; Возраст: 12+; Издательство: Эксмо',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -50,7 +62,7 @@ export const products: Product[] = [
         subcategory: 'modern',
     },
     {
-        id: 3,
+        id: 4,
         img: '/images/posters/Преступление-и-наказание.webp',
         alt: 'Обложка книги "Преступление и наказание"',
         price: 1105,
@@ -59,6 +71,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Преступление и наказание',
         author: 'Фёдор Достоевский',
+        description:
+            'Один из главных романов русской классики. История борьбы совести, морали и человеческой души.',
+        tag: 'Классика, которая заставляет задуматься',
+        characteristics: 'Жанр: Роман; Возраст: 16+; Издательство: Азбука',
         rating: 5,
         status: 'new',
         to: '/',
@@ -66,7 +82,7 @@ export const products: Product[] = [
         subcategory: 'classics',
     },
     {
-        id: 4,
+        id: 5,
         img: '/images/posters/Постер-Буратино.webp',
         alt: 'Обложка фильма "Постер Буратино"',
         price: 1105,
@@ -75,6 +91,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Постер Буратино',
         author: 'Алексей Толстой',
+        description:
+            'Добрая и увлекательная история про приключения деревянного мальчика, покорившая не одно поколение.',
+        tag: 'Сказка, знакомая каждому',
+        characteristics: 'Жанр: Детская литература; Возраст: 6+; Издательство: Росмэн',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -82,7 +102,7 @@ export const products: Product[] = [
         subcategory: 'fairy-tales',
     },
     {
-        id: 5,
+        id: 6,
         img: '/images/posters/Первопоселенцы-Дикого-Поля.webp',
         alt: 'Обложка книги "Первопоселенцы Дикого Поля"',
         price: 1105,
@@ -91,6 +111,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Первопоселенцы Дикого Поля',
         author: 'Погорелов С. А.',
+        description:
+            'Исследование жизни и культуры первых жителей южнорусских степей. История, оживающая на страницах.',
+        tag: 'Для любителей исторических открытий',
+        characteristics: 'Жанр: История; Возраст: 14+; Издательство: АСТ',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -98,7 +122,7 @@ export const products: Product[] = [
         subcategory: 'history',
     },
     {
-        id: 6,
+        id: 7,
         img: '/images/posters/Мастер-и-Маргарита.webp',
         alt: 'Обложка книги "Мастер и Маргарита"',
         price: 1105,
@@ -107,6 +131,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Мастер и Маргарита',
         author: 'Михаил Булгаков',
+        description:
+            'Роман-миф, роман-головоломка. История любви, сатиры и философских размышлений о добре и зле.',
+        tag: 'Книга вне времени',
+        characteristics: 'Жанр: Роман; Возраст: 16+; Издательство: Азбука',
         rating: 5,
         status: 'new',
         to: '/',
@@ -114,7 +142,7 @@ export const products: Product[] = [
         subcategory: 'classics',
     },
     {
-        id: 7,
+        id: 8,
         img: '/images/posters/Идиот.webp',
         alt: 'Обложка фильма "Идиот"',
         price: 1105,
@@ -123,6 +151,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Идиот',
         author: 'Фёдор Достоевский',
+        description:
+            'Трогательная и трагическая история князя Мышкина — человека редкой душевной чистоты.',
+        tag: 'О силе добра в жестоком мире',
+        characteristics: 'Жанр: Роман; Возраст: 16+; Издательство: Азбука',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -130,7 +162,7 @@ export const products: Product[] = [
         subcategory: 'classics',
     },
     {
-        id: 8,
+        id: 9,
         img: '/images/posters/Война-и-мир.webp',
         alt: 'Обложка книги "Война и мир"',
         price: 1105,
@@ -139,6 +171,9 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Война и мир',
         author: 'Лев Толстой',
+        description: 'Грандиозный роман-эпопея о любви, войне и судьбах огромной страны.',
+        tag: 'Один из величайших романов человечества',
+        characteristics: 'Жанр: Эпопея; Возраст: 16+; Издательство: Азбука',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -146,7 +181,7 @@ export const products: Product[] = [
         subcategory: 'classics',
     },
     {
-        id: 9,
+        id: 10,
         img: '/images/posters/Властелин-колец.webp',
         alt: 'Обложка фильма "Властелин колец"',
         price: 1105,
@@ -155,6 +190,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Властелин колец',
         author: 'Дж. Р. Р. Толкин',
+        description:
+            'Великая сага о борьбе света и тьмы, о смелости, дружбе и силе маленького хоббита.',
+        tag: 'Эталон мирового фэнтези',
+        characteristics: 'Жанр: Фэнтези; Возраст: 12+; Издательство: АСТ',
         rating: 5,
         status: 'new',
         to: '/',
@@ -162,7 +201,7 @@ export const products: Product[] = [
         subcategory: 'fantasy',
     },
     {
-        id: 10,
+        id: 11,
         img: '/images/posters/В-поисках-Аляски.webp',
         alt: 'Обложка фильма "В поисках Аляски"',
         price: 1105,
@@ -171,6 +210,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'В поисках Аляски',
         author: 'Джон Грин',
+        description:
+            'Трогательная история взросления, поисков себя и встречи с людьми, которые навсегда меняют жизнь.',
+        tag: 'Честная и светлая романтика',
+        characteristics: 'Жанр: Подростковая проза; Возраст: 16+; Издательство: АСТ',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -178,7 +221,7 @@ export const products: Product[] = [
         subcategory: 'modern',
     },
     {
-        id: 11,
+        id: 12,
         img: '/images/posters/Богатый-Папа-бедный-Папа.webp',
         alt: 'Обложка книги "Богатый Папа, бедный Папа"',
         price: 1105,
@@ -187,6 +230,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Богатый Папа, бедный Папа',
         author: 'Роберт Кийосаки',
+        description:
+            'Книга, которая изменила отношение к деньгам и финансовой свободе у миллионов читателей.',
+        tag: 'Твой первый шаг к финансовой грамотности',
+        characteristics: 'Жанр: Бизнес; Возраст: 14+; Издательство: Манн, Иванов и Фербер',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -194,7 +241,7 @@ export const products: Product[] = [
         subcategory: 'business',
     },
     {
-        id: 12,
+        id: 13,
         img: '/images/posters/Алхимик.webp',
         alt: 'Обложка книги "Алхимик"',
         price: 1105,
@@ -203,6 +250,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Алхимик',
         author: 'Пауло Коэльо',
+        description:
+            'Волшебная притча о пастухе Сантьяго, отправившемся на поиски своего сокровенного сокровища и открывшем для себя язык Вселенной.',
+        tag: 'Притча о Своей Судьбе',
+        characteristics: 'Жанр: Притча, философская проза; Возраст: 16+; Издательство: София',
         rating: 5,
         status: 'new',
         to: '/',
@@ -210,7 +261,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 13,
+        id: 14,
         img: '/images/posters/1984.webp',
         alt: 'Обложка книги "1984"',
         price: 1105,
@@ -219,6 +270,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: '1984',
         author: 'Джордж Оруэлл',
+        description:
+            'Знаковый роман-антиутопия, рисующий тоталитарный мир будущего, где частная жизнь и свобода мысли уничтожены, а Большой Брат всегда следит за тобой.',
+        tag: 'Пророчество о тоталитаризме',
+        characteristics: 'Жанр: Антиутопия, политическая проза; Возраст: 18+; Издательство: АСТ',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -226,7 +281,7 @@ export const products: Product[] = [
         subcategory: 'classics',
     },
     {
-        id: 14,
+        id: 15,
         img: '/images/posters/Три-Товарища.webp',
         alt: 'Обложка книги "Три товарища"',
         price: 1120,
@@ -235,6 +290,10 @@ export const products: Product[] = [
         discount: '-14%',
         name: 'Три товарища',
         author: 'Эрих Мария Ремарк',
+        description:
+            'Пронзительная история о дружбе, любви и потерях на фоне Германии между двумя мировыми войнами, ставшая символом "потерянного поколения".',
+        tag: 'Трагичная история дружбы и любви',
+        characteristics: 'Жанр: Военная проза, классика; Возраст: 16+; Издательство: АСТ',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -242,7 +301,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 15,
+        id: 16,
         img: '/images/posters/Убить-пересмешника.webp',
         alt: 'Обложка книги "Убить пересмешника"',
         price: 980,
@@ -251,6 +310,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Убить пересмешника',
         author: 'Харпер Ли',
+        description:
+            'Великая история о расовой несправедливости и детской наивности, рассказанная от лица маленькой девочки Скотт в захолустном городке американского Юга.',
+        tag: 'Уроки совести и справедливости',
+        characteristics: 'Жанр: Классическая проза; Возраст: 16+; Издательство: Азбука',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -258,7 +321,7 @@ export const products: Product[] = [
         subcategory: 'classics',
     },
     {
-        id: 16,
+        id: 17,
         img: '/images/posters/Маленький-принц.webp',
         alt: 'Обложка книги "Маленький принц"',
         price: 690,
@@ -267,6 +330,10 @@ export const products: Product[] = [
         discount: '-16%',
         name: 'Маленький принц',
         author: 'Антуан де Сент-Экзюпери',
+        description:
+            'Мудрая и добрая философская сказка-притча о самом важном: дружбе, любви, верности и ответственности за тех, кого мы приручили.',
+        tag: 'Мудрая сказка для всех возрастов',
+        characteristics: 'Жанр: Сказка-притча; Возраст: 6+; Издательство: Эксмо',
         rating: 5,
         status: 'new',
         to: '/',
@@ -274,7 +341,7 @@ export const products: Product[] = [
         subcategory: 'school',
     },
     {
-        id: 17,
+        id: 18,
         img: '/images/posters/Дюна.webp',
         alt: 'Обложка книги "Дюна"',
         price: 1190,
@@ -283,6 +350,10 @@ export const products: Product[] = [
         discount: '-14%',
         name: 'Дюна',
         author: 'Фрэнк Герберт',
+        description:
+            'Эпическая сага о пустынной планете Арракис, юном Пол Атрейдесе и его судьбе, которая изменит всю Вселенную. Эталон научной фантастики.',
+        tag: 'Величайший фантастический эпос',
+        characteristics: 'Жанр: Научная фантастика; Возраст: 16+; Издательство: АСТ',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -290,7 +361,7 @@ export const products: Product[] = [
         subcategory: 'fantasy',
     },
     {
-        id: 18,
+        id: 19,
         img: '/images/posters/Над-пропастью-во-ржи.webp',
         alt: 'Обложка книги "Над пропастью во ржи"',
         price: 870,
@@ -299,6 +370,10 @@ export const products: Product[] = [
         discount: '-13%',
         name: 'Над пропастью во ржи',
         author: 'Джером Д. Сэлинджер',
+        description:
+            'Искренний и бунтарский монолог подростка Холдена Колфилда о фальши взрослого мира, одиночестве и поиске чистоты.',
+        tag: 'Икона подросткового бунта',
+        characteristics: 'Жанр: Классическая проза; Возраст: 16+; Издательство: Эксмо',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -306,7 +381,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 19,
+        id: 20,
         img: '/images/posters/Собачье-сердце.webp',
         alt: 'Обложка книги "Собачье сердце"',
         price: 740,
@@ -315,6 +390,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Собачье сердце',
         author: 'Михаил Булгаков',
+        description:
+            'Гениальная сатирическая повесть о грандиозном эксперименте, который поставил вопрос о границах науки и природе человека.',
+        tag: 'Острая сатира на новое общество',
+        characteristics: 'Жанр: Сатира, классика; Возраст: 16+; Издательство: АСТ',
         rating: 5,
         status: 'new',
         to: '/',
@@ -322,7 +401,7 @@ export const products: Product[] = [
         subcategory: 'classics',
     },
     {
-        id: 20,
+        id: 21,
         img: '/images/posters/Великий-Гэтсби.webp',
         alt: 'Обложка книги "Великий Гэтсби"',
         price: 910,
@@ -331,6 +410,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Великий Гэтсби',
         author: 'Фрэнсис Скотт Фицджеральд',
+        description:
+            'Блестящая и трагичная история "века джаза" о великой мечте, несбыточной любви и тщетности погони за американской мечтой.',
+        tag: 'Символ "Века Джаза"',
+        characteristics: 'Жанр: Классическая проза; Возраст: 16+; Издательство: Эксмо',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -338,7 +421,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 21,
+        id: 22,
         img: '/images/posters/Портрет-Дориана-Грея.webp',
         alt: 'Обложка книги "Портрет Дориана Грея"',
         price: 860,
@@ -347,6 +430,10 @@ export const products: Product[] = [
         discount: '-12%',
         name: 'Портрет Дориана Грея',
         author: 'Оскар Уайльд',
+        description:
+            'Эстетский роман о красоте, развращенной пороком, и таинственном портрете, который берет на себя все грехи своего вечно молодого владельца.',
+        tag: 'Эстетский роман о красоте и пороке',
+        characteristics: 'Жанр: Классическая проза; Возраст: 16+; Издательство: Азбука',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -354,7 +441,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 22,
+        id: 23,
         img: '/images/posters/Моби-Дик.webp',
         alt: 'Обложка книги "Моби Дик"',
         price: 990,
@@ -363,6 +450,10 @@ export const products: Product[] = [
         discount: '-17%',
         name: 'Моби Дик',
         author: 'Герман Мелвилл',
+        description:
+            'Монументальная эпопея о безумной охоте капитана Ахава на Белого Кита, ставшая метафорой противостояния человека и сил природы.',
+        tag: 'Одержимость и битва с Роком',
+        characteristics: 'Жанр: Приключения, философская проза; Возраст: 16+; Издательство: Речь',
         rating: 4,
         status: 'exclusive',
         to: '/',
@@ -370,7 +461,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 23,
+        id: 24,
         img: '/images/posters/Пикник-на-обочине.webp',
         alt: 'Обложка книги "Пикник на обочине"',
         price: 760,
@@ -379,6 +470,10 @@ export const products: Product[] = [
         discount: '-14%',
         name: 'Пикник на обочине',
         author: 'Стругацкие',
+        description:
+            'Культовая научно-фантастическая повесть о сталкере Рэдрике Шухарте, проникающем в таинственную Зону, полную смертельных аномалий и артефактов.',
+        tag: 'Легенда о Зоне и сталкерах',
+        characteristics: 'Жанр: Научная фантастика; Возраст: 16+; Издательство: АСТ',
         rating: 5,
         status: 'new',
         to: '/',
@@ -386,7 +481,7 @@ export const products: Product[] = [
         subcategory: 'fantasy',
     },
     {
-        id: 24,
+        id: 25,
         img: '/images/posters/Цветы-для-Элджернона.webp',
         alt: 'Обложка книги "Цветы для Элджернона"',
         price: 820,
@@ -395,6 +490,11 @@ export const products: Product[] = [
         discount: '-13%',
         name: 'Цветы для Элджернона',
         author: 'Дэниел Киз',
+        description:
+            'Пронзительная и глубокая история умственно отсталого Чарли Гордона, ставшего гением, о цене интеллекта, одиночестве и человечности.',
+        tag: 'Трогательная история гения',
+        characteristics:
+            'Жанр: Психологическая проза, научная фантастика; Возраст: 16+; Издательство: Эксмо',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -402,7 +502,7 @@ export const products: Product[] = [
         subcategory: 'modern',
     },
     {
-        id: 25,
+        id: 26,
         img: '/images/posters/Гарри-Поттер-и-тайная-комната.webp',
         alt: 'Обложка книги "Гарри Поттер и Тайная комната"',
         price: 950,
@@ -411,6 +511,10 @@ export const products: Product[] = [
         discount: '-13%',
         name: 'Гарри Поттер и Тайная комната',
         author: 'Джоан Роулинг',
+        description:
+            'Второй год Гарри в Хогвартсе становится еще опаснее: на стенах появляются зловещие надписи, а учеников один за другим обращают в камень.',
+        tag: 'Темные тайны Хогвартса',
+        characteristics: 'Жанр: Фэнтези; Возраст: 12+; Издательство: Махаон',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -418,7 +522,7 @@ export const products: Product[] = [
         subcategory: 'fantasy',
     },
     {
-        id: 26,
+        id: 27,
         img: '/images/posters/Солярис.webp',
         alt: 'Обложка книги "Солярис"',
         price: 780,
@@ -427,6 +531,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Солярис',
         author: 'Станислав Лем',
+        description:
+            'Философский роман о контакте с непостижимым Разумом планеты-океана Солярис, который материализует самые потаенные грехи и воспоминания людей.',
+        tag: 'Философская фантастика о Контакте',
+        characteristics: 'Жанр: Научная фантастика; Возраст: 16+; Издательство: АСТ',
         rating: 5,
         status: 'new',
         to: '/',
@@ -434,7 +542,7 @@ export const products: Product[] = [
         subcategory: 'fantasy',
     },
     {
-        id: 27,
+        id: 28,
         img: '/images/posters/Американская-трагедия.webp',
         alt: 'Обложка книги "Американская трагедия"',
         price: 890,
@@ -443,6 +551,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Американская трагедия',
         author: 'Теодор Драйзер',
+        description:
+            'Монументальный роман о Клайде Грифитсе, чье стремление к богатству и положению в обществе приводит его к моральному падению и преступлению.',
+        tag: 'Падение в погоне за мечтой',
+        characteristics: 'Жанр: Социальная проза, классика; Возраст: 18+; Издательство: Эксмо',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -450,7 +562,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 28,
+        id: 29,
         img: '/images/posters/Лолита.webp',
         alt: 'Обложка книги "Лолита"',
         price: 840,
@@ -459,6 +571,10 @@ export const products: Product[] = [
         discount: '-12%',
         name: 'Лолита',
         author: 'Владимир Набоков',
+        description:
+            'Один из самых скандальных и стилистически безупречных романов XX века о запретной страсти Гумберта Гумберта к двенадцатилетней Долорес Гейз.',
+        tag: 'Запретная страсть и виртуозный слог',
+        characteristics: 'Жанр: Психологическая проза; Возраст: 18+; Издательство: Азбука',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -466,7 +582,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 29,
+        id: 30,
         img: '/images/posters/Город-бога.webp',
         alt: 'Обложка книги "Город Бога"',
         price: 870,
@@ -475,6 +591,11 @@ export const products: Product[] = [
         discount: '-13%',
         name: 'Город Бога',
         author: 'Пауло Линс',
+        description:
+            'Жесткий и беспощадный роман-хроника о жизни фавел Рио-де-Жанейро, основанный на реальных событиях и рассказывающий о детях, выросших среди насилия.',
+        tag: 'Беспощадная хроника фавел',
+        characteristics:
+            'Жанр: Социальная проза, современная классика; Возраст: 18+; Издательство: Иностранка',
         rating: 4,
         status: 'new',
         to: '/',
@@ -482,7 +603,7 @@ export const products: Product[] = [
         subcategory: 'foreign',
     },
     {
-        id: 30,
+        id: 31,
         img: '/images/posters/Ревизор.webp',
         alt: 'Обложка книги "Ревизор"',
         price: 680,
@@ -491,6 +612,10 @@ export const products: Product[] = [
         discount: '-16%',
         name: 'Ревизор',
         author: 'Николай Гоголь',
+        description:
+            'Бессмертная комедия, в которой Гоголь с присущим ему юмором и сатирой выставил напоказ пороки чиновничьей России.',
+        tag: 'Бессмертная русская сатира',
+        characteristics: 'Жанр: Комедия, классика; Возраст: 12+; Издательство: Детская литература',
         rating: 5,
         status: 'ratings',
         to: '/',
@@ -498,7 +623,7 @@ export const products: Product[] = [
         subcategory: 'classics',
     },
     {
-        id: 31,
+        id: 32,
         img: '/images/posters/Код-Да-Винчи.webp',
         alt: 'Обложка книги "Код Да Винчи"',
         price: 990,
@@ -507,6 +632,10 @@ export const products: Product[] = [
         discount: '-17%',
         name: 'Код Да Винчи',
         author: 'Дэн Браун',
+        description:
+            'Захватывающий интеллектуальный триллер, в котором профессор Роберт Лэнгдон распутывает нить загадок, ведущую к величайшей тайне христианства.',
+        tag: 'Интеллектуальный бестселлер',
+        characteristics: 'Жанр: Детектив, триллер; Возраст: 16+; Издательство: АСТ',
         rating: 5,
         status: 'exclusive',
         to: '/',
@@ -514,7 +643,7 @@ export const products: Product[] = [
         subcategory: 'detective',
     },
     {
-        id: 32,
+        id: 33,
         img: '/images/posters/Марсианин.webp',
         alt: 'Обложка книги "Марсианин"',
         price: 890,
@@ -523,6 +652,10 @@ export const products: Product[] = [
         discount: '-14%',
         name: 'Марсианин',
         author: 'Энди Вейр',
+        description:
+            'Остроумный и научно достоверный роман о выживании астронавта Марка Уотни, оставшегося в одиночестве на Красной планете.',
+        tag: 'Робинзон Крузо на Марсе',
+        characteristics: 'Жанр: Научная фантастика, приключения; Возраст: 16+; Издательство: АСТ',
         rating: 5,
         status: 'new',
         to: '/',
@@ -530,7 +663,7 @@ export const products: Product[] = [
         subcategory: 'science',
     },
     {
-        id: 33,
+        id: 34,
         img: '/images/posters/Шантарам.webp',
         alt: 'Обложка книги "Шантарам"',
         price: 1150,
@@ -539,6 +672,10 @@ export const products: Product[] = [
         discount: '-15%',
         name: 'Шантарам',
         author: 'Грегори Дэвид Робертс',
+        description:
+            'Основанный на реальных событиях роман-исповедь беглого австралийского заключенного, нашедшего пристанище в бомбейских трущобах.',
+        tag: 'Исповедь беглеца из Бомбея',
+        characteristics: 'Жанр: Приключения, современная проза; Возраст: 18+; Издательство: АСТ',
         rating: 5,
         status: 'ratings',
         to: '/',

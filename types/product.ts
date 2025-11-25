@@ -10,6 +10,9 @@ export interface Product {
     discount: string;
     name: string;
     author: string;
+    description: string;
+    tag: string;
+    characteristics: string;
     rating: number;
     status?: ProductStatus;
     to: string;
