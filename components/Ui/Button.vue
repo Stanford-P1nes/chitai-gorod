@@ -80,7 +80,7 @@ const props = withDefaults(defineProps<Props>(), {
     }
 
     &--red {
-        @include LampEffect($b-r: $radius-2x, $bg: $color-active-blue-red);
+        @include LampEffect($b-r: $radius-2x, $bg: $color-active-red);
         color: $color-white;
     }
 
