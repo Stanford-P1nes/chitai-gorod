@@ -207,7 +207,7 @@ defineProps<{
         font-size: $font-size-2x;
         line-height: $line-height-2x;
         text-wrap: nowrap;
-        @include LampEffect($b-r: $radius-1x, $bg: $color-active-blue-red);
+        @include LampEffect($b-r: $radius-1x, $bg: $color-active-red);
     }
 }
 
