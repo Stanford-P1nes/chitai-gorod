@@ -18,6 +18,10 @@ defineProps<{
                 :alt="product.alt"
             />
             <UiButton variant='secondary' src='/ico/like.svg' alt='Иконка сердечка' class='product-card-mini__button-close'/>
+            <nuxt-link
+                :to="`/catalog/${product.category}/${product.subcategory}/${product.id}`"
+                class="product-card__link"
+            />
         </div>
         <div class="product-card-mini__content">
             <strong class="product-card-mini__title" :title='product.name'> {{ product.name }} </strong>
@@ -52,6 +56,14 @@ defineProps<{
         position: absolute;
         top: 5px;
         right: 5px;
+    }
+
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
     }
 
     &__content {

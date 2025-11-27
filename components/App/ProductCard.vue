@@ -25,9 +25,9 @@ defineProps<{
                 class="product-card__img"
             />
             <nuxt-link
-                :to="product.to"
+                :to="`/catalog/${product.category}/${product.subcategory}/${product.id}`"
                 class="product-card__link"
-            ></nuxt-link>
+            />
         </div>
 
         <UiSkeleton
