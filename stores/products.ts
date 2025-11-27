@@ -5,7 +5,7 @@ import { useFetch } from '#imports';
 
 export const useProductStore = defineStore('products', () => {
     const productsData = ref<Product[]>([]);
-    const loading = ref(false);
+    const loading = ref<boolean>(false);
 
     async function loadingProducts() {
         loading.value = true;
@@ -66,6 +66,11 @@ export const useProductStore = defineStore('products', () => {
         if (!q) return [];
         return productsData.value.filter(el => (el.name ?? '').toLowerCase().includes(q));
     }
+    
+    function getById(id: number) {
+        if (id == null || Number.isNaN(id)) return undefined;
+        return productsData.value.find(p => p.id === id);
+    }
 
     return {
         productsData,
@@ -74,5 +79,6 @@ export const useProductStore = defineStore('products', () => {
         getByCategory,
         getByStatus,
         getBySearch,
+        getById,
     };
 });

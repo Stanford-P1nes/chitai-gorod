@@ -1,8 +1,10 @@
 export type ProductStatus = 'new' | 'exclusive' | 'ratings';
+import type { Rating } from '~/types/rating';
 
 export interface Product {
     id: number;
     img: string;
+    covers: any;
     alt: string;
     price: number;
     oldPrice: number;
@@ -11,11 +13,19 @@ export interface Product {
     name: string;
     author: string;
     description: string;
-    tag: string;
+    tag: any;
     characteristics: string;
-    rating: number;
+    rating: Rating;
     status?: ProductStatus;
     to: string;
     category: string;
     subcategory: string;
+    availability: boolean;
+    restrictions: string;
+    publication: number;
+    publishingHouse: string;
+    size: number;
+    weight: number;
+    numberPages: number;
+    coverType: string;
 }
