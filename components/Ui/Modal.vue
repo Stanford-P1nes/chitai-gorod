@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, nextTick } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue';
 import { useModal } from '~/composables/useModal';
 
 const { isModalOpen, modalContent, closeModal } = useModal();
@@ -16,12 +16,14 @@ const { isModalOpen, modalContent, closeModal } = useModal();
             <AppFavoritesModal v-if="modalContent === 'Bookmarks'" />
             <AppBasketModal v-if="modalContent === 'Basket'" />
 
-            <button
-                class="ui-modal__button-close"
+            <UiButton
+                variant="secondary"
+                src="/ico/close.svg"
+                alt="Иконка крестик"
+                color="active"
                 @click="closeModal"
-            >
-                ✖
-            </button>
+                class="ui-modal__button-close"
+            />
         </article>
     </transition>
 </template>
