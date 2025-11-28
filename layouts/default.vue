@@ -2,10 +2,11 @@
     <AppHeader />
     <AppSidebar />
     <main>
-        <div class='container'>
+        <div class="container">
             <slot />
         </div>
     </main>
+    <UiDialog />
     <UiModal />
     <AppFooter />
 </template>

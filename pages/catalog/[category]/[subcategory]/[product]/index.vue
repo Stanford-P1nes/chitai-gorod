@@ -4,6 +4,9 @@ import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useProductStore } from '~/stores/products';
 import { useReviewStore } from '~/stores/reviews';
+import { useDialog } from '~/composables/useDialog';
+
+const { openDialog } = useDialog();
 
 const route = useRoute();
 const productId = Number(route.params.product);
@@ -59,9 +62,10 @@ const status = computed(() => getByStatus('exclusive'));
                         </div>
                         <div class="go-to-reviews-button">
                             <UiButton
-                                text="10 отзывов"
+                                :text="`${reviews?.length} отзывов`"
                                 color="active"
                             />
+                            <nuxt-link to="#REVIEWS" class='go-to-reviews-button__link' />
                         </div>
                     </div>
                     <UiButton
@@ -83,7 +87,7 @@ const status = computed(() => getByStatus('exclusive'));
                                 :key="idx"
                                 class="product-media__thumbnail-item"
                             >
-                                <button>
+                                <button @click="openDialog(product?.covers)">
                                     <img
                                         :src="cover?.img"
                                         :alt="product?.name"
@@ -156,7 +160,10 @@ const status = computed(() => getByStatus('exclusive'));
                         </header>
                     </div>
                 </aside>
-                <div class="product-reviews product-detail-page__reviews">
+                <div
+                    class="product-reviews product-detail-page__reviews"
+                    id="REVIEWS"
+                >
                     <header class="reviews-header">
                         <h2 class="reviews-header__title">
                             <span>Отзывы</span>
@@ -243,12 +250,12 @@ const status = computed(() => getByStatus('exclusive'));
                             </div>
                         </div>
                     </div>
-                    <footer class="product-reviews__footer">
+                    <!-- <footer class="product-reviews__footer">
                         <UiButton
                             text="Показать больше отзывов"
                             color="active"
                         />
-                    </footer>
+                    </footer> -->
                 </div>
                 <ul class="product-properties product-detail-page__product-properties">
                     <li class="product-properties-item">
@@ -535,6 +542,18 @@ const status = computed(() => getByStatus('exclusive'));
     &__title,
     &__content {
         font-weight: 400;
+    }
+}
+
+.go-to-reviews-button {
+    position: relative;
+
+    &__link {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 }
 </style>
