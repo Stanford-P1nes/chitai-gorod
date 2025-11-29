@@ -4,7 +4,7 @@ import { Country, countryData } from '~/types/country';
 
 const country = ref<Country>(Country.RUSSIA);
 const showListCountry = ref<boolean>(false);
-const phoneNumber = ref<string>('');
+const phoneNumber = ref<number>();
 
 const toggleCountryList = (): void => {
     showListCountry.value = !showListCountry.value;
@@ -37,7 +37,7 @@ const selectCountry = (selectedCountry: Country): void => {
             </div>
             <div
                 class="ui-input__select"
-                v-if='showListCountry'
+                v-if="showListCountry"
             >
                 <button
                     v-for="countryCode in Object.values(Country)"
@@ -63,7 +63,7 @@ const selectCountry = (selectedCountry: Country): void => {
             </div>
         </div>
         <input
-            type="tel"
+            type="number"
             class="ui-input__input"
             id="phone-number"
             :placeholder="getCurrentPlaceholder()"

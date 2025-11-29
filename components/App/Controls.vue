@@ -42,7 +42,7 @@ function controlClick(idx: Control['id'], name: Control['name']): void {
     position: relative;
     height: 48px;
     display: flex;
-    width: 244px;
+    width: 250px;
     justify-content: space-between;
     padding: $padding-1x;
     gap: $gap-3x;
@@ -54,7 +54,7 @@ function controlClick(idx: Control['id'], name: Control['name']): void {
         width: 21%;
         height: 38px;
         transition: margin 0.2s ease;
-        margin-left: var(--n);
+        margin-left: calc(var(--n) + 0.5%);
     }
 
     &--unactive::before {
@@ -68,7 +68,7 @@ function controlClick(idx: Control['id'], name: Control['name']): void {
     &__button {
         position: relative;
         height: 100%;
-        flex-basis: 55px;
+        width: 50%;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
