@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { products } from '~/data/products';
+import { storeToRefs } from 'pinia';
+import { useFavoritesStore } from '~/stores/favorites';
+const favoritesStore = useFavoritesStore();
+const { items } = storeToRefs(favoritesStore)
 </script>
 
 <template>
@@ -8,11 +11,11 @@ import { products } from '~/data/products';
             <h3 class="favorites-content__title">Избранное</h3>
         </section>
         <section class="favorites-content__main">
-            <div v-if='products.length' class="favorites-content__cards">
+            <div v-if='items.length' class="favorites-content__cards">
                 <AppProductCardMini
-                    v-for="product in products"
-                    :key="product.id"
-                    :product='product'
+                    v-for="item in items"
+                    :key="item.id"
+                    :product='item'
                 />
             </div>
         </section>
@@ -37,9 +40,10 @@ import { products } from '~/data/products';
     &__main {
         padding-top: 5px;
         padding-bottom: 25px;
-        height: 500px;
         overflow: hidden;
         overflow-y: auto;
+        min-height: 100px;
+        max-height: 350px;
     }
 
     &__cards {

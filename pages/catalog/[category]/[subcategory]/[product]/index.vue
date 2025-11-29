@@ -5,8 +5,15 @@ import { storeToRefs } from 'pinia';
 import { useProductStore } from '~/stores/products';
 import { useReviewStore } from '~/stores/reviews';
 import { useDialog } from '~/composables/useDialog';
+import { useCartStore } from '~/stores/cart';
+import { useFavoritesStore } from '~/stores/favorites';
 
+const cartSore = useCartStore();
+const favoritesStore = useFavoritesStore();
 const { openDialog } = useDialog();
+
+const { toggleItem, isInCart } = cartSore;
+const { toggle, isInFavorite } = favoritesStore;
 
 const route = useRoute();
 const productId = Number(route.params.product);
@@ -36,8 +43,15 @@ const status = computed(() => getByStatus('exclusive'));
         <div class="product-detail-page">
             <div class="product-detail-page__main">
                 <section class="product-detail-page__title-wrapper">
-                    <h2 class="product-detail-page__title">{{ product?.name }}</h2>
-                    <sup class="product-age-restrictions">{{ product?.restrictions }}</sup>
+                    <UiSkeleton
+                        v-if="loading"
+                        width="200px"
+                        height="32px"
+                    />
+                    <template v-else>
+                        <h2 class="product-detail-page__title">{{ product?.name }}</h2>
+                        <sup class="product-age-restrictions">{{ product?.restrictions }}</sup>
+                    </template>
                 </section>
                 <section class="product-detail-page__badges">
                     {{ product?.discount }}
@@ -65,7 +79,10 @@ const status = computed(() => getByStatus('exclusive'));
                                 :text="`${reviews?.length} отзывов`"
                                 color="active"
                             />
-                            <nuxt-link to="#REVIEWS" class='go-to-reviews-button__link' />
+                            <nuxt-link
+                                to="#REVIEWS"
+                                class="go-to-reviews-button__link"
+                            />
                         </div>
                     </div>
                     <UiButton
@@ -76,13 +93,27 @@ const status = computed(() => getByStatus('exclusive'));
                 <div class="product-detail-page__media">
                     <div class="product-media">
                         <div class="product-media__preview">
+                            <UiSkeleton
+                                v-if="loading"
+                                width="248px"
+                                height="427px"
+                            />
                             <img
+                                v-else
                                 :src="product?.img"
                                 :alt="product?.name"
                             />
                         </div>
                         <ul class="product-media__thumbnails">
+                            <UiSkeleton
+                                v-if="loading"
+                                width="60px"
+                                height="60px"
+                                v-for="item in 4"
+                                :key="item"
+                            />
                             <li
+                                v-else
                                 v-for="(cover, idx) in product?.covers"
                                 :key="idx"
                                 class="product-media__thumbnail-item"
@@ -134,17 +165,21 @@ const status = computed(() => getByStatus('exclusive'));
                                 </div>
                                 <div class="product-actions">
                                     <UiButton
+                                        v-if="product"
                                         variant="primary"
-                                        text="Купить"
+                                        :text="isInCart(product.id) ? 'Удалить' : 'Добавить'"
+                                        :color="isInCart(product.id) ? 'active' : 'default'"
                                         class="product-card__button product-card__button--buy"
-                                        color="active"
+                                        @click="toggleItem(product)"
                                     />
                                     <UiButton
+                                        v-if="product"
                                         variant="secondary"
+                                        :color="isInFavorite(product?.id) ? 'active' : 'default'"
+                                        @click="toggle(product)"
                                         src="/ico/like.svg"
                                         alt="Белая иконка закладка"
                                         class="product-card__button product-card__button--like"
-                                        color="active"
                                     />
                                 </div>
                                 <div
@@ -376,6 +411,11 @@ const status = computed(() => getByStatus('exclusive'));
 
 .product-badges-list {
     display: flex;
+}
+
+.product-age-restrictions {
+    font-size: $font-size-2x;
+    line-height: $line-height-2x;
 }
 
 .product-statistics {

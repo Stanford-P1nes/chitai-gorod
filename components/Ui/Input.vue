@@ -37,7 +37,7 @@ const selectCountry = (selectedCountry: Country): void => {
             </div>
             <div
                 class="ui-input__select"
-                :class="{ 'ui-input__select--active': showListCountry }"
+                v-if='showListCountry'
             >
                 <button
                     v-for="countryCode in Object.values(Country)"
@@ -101,24 +101,15 @@ const selectCountry = (selectedCountry: Country): void => {
     &__select {
         position: absolute;
         left: 0;
-        top: 100%;
+        top: 110%;
         width: 100%;
         padding: $padding-2x;
         display: flex;
         flex-direction: column;
         gap: $gap-1x;
         cursor: pointer;
-
         @include LampEffect($b-r: $radius-2x, $overflow: auto);
         height: 165px;
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-
-        &--active {
-            opacity: 1;
-            transform: translateY(5px);
-        }
     }
 
     &__button {

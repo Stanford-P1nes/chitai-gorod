@@ -1,4 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useCartStore } from '~/stores/cart';
+import { useOrdersStore } from '~/stores/orders';
+
+const cartStore = useCartStore();
+const ordersStore = useOrdersStore();
+
+const { items } = storeToRefs(cartStore);
+const { clear } = cartStore;
+const { createOrder } = ordersStore;
+
+const buy = () => {
+    if (!items.value.length) return;
+    createOrder(items.value);
+    clear();
+};
+</script>
 
 <template>
     <div class="basket-content">
@@ -7,12 +24,21 @@
         </section>
         <section class="basket-content__main">
             <div class="basket-content__cards">
-                <AppBasketCard />
-                <AppBasketCard />
-                <AppBasketCard />
-                <AppBasketCard />
+                <AppBasketCard
+                    v-for="item in items"
+                    :key="item?.id"
+                    :product="item"
+                />
             </div>
         </section>
+        <footer class="basket-content__footer">
+            <UiButton
+                :text="items.length ? 'Купить' : 'Корзина пустая'"
+                :color="items.length ? 'active' : 'default'"
+                class="basket-content__button-buy"
+                @click="buy"
+            />
+        </footer>
     </div>
 </template>
 
@@ -23,6 +49,9 @@
 
     &__header {
         padding: 36px 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     &__title {
@@ -35,13 +64,22 @@
         padding-top: 5px;
         padding-bottom: 25px;
         overflow-y: auto;
-        height: 350px;
+        min-height: 100px;
+        max-height: 350px;
     }
 
     &__cards {
         display: flex;
         flex-direction: column;
         gap: $gap-4x;
+    }
+
+    &__footer {
+        padding: 10px 0;
+    }
+
+    &__button-buy {
+        width: 100%;
     }
 }
 </style>

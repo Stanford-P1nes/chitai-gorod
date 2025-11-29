@@ -44,7 +44,7 @@ const dialogSwiperInstance = useSwiper(dialogSwiper, {
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="dialogContent?.length">
+                    <template v-if="dialogContent?.length > 1">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="dialogSwiperInstance?.prev?.()"
@@ -115,7 +115,7 @@ const dialogSwiperInstance = useSwiper(dialogSwiper, {
     }
 
     &__slide {
-        padding: 20px;
+        padding: 16px;
         height: 100%;
     }
 
