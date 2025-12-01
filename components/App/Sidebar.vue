@@ -85,7 +85,7 @@ function toggleClick(e: any): void {
     top: 0;
     left: 0;
     bottom: 0;
-    @include LampEffect($b-r: $radius-2x, $overflow: visible);
+    @include LampEffect($radius: $radius-2x, $overflow: visible);
     margin: 10px;
     z-index: 10000;
 
@@ -96,7 +96,7 @@ function toggleClick(e: any): void {
     @include media(tablet) {
         width: 100%;
         margin: 0;
-        @include LampEffect($b-r: 0, $overflow: visible);
+        @include LampEffect($radius: 0, $overflow: visible);
     }
 
     &__wrapper {

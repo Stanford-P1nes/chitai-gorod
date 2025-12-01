@@ -4,6 +4,18 @@ import { defineNuxtConfig } from 'nuxt/config';
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: true },
+    modules: [
+        '@pinia/nuxt',
+        'nuxt-swiper',
+        [
+            '@nuxtjs/color-mode',
+            {
+                classSuffix: '',
+                preference: 'system',
+                fallback: 'light',
+            },
+        ],
+    ],
     typescript: {
         typeCheck: true,
         strict: true,
@@ -83,7 +95,7 @@ export default defineNuxtConfig({
             },
         },
     },
-    modules: ['@pinia/nuxt', 'nuxt-swiper'],
+
     imports: {
         dirs: ['./composables/**', './types/**', './stores/**'],
     },

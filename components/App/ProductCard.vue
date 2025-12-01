@@ -101,7 +101,7 @@ defineProps<{
         height: 345px;
         overflow: hidden;
 
-        @include LampEffect($b-r: $radius-3x);
+        @include LampEffect($radius: $radius-3x);
 
         @include media(tablet) {
             height: 280px;
@@ -117,7 +117,7 @@ defineProps<{
     &__content {
         display: flex;
         flex-direction: column;
-        @include LampEffect($b-r: $radius-3x);
+        @include LampEffect($radius: $radius-3x);
         padding: $padding-3x;
         gap: $gap-2x;
 
@@ -219,7 +219,8 @@ defineProps<{
         font-size: $font-size-2x;
         line-height: $line-height-2x;
         text-wrap: nowrap;
-        @include LampEffect($b-r: $radius-1x, $bg: $color-active-red);
+        @include LampEffect($radius: $radius-1x);
+        background: $color-active-red;
     }
 }
 

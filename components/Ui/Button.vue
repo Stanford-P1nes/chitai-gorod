@@ -65,23 +65,22 @@ const props = withDefaults(defineProps<Props>(), {
     }
 
     &--default {
-        @include LampEffect($b-r: $radius-2x, $bg: $color-background-2x);
-        color: $color-white;
+        @include LampEffect($radius: $radius-2x);
     }
 
     &--active {
-        @include LampEffect($b-r: $radius-2x, $bg: $color-active-blue);
-        color: $color-white;
+        @include LampEffect($radius: $radius-2x);
+        background-color: $color-active-blue;
     }
 
     &--unactive {
-        @include LampEffect($b-r: $radius-2x, $bg: $color-unactive);
-        color: $color-darkgray;
+        @include LampEffect($radius: $radius-2x);
+        background-color: $color-unactive;
     }
 
     &--red {
-        @include LampEffect($b-r: $radius-2x, $bg: $color-active-red);
-        color: $color-white;
+        @include LampEffect($radius: $radius-2x);
+        background-color: $color-active-red;
     }
 
     &__icon-wrapper {

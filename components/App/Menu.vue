@@ -93,7 +93,7 @@ function toggleClick(): void {
             flex-direction: column;
             text-align: right;
             padding: $padding-2x;
-            @include LampEffect($b-r: $radius-2x);
+            @include LampEffect($radius: $radius-2x);
             // animation: dropdown .2s ease forwards;
             z-index: 1000;
             @include animateDropdown;

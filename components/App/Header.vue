@@ -26,12 +26,6 @@ const showElement = computed(() => {
 
 // SIDEBAR SHOW / CLOSE
 const { toggleSidebar } = useSidebar();
-
-const isDark = ref(false);
-
-function toggleTheme() {
-    isDark.value = !isDark.value;
-}
 </script>
 
 <template>
@@ -40,6 +34,7 @@ function toggleTheme() {
             <div class="app-header__inner">
                 <div class="app-header__top">
                     <AppTopHeader />
+                    <UiThemeSwitch />
                 </div>
                 <div class="app-header__bottom">
                     <div class="app-header__row">
@@ -50,7 +45,7 @@ function toggleTheme() {
                             src="/ico/books-catalog.svg"
                             alt="Иконка книг"
                             text="Каталог"
-                            color='active'
+                            color="active"
                             @click="toggleSidebar"
                         />
                         <AppSearch />
@@ -62,7 +57,7 @@ function toggleTheme() {
                             src="/ico/books-catalog.svg"
                             alt="Иконка книг"
                             text="Каталог"
-                            color='active'
+                            color="active"
                             @click="toggleSidebar"
                         />
                         <AppControls />
@@ -87,6 +82,9 @@ function toggleTheme() {
     }
 
     &__top {
+        display: flex;
+        align-items: center;
+        gap: $gap-4x;
         padding: $padding-2x $padding-5x;
         @include media(laptop) {
             padding: $padding-2x $padding-4x;

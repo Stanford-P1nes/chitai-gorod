@@ -7,12 +7,6 @@
             />
         </span>
         <span class="app-location__side">Россия, Махачкала</span>
-        <span class="app-location__icon">
-            <img
-                src="/ico/arrow-down-2-fill.svg"
-                alt="Иконка стрелочки вниз"
-            />
-        </span>
     </button>
 </template>
 

@@ -13,7 +13,7 @@ const { isModalOpen, modalContent, closeModal } = useModal();
         >
             <AppAuthModal v-if="modalContent === 'Login'" />
             <AppOrdersModal v-if="modalContent === 'Orders'" />
-            <AppFavoritesModal v-if="modalContent === 'Bookmarks'" />
+            <AppFavoritesModal v-if="modalContent === 'Favorites'" />
             <AppBasketModal v-if="modalContent === 'Basket'" />
 
             <UiButton
@@ -55,7 +55,7 @@ const { isModalOpen, modalContent, closeModal } = useModal();
         width: 35px;
         height: 35px;
         border-radius: $radius-5x;
-        @include LampEffect($b-r: $radius-5x, $bg: $color-active-blue);
+        @include LampEffect($radius: $radius-5x);
     }
 }
 </style>

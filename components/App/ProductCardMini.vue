@@ -63,7 +63,7 @@ defineProps<{
     min-height: 194px;
     max-width: 114px;
     max-height: 194px;
-    @include LampEffect($b-r: $radius-2x);
+    @include LampEffect($radius: $radius-2x);
     cursor: pointer;
     z-index: 1000;
 
@@ -99,7 +99,7 @@ defineProps<{
         left: 0;
         bottom: 0;
         padding: $padding-1x;
-        @include LampEffect($b-r: $radius-1x);
+        @include LampEffect($radius: $radius-1x);
         z-index: 1000;
     }
 

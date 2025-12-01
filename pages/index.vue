@@ -3,51 +3,52 @@ import { useSwiper } from '#imports';
 import { onMounted, ref, computed, onUnmounted } from 'vue';
 import { contentCards } from '~/data/contentCards';
 import { useRoute } from 'vue-router';
+import { storeToRefs } from 'pinia';
+import { useProductStore } from '~/stores/products';
+import type { Product } from '~/types/product';
 
-const route = useRoute()
+const route = useRoute();
 
 // WINDOW WIDTH
-const windowWidth = ref(0)
+const windowWidth = ref(0);
 
 onMounted(() => {
-    windowWidth.value = window.innerWidth
+    windowWidth.value = window.innerWidth;
 
     const handleResize = () => {
-        windowWidth.value = window.innerWidth
-    }
+        windowWidth.value = window.innerWidth;
+    };
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', handleResize);
 
     onUnmounted(() => {
-        window.removeEventListener('resize', handleResize)
-    })
-})
+        window.removeEventListener('resize', handleResize);
+    });
+});
 
 const slidesPerView = computed(() => {
-    if (windowWidth.value < 360) return 1.5
-    if (windowWidth.value < 480) return 2
-    if (windowWidth.value < 620) return 3
-    if (windowWidth.value < 768) return 3.5
-    if (windowWidth.value < 1024) return 4
-    if (windowWidth.value < 1200) return 5
-    return 5; 
-})
+    if (windowWidth.value < 360) return 1.5;
+    if (windowWidth.value < 480) return 2;
+    if (windowWidth.value < 620) return 3;
+    if (windowWidth.value < 768) return 3.5;
+    if (windowWidth.value < 1024) return 4;
+    if (windowWidth.value < 1200) return 5;
+    return 5;
+});
 
 const slidesPerGap = computed(() => {
-    if (windowWidth.value < 768) return 10
-    if (windowWidth.value < 1200) return 20
-    return 20; 
-})
+    if (windowWidth.value < 768) return 10;
+    if (windowWidth.value < 1200) return 20;
+    return 20;
+});
 
 const contentsPerView = computed(() => {
-    if (windowWidth.value < 480) return 1
-    if (windowWidth.value < 768) return 2
-    return 3; 
-})
+    if (windowWidth.value < 480) return 1;
+    if (windowWidth.value < 768) return 2;
+    return 3;
+});
 
 // PINIA
-import { storeToRefs } from 'pinia'
-import { useProductStore } from '~/stores/products';
 
 const store = useProductStore();
 
@@ -59,9 +60,9 @@ onMounted(async () => {
     await loadingProducts();
 });
 
-const getStatusNew = computed(() => getByStatus('new'));
-const getStatusExclusive = computed(() => getByStatus('exclusive'));
-const getStatusRatings = computed(() => getByStatus('ratings'));
+const getStatusNew = computed((): Product[] => getByStatus('new'));
+const getStatusExclusive = computed((): Product[] => getByStatus('exclusive'));
+const getStatusRatings = computed((): Product[] => getByStatus('ratings'));
 
 // SWIPER
 const productsNewSwiper = ref(null);
@@ -116,7 +117,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                 <div class="shelf-header__wrapper">
                     <h2 class="shelf-header__heading">Новинки</h2>
                     <nuxt-link
-                        to="/"
+                        :to="`/catalog/${getStatusNew?.[0]?.category}/${getStatusNew?.[0]?.subcategory}/`"
                         class="shelf-header__see-all"
                     >
                         Смотреть ещё
@@ -140,7 +141,10 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                             v-for="product in getStatusNew"
                             :key="product.id"
                         >
-                            <AppProductCard :product="product" :loading='loading' />
+                            <AppProductCard
+                                :product="product"
+                                :loading="loading"
+                            />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
@@ -174,7 +178,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                 <div class="shelf-header__wrapper">
                     <h2 class="shelf-header__heading">Эксклюзив</h2>
                     <nuxt-link
-                        to="/"
+                        :to="`/catalog/${getStatusExclusive?.[0]?.category}/${getStatusExclusive?.[0]?.subcategory}/`"
                         class="shelf-header__see-all"
                     >
                         Смотреть ещё
@@ -198,7 +202,10 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                             v-for="product in getStatusExclusive"
                             :key="product.id"
                         >
-                            <AppProductCard :product="product" :loading='loading' />
+                            <AppProductCard
+                                :product="product"
+                                :loading="loading"
+                            />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
@@ -232,7 +239,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                 <div class="shelf-header__wrapper">
                     <h2 class="shelf-header__heading">Рейтинги</h2>
                     <nuxt-link
-                        to="/"
+                        :to="`/catalog/${getStatusRatings?.[0]?.category}/${getStatusRatings?.[0]?.subcategory}/`"
                         class="shelf-header__see-all"
                     >
                         Смотреть ещё
@@ -256,7 +263,10 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                             v-for="product in getStatusRatings"
                             :key="product.id"
                         >
-                            <AppProductCard :product="product" :loading='loading' />
+                            <AppProductCard
+                                :product="product"
+                                :loading="loading"
+                            />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->

@@ -17,9 +17,9 @@ export const controls: Control[] = [
     },
     {
         id: 2,
-        name: 'Bookmarks',
+        name: 'Favorites',
         link: '/',
-        icon: '/ico/bookmark.svg',
+        icon: '/ico/like.svg',
         alt: 'Иконка закладки',
     },
     {

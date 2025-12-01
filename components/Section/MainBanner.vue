@@ -155,7 +155,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
 .main-banners {
     height: 400px;
     max-width: 748px;
-    @include LampEffect($b-r: $radius-3x);
+    @include LampEffect($radius: $radius-3x);
     @include media(desktop) {
         max-width: none;
     }
@@ -181,7 +181,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
         width: 100%;
         height: 100%;
         padding: $padding-4x;
-        @include LampEffect($b-r: $radius-3x);
+        @include LampEffect($radius: $radius-3x);
     }
 
     &__banner-information {
@@ -218,7 +218,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
         padding: $padding-1x;
         min-width: 53px;
         min-height: 53px;
-        @include LampEffect($b-r: $radius-2x);
+        @include LampEffect($radius: $radius-2x);
     }
 
     &__img {

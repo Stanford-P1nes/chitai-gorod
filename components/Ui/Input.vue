@@ -84,7 +84,7 @@ const selectCountry = (selectedCountry: Country): void => {
     display: flex;
     gap: $gap-3x;
     padding: $padding-3x $padding-5x;
-    @include LampEffect($b-r: $radius-2x, $overflow: visible);
+    @include LampEffect($radius: $radius-2x, $overflow: visible);
 
     &__icon {
         width: 20px;
@@ -108,7 +108,7 @@ const selectCountry = (selectedCountry: Country): void => {
         flex-direction: column;
         gap: $gap-1x;
         cursor: pointer;
-        @include LampEffect($b-r: $radius-2x, $overflow: auto);
+        @include LampEffect($radius: $radius-2x, $overflow: auto);
         height: 165px;
     }
 
@@ -116,7 +116,7 @@ const selectCountry = (selectedCountry: Country): void => {
         min-height: 50px;
         text-align: start;
         padding: 12px 17px;
-        @include LampEffect($b-r: $radius-2x);
+        @include LampEffect($radius: $radius-2x);
         transition: background 0.2s linear;
         &--hover:hover {
             background-color: $color-orange;

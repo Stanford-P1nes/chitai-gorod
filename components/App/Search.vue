@@ -60,7 +60,7 @@ function handleSubmit(event: any) {
 .app-search {
     flex-grow: 4;
     display: flex;
-    @include LampEffect($b-r: $radius-2x, $overflow: visible);
+    @include LampEffect($radius: $radius-2x, $overflow: visible);
 
     .search-form {
         width: 100%;
@@ -88,7 +88,7 @@ function handleSubmit(event: any) {
         padding: $padding-1x;
         display: flex;
         gap: $gap-1x;
-        @include LampEffect($b-r: $radius-2x, $overflow: auto);
+        @include LampEffect($radius: $radius-2x, $overflow: auto);
         overflow-y: hidden;
         overflow-x: auto;
     }

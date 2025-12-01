@@ -157,10 +157,10 @@ const status = computed(() => getByStatus('exclusive'));
                             <div class="product-offer__price">
                                 <div class="product-offer-price">
                                     <div class="product-offer-price__old">
-                                        <s>{{ product?.oldPrice }}</s>
+                                        <s>{{ product?.oldPrice }} ₽</s>
                                     </div>
                                     <div class="product-offer-price__actual">
-                                        {{ product?.price }}
+                                        {{ product?.price }} ₽
                                     </div>
                                 </div>
                                 <div class="product-actions">
@@ -214,22 +214,8 @@ const status = computed(() => getByStatus('exclusive'));
                             <span class="product-rating-detail__count">
                                 {{ product?.rating + '.0' }}
                             </span>
-                            <div
-                                v-if="product?.rating"
-                                class="rating"
-                            >
-                                <span
-                                    v-for="(star, idx) in product?.rating"
-                                    :key="idx"
-                                >
-                                    <img
-                                        src="/ico/star.svg"
-                                        alt="Иконка звезды"
-                                    />
-                                </span>
-                            </div>
                             <div class="product-rating__votes">
-                                <span>{{ reviews?.length }} оценок</span>
+                                <sup>{{ reviews?.length }} оценок</sup>
                             </div>
                         </header>
                         <div
@@ -248,9 +234,9 @@ const status = computed(() => getByStatus('exclusive'));
                             >
                                 <div class="review-item__body">
                                     <div class="review-item__author">
-                                        <span class="review-item__author">
+                                        <strong class="review-item__author">
                                             {{ review?.author }}
-                                        </span>
+                                        </strong>
                                     </div>
                                     <div class="rating">
                                         <span v-for="star in review?.rating">
@@ -261,7 +247,7 @@ const status = computed(() => getByStatus('exclusive'));
                                         </span>
                                     </div>
                                     <div class="review-item__content">
-                                        {{ review?.text }}
+                                        <q>{{ review?.text }}</q>
                                     </div>
                                     <div class="review-item__subtitle"><strong>Плюсы</strong></div>
                                     <div class="review-item__content">
@@ -428,7 +414,7 @@ const status = computed(() => getByStatus('exclusive'));
     &__preview {
         margin-bottom: 20px;
         user-select: none;
-        @include LampEffect($b-r: $radius-2x);
+        @include LampEffect($radius: $radius-2x);
     }
 
     &__thumbnails {
@@ -444,7 +430,7 @@ const status = computed(() => getByStatus('exclusive'));
         min-width: 60px;
         height: 60px;
         cursor: pointer;
-        @include LampEffect($b-r: $radius-1x);
+        @include LampEffect($radius: $radius-1x);
         user-select: none;
     }
 }
@@ -462,7 +448,7 @@ const status = computed(() => getByStatus('exclusive'));
 .product-offer {
     position: sticky;
     padding: $padding-6x;
-    @include LampEffect($b-r: $radius-2x);
+    @include LampEffect($radius: $radius-2x);
 
     &__price {
         display: flex;
@@ -519,7 +505,7 @@ const status = computed(() => getByStatus('exclusive'));
 }
 
 .product-rating-detail {
-    @include LampEffect($b-r: $radius-2x);
+    @include LampEffect($radius: $radius-2x);
     padding: $padding-5x $padding-6x;
     margin-bottom: 16px;
 
@@ -533,18 +519,21 @@ const status = computed(() => getByStatus('exclusive'));
 
 .review-item {
     padding: $padding-5x $padding-6x;
-    @include LampEffect($b-r: $radius-2x);
+    @include LampEffect($radius: $radius-2x);
 
     &--best {
-        @include LampEffect($b-r: $radius-2x, $bg: $color-active-blue);
+        @include LampEffect($radius: $radius-2x);
+        background-color: $color-active-blue;
     }
 
     &--good {
-        @include LampEffect($b-r: $radius-2x, $bg: $color-active-yellow);
+        @include LampEffect($radius: $radius-2x);
+        background-color: $color-active-yellow;
     }
 
     &--bad {
-        @include LampEffect($b-r: $radius-2x, $bg: $color-active-red);
+        @include LampEffect($radius: $radius-2x);
+        background-color: $color-active-red;
     }
 
     &__body {

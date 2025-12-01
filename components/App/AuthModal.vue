@@ -55,7 +55,6 @@
         font-weight: 400;
         font-size: $font-size-3x;
         line-height: $line-height-4x;
-        color: $color-darkgray;
     }
 }
 </style>

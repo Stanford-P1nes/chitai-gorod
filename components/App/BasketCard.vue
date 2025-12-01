@@ -73,7 +73,7 @@ defineProps<{
         position: relative;
         width: 100px;
         height: 100%;
-        @include LampEffect($b-r: $radius-2x);
+        @include LampEffect($radius: $radius-2x);
     }
 
     &__link {

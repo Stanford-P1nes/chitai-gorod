@@ -107,7 +107,7 @@ const dialogSwiperInstance = useSwiper(dialogSwiper, {
         position: relative;
         width: 500px;
         height: 600px;
-        @include LampEffect($b-r: $radius-2x, $overflow: visable);
+        @include LampEffect($radius: $radius-2x, $overflow: visable);
     }
 
     &__swiper {
