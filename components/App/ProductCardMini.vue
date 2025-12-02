@@ -2,9 +2,18 @@
 import type { Product } from '~/types/product';
 import type { Loading } from '~/types/loading';
 import { useFavoritesStore } from '~/stores/favorites';
+import { useBadgeStore } from '~/stores/badge';
+
 const favoritesStore = useFavoritesStore();
+const badgeStore = useBadgeStore();
 
 const { toggle, isInFavorite } = favoritesStore;
+const { showBadge } = badgeStore;
+
+function addToFavorites(product: Product) {
+    toggle(product);
+    showBadge('favorites');
+}
 
 defineProps<{
     product: Product;
@@ -31,7 +40,7 @@ defineProps<{
                 src="/ico/like.svg"
                 alt="Иконка сердечка"
                 class="product-card-mini__button-close"
-                @click="toggle(product)"
+                @click="addToFavorites(product)"
             />
             <nuxt-link
                 :to="`/catalog/${product?.category}/${product?.subcategory}/${product?.id}`"

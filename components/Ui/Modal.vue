@@ -11,10 +11,10 @@ const { isModalOpen, modalContent, closeModal } = useModal();
             v-if="isModalOpen"
             class="ui-modal"
         >
-            <AppAuthModal v-if="modalContent === 'Login'" />
-            <AppOrdersModal v-if="modalContent === 'Orders'" />
-            <AppFavoritesModal v-if="modalContent === 'Favorites'" />
-            <AppBasketModal v-if="modalContent === 'Basket'" />
+            <AppAuthModal v-if="modalContent === 'login'" />
+            <AppOrdersModal v-if="modalContent === 'orders'" />
+            <AppFavoritesModal v-if="modalContent === 'favorites'" />
+            <AppBasketModal v-if="modalContent === 'cart'" />
 
             <UiButton
                 variant="secondary"

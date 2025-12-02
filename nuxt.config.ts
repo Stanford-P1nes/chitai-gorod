@@ -25,6 +25,10 @@ export default defineNuxtConfig({
             htmlAttrs: { lang: 'ru' },
             title: 'Книжний магазин | Читай город',
             meta: [
+                {
+                    name: 'viewport',
+                    content: 'width=device-width, initial-scale=1.0, user-scalable=no',
+                },
                 { charset: 'utf-8' },
                 {
                     name: 'viewport',

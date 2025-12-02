@@ -1,8 +1,18 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { storeToRefs } from 'pinia';
 import { useFavoritesStore } from '~/stores/favorites';
+import { useBadgeStore } from '~/stores/badge';
+
 const favoritesStore = useFavoritesStore();
-const { items } = storeToRefs(favoritesStore)
+const badgeStore = useBadgeStore();
+
+const { items } = storeToRefs(favoritesStore);
+const { clearBadge } = badgeStore;
+
+onMounted(() => {
+    clearBadge('favorites');
+});
 </script>
 
 <template>
@@ -11,11 +21,14 @@ const { items } = storeToRefs(favoritesStore)
             <h3 class="favorites-content__title">Избранное</h3>
         </section>
         <section class="favorites-content__main">
-            <div v-if='items.length' class="favorites-content__cards">
+            <div
+                v-if="items.length"
+                class="favorites-content__cards"
+            >
                 <AppProductCardMini
                     v-for="item in items"
                     :key="item.id"
-                    :product='item'
+                    :product="item"
                 />
             </div>
         </section>

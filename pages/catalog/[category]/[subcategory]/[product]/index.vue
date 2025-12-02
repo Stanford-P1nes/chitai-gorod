@@ -1,19 +1,23 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import type { Product } from '~/types/product';
 import { storeToRefs } from 'pinia';
 import { useProductStore } from '~/stores/products';
 import { useReviewStore } from '~/stores/reviews';
 import { useDialog } from '~/composables/useDialog';
 import { useCartStore } from '~/stores/cart';
 import { useFavoritesStore } from '~/stores/favorites';
+import { useBadgeStore } from '~/stores/badge';
 
 const cartSore = useCartStore();
 const favoritesStore = useFavoritesStore();
-const { openDialog } = useDialog();
+const badgeStore = useBadgeStore();
 
+const { openDialog } = useDialog();
 const { toggleItem, isInCart } = cartSore;
 const { toggle, isInFavorite } = favoritesStore;
+const { showBadge } = badgeStore;
 
 const route = useRoute();
 const productId = Number(route.params.product);
@@ -36,6 +40,16 @@ const product = computed(() => getById(productId));
 const reviews = computed(() => getByProductId(productId));
 
 const status = computed(() => getByStatus('exclusive'));
+
+function addToCart(product: Product) {
+    toggleItem(product);
+    showBadge('cart');
+}
+
+function addToFavorites(product: Product) {
+    toggle(product);
+    showBadge('favorites');
+}
 </script>
 
 <template>
@@ -170,16 +184,16 @@ const status = computed(() => getByStatus('exclusive'));
                                         :text="isInCart(product.id) ? 'Удалить' : 'Добавить'"
                                         :color="isInCart(product.id) ? 'active' : 'default'"
                                         class="product-card__button product-card__button--buy"
-                                        @click="toggleItem(product)"
+                                        @click="addToCart(product)"
                                     />
                                     <UiButton
                                         v-if="product"
                                         variant="secondary"
                                         :color="isInFavorite(product?.id) ? 'active' : 'default'"
-                                        @click="toggle(product)"
                                         src="/ico/like.svg"
                                         alt="Белая иконка закладка"
                                         class="product-card__button product-card__button--like"
+                                        @click="addToFavorites(product)"
                                     />
                                 </div>
                                 <div

@@ -3,12 +3,25 @@ import type { Product } from '~/types/product';
 import type { Loading } from '~/types/loading';
 import { useCartStore } from '~/stores/cart';
 import { useFavoritesStore } from '~/stores/favorites';
+import { useBadgeStore } from '~/stores/badge';
 
 const cartSore = useCartStore();
 const favoritesStore = useFavoritesStore();
+const badgeStore = useBadgeStore();
 
 const { toggleItem, isInCart } = cartSore;
 const { toggle, isInFavorite } = favoritesStore;
+const { showBadge } = badgeStore;
+
+function addToCart(product: Product) {
+    toggleItem(product);
+    showBadge('cart');
+}
+
+function addToFavorites(product: Product) {
+    toggle(product);
+    showBadge('favorites');
+}
 
 defineProps<{
     product: Product;
@@ -71,15 +84,15 @@ defineProps<{
                     :text="isInCart(product?.id) ? 'Удалить' : 'Добавить'"
                     :color="isInCart(product?.id) ? 'active' : 'default'"
                     class="product-card__button product-card__button--buy"
-                    @click="toggleItem(product)"
+                    @click="addToCart(product)"
                 />
                 <UiButton
                     variant="secondary"
                     :color="isInFavorite(product?.id) ? 'active' : 'default'"
                     src="/ico/like.svg"
-                    alt="Белая иконка закладка"
+                    alt="Избранное"
                     class="product-card__button product-card__button--like"
-                    @click="toggle(product)"
+                    @click="addToFavorites(product)"
                 />
             </div>
         </div>

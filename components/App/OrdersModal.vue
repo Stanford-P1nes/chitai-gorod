@@ -1,10 +1,18 @@
 <script setup>
+import { onMounted } from 'vue';
 import { useOrdersStore } from '~/stores/orders';
 import { storeToRefs } from 'pinia';
+import { useBadgeStore } from '~/stores/badge';
 
 const ordersStore = useOrdersStore();
+const badgeStore = useBadgeStore();
 
 const { orders } = storeToRefs(ordersStore);
+const { clearBadge } = badgeStore;
+
+onMounted(() => {
+    clearBadge('orders');
+});
 </script>
 
 <template>

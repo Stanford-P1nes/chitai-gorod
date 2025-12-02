@@ -2,15 +2,28 @@
 import { ref } from 'vue';
 import type { Control } from '~/types/control';
 import { controls } from '~/data/controls';
+import { storeToRefs } from 'pinia';
 import { useModal } from '~/composables/useModal';
+import { useBadgeStore } from '~/stores/badge';
+
+const badgeStore = useBadgeStore()
 
 const { isModalOpen, openModal, closeModal } = useModal();
+const { cart, favorites, orders } = storeToRefs(badgeStore)
 
 const totalCount = ref<number | null>(null);
 function controlClick(idx: Control['id'], name: Control['name']): void {
     const step = 100 / controls.length;
     totalCount.value = idx * step;
     openModal(name);
+}
+
+function hasBadge(name: Control['name']) {
+    // map control name to corresponding badge ref
+    if (name === 'cart') return !!cart.value;
+    if (name === 'favorites') return !!favorites.value;
+    if (name === 'orders') return !!orders.value;
+    return false;
 }
 </script>
 
@@ -33,6 +46,7 @@ function controlClick(idx: Control['id'], name: Control['name']): void {
                     class="controls__img"
                 />
             </div>
+            <AppBadge v-if="hasBadge(control.name)" />
         </button>
     </div>
 </template>
