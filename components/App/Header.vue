@@ -79,6 +79,10 @@ const { toggleSidebar } = useSidebar();
         @include LampEffect($overflow: visible);
         border-top: none;
         border-radius: 0 0 24px 24px;
+
+        @include media(mobile) {
+            @include LampEffect($radius: 0);
+        }
     }
 
     &__top {

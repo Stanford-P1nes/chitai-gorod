@@ -351,11 +351,18 @@ function addToFavorites(product: Product) {
 
 <style scoped lang="scss">
 .product-detail-page {
+    width: 100%;
     &__main {
         display: grid;
         column-gap: 48px;
         row-gap: 20px;
         grid-template-columns: 250px 1fr 300px;
+
+        @include media(tablet) {
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 20px;
+            row-gap: 15px;
+        }
     }
 
     &__title-wrapper {
@@ -388,6 +395,11 @@ function addToFavorites(product: Product) {
         display: flex;
         flex-direction: column;
         gap: $gap-3x;
+
+        @include media(laptop) {
+            grid-column: 1/2;
+            grid-row: 5;
+        }
     }
 
     &__description {
@@ -398,14 +410,29 @@ function addToFavorites(product: Product) {
     &__offer {
         grid-column: span 1;
         grid-row: span 2;
+
+        @include media(laptop) {
+            grid-column: 3/4;
+            grid-row: 4;
+        }
+
+        @include media(tablet) {
+            grid-column: 2/4;
+        }
     }
 
     &__reviews {
         grid-column: span 2;
+        @include media(laptop) {
+            grid-column: span 3;
+        }
     }
 
     &__product-properties {
         grid-column: span 2;
+        @include media(laptop) {
+            grid-column: span 3;
+        }
     }
 }
 
@@ -425,6 +452,7 @@ function addToFavorites(product: Product) {
 }
 
 .product-media {
+    width: 100%;
     &__preview {
         margin-bottom: 20px;
         user-select: none;

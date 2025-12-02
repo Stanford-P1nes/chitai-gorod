@@ -394,7 +394,6 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
         font-weight: 500;
         font-size: $font-size-7x;
         line-height: $line-height-8x;
-        text-wrap: nowrap;
     }
 
     &__see-all {

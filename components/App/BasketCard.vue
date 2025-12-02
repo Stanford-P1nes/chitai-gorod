@@ -30,8 +30,8 @@ defineProps<{
         </div>
         <div class="basket-card__content">
             <div class="basket-card__description">
-                <p class="product-card__title">{{ product?.name }}</p>
-                <p class="product-card__subtitle">{{ product?.author }}</p>
+                <p class="basket-card__title">{{ product?.name }}</p>
+                <p class="basket-card__subtitle">{{ product?.author }}</p>
             </div>
             <div class="basket-card__info">
                 <div class="basket-card__cost">
@@ -64,6 +64,7 @@ defineProps<{
 
 <style scoped lang="scss">
 .basket-card {
+    position: relative;
     width: 100%;
     height: 125px;
     display: flex;
@@ -73,7 +74,8 @@ defineProps<{
         position: relative;
         width: 100px;
         height: 100%;
-        @include LampEffect($radius: $radius-2x);
+        z-index: 100;
+        @include LampEffect($radius: $radius-2x, $overflow: visable);
     }
 
     &__link {
@@ -90,12 +92,14 @@ defineProps<{
     }
 
     &__content {
+        position: relative;
         width: 100%;
         height: 100%;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
         padding: 0 20px;
+        z-index: 1000;
     }
 
     &__description {
@@ -127,6 +131,7 @@ defineProps<{
     &__subtitle {
         font-size: $font-size-2x;
         line-height: $line-height-3x;
+        color: $color-darkgray;
     }
 
     &__info {

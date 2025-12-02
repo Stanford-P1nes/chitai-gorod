@@ -30,7 +30,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
             <ClientOnly>
                 <swiper-container
                     ref="bannersSwiper"
-                    class="main-banners common-main-banners__main-banners"
+                    class="main-banners common-main-banners__main-banner"
                     style="--swiper-theme-color: #2e2e2e"
                 >
                     <UiSkeleton
@@ -52,31 +52,30 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
                         />
                     </swiper-slide>
                 </swiper-container>
-                <button
-                    v-if="bannerData.length > 1"
-                    class="swiper-basic-button swiper-basic-button--left"
-                    @click="bannerSwiperInstance.prev()"
-                >
-                    <img
-                        src="/ico/arrow.svg"
-                        alt="Стрелка направо"
-                        class="swiper-basic-button__img swiper-basic-button__img--left"
-                    />
-                </button>
-                <button
-                    v-if="bannerData.length > 1"
-                    class="swiper-basic-button swiper-basic-button--right"
-                    @click="bannerSwiperInstance.next()"
-                >
-                    <img
-                        src="/ico/arrow.svg"
-                        alt="Стрелка направо"
-                        class="swiper-basic-button__img swiper-basic-button__img--right"
-                    />
-                </button>
+                <template v-if="bannerData.length > 1">
+                    <button
+                        class="swiper-basic-button swiper-basic-button--left"
+                        @click="bannerSwiperInstance.prev()"
+                    >
+                        <img
+                            src="/ico/arrow.svg"
+                            alt="Стрелка направо"
+                            class="swiper-basic-button__img swiper-basic-button__img--left"
+                        />
+                    </button>
+                    <button
+                        class="swiper-basic-button swiper-basic-button--right"
+                        @click="bannerSwiperInstance.next()"
+                    >
+                        <img
+                            src="/ico/arrow.svg"
+                            alt="Стрелка направо"
+                            class="swiper-basic-button__img swiper-basic-button__img--right"
+                        />
+                    </button>
+                </template>
             </ClientOnly>
         </div>
-
         <div class="main-mini-banners common-main-banners__main-mini-banners">
             <div class="main-mini-banners__banner">
                 <div class="main-mini-banners__banner-wrapper">
@@ -135,59 +134,37 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
     display: flex;
     justify-content: center;
     gap: $gap-6x;
-
-    @include media(desktop) {
-        flex-direction: column;
-    }
+    flex-direction: column;
 
     &__slider-wrapper {
-        flex-grow: 6;
         position: relative;
         display: flex;
         justify-content: center;
-    }
-
-    &__main-mini-banners {
-        flex-grow: 1;
     }
 }
 
 .main-banners {
     height: 400px;
-    max-width: 748px;
+    width: 100%;
     @include LampEffect($radius: $radius-3x);
-    @include media(desktop) {
-        max-width: none;
-    }
 
     &__img {
-        user-select: none;
-        width: 100%;
         height: 100%;
+        user-select: none;
     }
 }
 
 .main-mini-banners {
     display: flex;
-    align-items: center;
-    flex-direction: column;
     gap: $gap-5x;
-
-    @include media(desktop) {
-        flex-direction: row;
+    @include media(tablet) {
+        display: none;
     }
 
     &__banner {
         width: 100%;
-        height: 100%;
         padding: $padding-4x;
         @include LampEffect($radius: $radius-3x);
-    }
-
-    &__banner-information {
-        @include media(laptop) {
-            display: none;
-        }
     }
 
     &__banner-wrapper {
@@ -219,6 +196,9 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
         min-width: 53px;
         min-height: 53px;
         @include LampEffect($radius: $radius-2x);
+        @include media(laptop) {
+            display: none;
+        }
     }
 
     &__img {

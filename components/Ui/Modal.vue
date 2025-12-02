@@ -48,6 +48,12 @@ const { isModalOpen, modalContent, closeModal } = useModal();
     @include LampEffect;
     z-index: 9000;
 
+    @include media(mobile) {
+        left: calc(50% - 100% / 2);
+        width: 100%;
+        @include LampEffect($radius: 0);
+    }
+
     &__button-close {
         position: absolute;
         right: $padding-6x;

@@ -32,12 +32,11 @@ function toggleClick(e: any): void {
                     <UiButton
                         :text="category.title"
                         color="active"
-                        class="sidebar__button"
                     />
 
                     <ul
                         v-if="click === category.id"
-                        class='sidebar__wrapper sidebar__wrapper--inner'
+                        class="sidebar__wrapper sidebar__wrapper--inner"
                     >
                         <li
                             v-for="(child, idx) in category.children"
@@ -48,7 +47,7 @@ function toggleClick(e: any): void {
                             <router-link :to="`/catalog/${category.slug}/${child.slug}/`">
                                 <UiButton
                                     :text="child.title"
-                                    color='active'
+                                    color="active"
                                     @click="closeSidebar"
                                 />
                             </router-link>
@@ -56,6 +55,7 @@ function toggleClick(e: any): void {
                     </ul>
                 </li>
             </ul>
+
             <UiButton
                 variant="secondary"
                 src="/ico/close.svg"
@@ -89,21 +89,24 @@ function toggleClick(e: any): void {
     margin: 10px;
     z-index: 10000;
 
-    @include media(laptop) {
-        width: 400px;
-    }
-
     @include media(tablet) {
         width: 100%;
         margin: 0;
-        @include LampEffect($radius: 0, $overflow: visible);
+        @include LampEffect($radius: 0);
     }
 
     &__wrapper {
+        max-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
         padding: $padding-4x;
         display: flex;
         flex-direction: column;
         gap: $gap-2x;
+
+        @include media(tablet) {
+            padding: $padding-2x;
+        }
 
         &--inner {
             padding: 0;
@@ -121,17 +124,24 @@ function toggleClick(e: any): void {
 
         &--upper {
             display: flex;
-        }
-    }
+            gap: 10px;
 
-    &__button {
-        margin-right: 8px;
+            @include media(tablet) {
+                flex-direction: column;
+            }
+        }
     }
 
     &__button-close {
         position: absolute;
         top: 0;
-        left: 101%;
+        right: -50px;
+
+        @include media(tablet) {
+            padding: $padding-2x;
+            top: 10px;
+            right: 10px;
+        }
     }
 
     @keyframes surfer {

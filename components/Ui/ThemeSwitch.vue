@@ -2,7 +2,7 @@
 const colorMode = useColorMode();
 
 const toggleTheme = () => {
-    colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark';
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
 };
 </script>
 
@@ -13,7 +13,7 @@ const toggleTheme = () => {
     >
         <div
             class="theme-switch__item theme-switch__item--light"
-            :class="{ 'theme-switch__item--light-active': colorMode.preference === 'light' }"
+            :class="{ 'theme-switch__item--light-active': colorMode.value === 'light' }"
         >
             <img
                 src="/ico/light-mode.svg"
@@ -23,7 +23,7 @@ const toggleTheme = () => {
         </div>
         <div
             class="theme-switch__item theme-switch__item--dark"
-            :class="{ 'theme-switch__item--dark-active': colorMode.preference === 'dark' }"
+            :class="{ 'theme-switch__item--dark-active': colorMode.value === 'dark' }"
         >
             <img
                 src="/ico/dark-mode.svg"
@@ -37,8 +37,9 @@ const toggleTheme = () => {
 <style scoped lang="scss">
 .theme-switch {
     position: relative;
-    width: 30px;
-    height: 30px;
+    max-width: 30px;
+    min-width: 30px;
+    aspect-ratio: 1;
     @include LampEffect($radius: $radius-5x);
     border-radius: $radius-5x;
 

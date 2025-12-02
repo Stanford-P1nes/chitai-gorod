@@ -54,6 +54,10 @@ img {
     gap: $gap-7x;
     @include LampEffect;
     padding: $padding-6x;
+
+    @include media(mobile) {
+        @include LampEffect($radius: 0);
+    }
 }
 
 .container {
@@ -68,30 +72,36 @@ img {
     @include media(tablet) {
         padding: 0px $padding-2x;
     }
+
+    @include media(mobile) {
+        padding: 0;
+    }
 }
 
 .swiper-basic-button {
     position: absolute;
     width: 64px;
     height: 64px;
-    z-index: 1000;
     @include LampEffect($radius: $radius-2x);
     background: $color-active-blue;
     transition: transform 0.1s ease;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+
+    @include media(tablet) {
+        display: none;
+    }
 
     &:active {
         transform: scale3d(1.2, 0.9, 2) translateY(-55%);
     }
 
     &--left {
-        top: 50%;
-        transform: translateY(-50%);
         left: 10px;
     }
 
     &--right {
-        top: 50%;
-        transform: translateY(-50%);
         right: 10px;
     }
 
