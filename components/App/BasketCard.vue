@@ -21,7 +21,7 @@ defineProps<{
             <img
                 class="basket-card__image"
                 :src="product?.img"
-                :alt="product?.alt"
+                :alt="product?.name"
             />
             <nuxt-link
                 :to="`/catalog/${product.category}/${product.subcategory}/${product.id}`"

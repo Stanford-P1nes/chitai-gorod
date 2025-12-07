@@ -11,7 +11,7 @@ defineProps<{
         <div class='content-card__image-wrapper'>
             <img
                 :src="contentCard.img"
-                :alt="contentCard.alt"
+                :alt="contentCard.subtitle"
                 class="content-card__image"
             />
         </div>

@@ -42,7 +42,7 @@ defineProps<{
         >
             <img
                 :src="product.img"
-                :alt="product.alt"
+                :alt="product?.name"
                 class="product-card__img"
             />
             <nuxt-link

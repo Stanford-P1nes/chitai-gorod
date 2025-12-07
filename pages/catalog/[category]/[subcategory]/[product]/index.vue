@@ -88,14 +88,14 @@ function addToFavorites(product: Product) {
                                 </span>
                             </div>
                         </div>
-                        <div class="go-to-reviews-button">
+                        <div class="go-to-section-button">
                             <UiButton
                                 :text="`${reviews?.length} отзывов`"
                                 color="active"
                             />
                             <nuxt-link
                                 to="#REVIEWS"
-                                class="go-to-reviews-button__link"
+                                class="go-to-section-button__link"
                             />
                         </div>
                     </div>
@@ -158,10 +158,14 @@ function addToFavorites(product: Product) {
                     <p class="product-detail-page__description">
                         {{ product?.description }}
                     </p>
-                    <div class="product-detail-page__short-buttons">
+                    <div class="go-to-section-button">
                         <UiButton
                             text="Перейти к характеристикам"
                             color="active"
+                        />
+                        <nuxt-link
+                            to="#PROPERTIES"
+                            class="go-to-section-button__link"
                         />
                     </div>
                 </div>
@@ -292,7 +296,7 @@ function addToFavorites(product: Product) {
                         />
                     </footer> -->
                 </div>
-                <ul class="product-properties product-detail-page__product-properties">
+                <ul id='PROPERTIES' class="product-properties product-detail-page__product-properties">
                     <li class="product-properties-item">
                         <span class="product-properties-item__title">Тип обложки</span
                         ><span class="product-properties-item__content">{{
@@ -547,8 +551,7 @@ function addToFavorites(product: Product) {
 }
 
 .product-rating-detail {
-    @include LampEffect($radius: $radius-2x);
-    padding: $padding-5x $padding-6x;
+    padding: $padding-5x 0;
     margin-bottom: 16px;
 
     &__header {
@@ -616,7 +619,7 @@ function addToFavorites(product: Product) {
     }
 }
 
-.go-to-reviews-button {
+.go-to-section-button {
     position: relative;
 
     &__link {

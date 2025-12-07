@@ -32,7 +32,7 @@ defineProps<{
             <img
                 class="product-card-mini_image"
                 :src="product?.img"
-                :alt="product?.alt"
+                :alt="product?.name"
             />
             <UiButton
                 variant="secondary"

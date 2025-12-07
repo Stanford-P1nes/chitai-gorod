@@ -48,7 +48,7 @@ const contentsPerView = computed(() => {
     return 3;
 });
 
-// PINIA
+// PRODUCT STORE
 
 const store = useProductStore();
 
