@@ -1,11 +1,13 @@
 import type { Product } from '../types/product';
 import { ref, nextTick } from 'vue';
 import { defineStore } from 'pinia';
-import { useFetch } from '#imports';
+import { useSupabase } from '~/composables/useSupabase';
+import { transformKeysToCamel } from '~/utils/transformKeys';
 
 export const useProductStore = defineStore('products', () => {
-    const productsData = ref<Product[]>([]);
-    const loading = ref<boolean>(false);
+    const { supabase } = useSupabase();
+    const products = ref<Product[]>([]);
+    const loading = ref(false);
 
     async function loadingProducts() {
         loading.value = true;
@@ -13,29 +15,9 @@ export const useProductStore = defineStore('products', () => {
         await nextTick();
 
         try {
-            // console.log('Загрузка продуктов...');
+            const { data, error } = await supabase.from('products').select('*');
 
-            const { data, error } = await useFetch<Product[]>('/api/products', {
-                key: 'products',
-                server: false,
-            });
-
-            // await new Promise(resolve => setTimeout(resolve, 2000));
-
-            // console.log('Необработанный ответ:', { data, error });
-
-            if (error.value) {
-                console.error('Ошибка при получении данных:', error.value);
-                return;
-            }
-
-            if (data.value) {
-                productsData.value = data.value;
-                // console.log('Ответ:', { data: data.value, error });
-                // console.log('Загруженные продукты:', productsData.value);
-            } else {
-                console.warn('Никакие данные не получены от API');
-            }
+            if (!error) products.value = transformKeysToCamel<Product[]>(data);
         } catch (error) {
             console.log('Произошла ошибка во время получения данных: ', error);
             return [];
@@ -48,7 +30,7 @@ export const useProductStore = defineStore('products', () => {
         category?: Product['category'];
         subcategory?: Product['subcategory'];
     }) {
-        return productsData.value.filter(el => {
+        return products.value.filter(el => {
             return (
                 (!params.category || el.category === params.category) &&
                 (!params.subcategory || el.subcategory === params.subcategory)
@@ -58,22 +40,22 @@ export const useProductStore = defineStore('products', () => {
 
     function getByStatus(status: Product['status']) {
         if (!status) return [];
-        return productsData.value.filter(el => el.status === status);
+        return products.value.filter(el => el.status === status);
     }
 
     function getBySearch(searchProduct: string): Product[] {
         const q = String(searchProduct).trim().toLowerCase();
         if (!q) return [];
-        return productsData.value.filter(el => (el.name ?? '').toLowerCase().includes(q));
+        return products.value.filter(el => (el.name ?? '').toLowerCase().includes(q));
     }
-    
+
     function getById(id: number) {
         if (id == null || Number.isNaN(id)) return undefined;
-        return productsData.value.find(p => p.id === id);
+        return products.value.find(p => p.id === id);
     }
 
     return {
-        productsData,
+        products,
         loading,
         loadingProducts,
         getByCategory,
