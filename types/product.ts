@@ -5,7 +5,6 @@ export interface Product {
     id: number;
     img: string;
     covers: any;
-    alt: string;
     price: number;
     oldPrice: number;
     currency: string;
@@ -17,7 +16,6 @@ export interface Product {
     characteristics: string;
     rating: Rating;
     status?: ProductStatus;
-    to: string;
     category: string;
     subcategory: string;
     availability: boolean;
