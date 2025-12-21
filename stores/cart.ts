@@ -39,5 +39,4 @@ export const useCartStore = defineStore(
 
         return { items, addItem, removeItem, toggleItem, isInCart, clear };
     },
-    // { persist: true },
 );
