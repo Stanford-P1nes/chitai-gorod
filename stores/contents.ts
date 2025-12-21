@@ -1,33 +1,46 @@
+import type { Content } from '~/types/content';
+import { contents } from '~/data/contents';
 import { defineStore } from 'pinia';
 import { ref, nextTick } from 'vue';
-import type { Content } from '~/types/content';
 import { useSupabase } from '~/composables/useSupabase';
 import { transformKeysToCamel } from '~/utils/transformKeys';
 
 export const useContentStore = defineStore('contents', () => {
     const { supabase } = useSupabase();
-    const contents = ref<Content[]>([]);
-    const loadingContent = ref(false);
+    const contentsData = ref<Content[]>([]);
+    const loadingContents = ref(false);
+
+    function setFallbackContents() {
+        contentsData.value = contents;
+    }
 
     async function getContents() {
-        loadingContent.value = true;
+        loadingContents.value = true;
 
         nextTick();
 
         try {
-            const { data, error } = await supabase.from('contents').select('*');
+            const { data, error } = await supabase.from('contents').select<Content[]>('*');
 
-            if (!error) contents.value = transformKeysToCamel<Content[]>(data);
+            if (error) {
+                console.error('Supabase error: ', error);
+                setFallbackContents();
+                return;
+            }
+
+            contentsData.value = transformKeysToCamel<Content[]>(data);
         } catch (error) {
-            console.log('Произошла ошибка во время получения данных: ', error);
+            console.error('Произошла ошибка во время получения данных: ', error);
+
+            setFallbackContents();
         } finally {
-            loadingContent.value = false;
+            loadingContents.value = false;
         }
     }
 
     return {
-        contents,
-        loadingContent,
+        contentsData,
+        loadingContents,
         getContents,
     };
 });
