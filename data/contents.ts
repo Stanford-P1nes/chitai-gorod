@@ -1,6 +1,6 @@
 import type { Content } from '~/types/content';
 
-export const contentCards: Content[] = [
+export const contents: Content[] = [
     {
         id: 0,
         img: '/images/contents/Автор-1.webp',
