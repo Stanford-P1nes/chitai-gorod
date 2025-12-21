@@ -11,5 +11,5 @@ export interface Review {
     rating: Rating;
     verifiedPurchase: boolean;
     created_at: string;
-    updated_at?: string | null;
+    updated_at: string;
 }

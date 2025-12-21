@@ -1,39 +1,50 @@
 import type { Review } from '~/types/review';
+import { reviews } from '~/data/reviews';
 import { ref, nextTick } from 'vue';
 import { defineStore } from 'pinia';
-import { useFetch } from '#imports';
 import { useSupabase } from '~/composables/useSupabase';
 import { transformKeysToCamel } from '~/utils/transformKeys';
 
-export const useReviewStore = defineStore('review', () => {
-    const { supabase } = useSupabase()
+export const useReviewStore = defineStore('reviews', () => {
+    const { supabase } = useSupabase();
     const reviewsData = ref<Review[]>([]);
-    const loadingReview = ref<boolean>(false);
+    const loadingReview = ref(false);
 
-    async function fetchReviews() {
+    function setFallbackReviews() {
+        reviewsData.value = reviews;
+    }
+
+    async function getReviews() {
         loadingReview.value = true;
         await nextTick();
 
         try {
-            const { data, error } = await supabase.from('reviews').select('*')
-            
-            if ( !error ) reviewsData.value = transformKeysToCamel<Review[]>(data);
+            const { data, error } = await supabase.from('reviews').select<Review[]>('*');
+
+            if (error) {
+                console.error('Supabase error: ', error);
+                setFallbackReviews();
+                return;
+            }
+
+            reviewsData.value = transformKeysToCamel<Review[]>(data);
         } catch (error) {
-            console.log('Произошла ошибка во время получения данных: ', error);
-            return [];
+            console.error('Произошла ошибка во время получения данных: ', error);
+            
+            setFallbackReviews();
         } finally {
             loadingReview.value = false;
         }
     }
 
-    function getByProductId (productId: number) {
-        return reviewsData.value.filter(review => review.productId === productId)
+    function getByProductId(productId: number) {
+        return reviewsData.value.filter(review => review.productId === productId);
     }
 
     return {
         reviewsData,
         loadingReview,
-        fetchReviews,
+        getReviews,
         getByProductId,
     };
 });
