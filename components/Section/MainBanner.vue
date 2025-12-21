@@ -7,7 +7,7 @@ import { useBannerStore } from '~/stores/banners';
 const bannerStore = useBannerStore();
 
 // BANNERS
-const { banners, loadingBanner } = storeToRefs(bannerStore)
+const { bannersData, loadingBanners } = storeToRefs(bannerStore)
 const { getBanners } = bannerStore
 
 onMounted(async () => {
@@ -40,13 +40,13 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
                     style="--swiper-theme-color: #2e2e2e"
                 >
                     <UiSkeleton
-                        v-if="loadingBanner"
+                        v-if="loadingBanners"
                         width="745px"
                         height="400px"
                     />
                     <swiper-slide
                         v-else
-                        v-for="banner in banners"
+                        v-for="banner in bannersData"
                         :key="banner.id"
                         class="main-banners__slide"
                         :title="banner.title"
@@ -58,7 +58,7 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
                         />
                     </swiper-slide>
                 </swiper-container>
-                <template v-if="banners.length > 1">
+                <template v-if="bannersData.length > 1">
                     <button
                         class="swiper-basic-button swiper-basic-button--left"
                         @click="bannerSwiperInstance.prev()"

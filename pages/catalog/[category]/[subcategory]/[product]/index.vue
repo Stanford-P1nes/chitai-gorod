@@ -25,15 +25,15 @@ const productId = Number(route.params.product);
 const productStore = useProductStore();
 const reviewStore = useReviewStore();
 
-const { loading } = storeToRefs(productStore);
-const { loadingProducts, getByStatus, getById } = productStore;
+const { loadingProducts } = storeToRefs(productStore);
+const { getProducts, getByStatus, getById } = productStore;
 
-const { loadingReview, reviewsData } = storeToRefs(reviewStore);
-const { fetchReviews, getByProductId } = reviewStore;
+const { loadingReviews, reviewsData } = storeToRefs(reviewStore);
+const { getReviews, getByProductId } = reviewStore;
 
 onMounted(async () => {
-    await loadingProducts();
-    await fetchReviews();
+    await getProducts();
+    await getReviews();
 });
 
 const product = computed(() => getById(productId));
@@ -58,7 +58,7 @@ function addToFavorites(product: Product) {
             <div class="product-detail-page__main">
                 <section class="product-detail-page__title-wrapper">
                     <UiSkeleton
-                        v-if="loading"
+                        v-if="loadingProducts"
                         width="200px"
                         height="32px"
                     />
@@ -108,7 +108,7 @@ function addToFavorites(product: Product) {
                     <div class="product-media">
                         <div class="product-media__preview">
                             <UiSkeleton
-                                v-if="loading"
+                                v-if="loadingProducts"
                                 width="248px"
                                 height="427px"
                             />
@@ -120,7 +120,7 @@ function addToFavorites(product: Product) {
                         </div>
                         <ul class="product-media__thumbnails">
                             <UiSkeleton
-                                v-if="loading"
+                                v-if="loadingProducts"
                                 width="60px"
                                 height="60px"
                                 v-for="item in 4"
@@ -253,7 +253,7 @@ function addToFavorites(product: Product) {
                                 <div class="review-item__body">
                                     <div class="review-item__author">
                                         <strong class="review-item__author">
-                                            {{ review?.author }}
+                                            {{ review?.authorName || 'Аноним' }}
                                         </strong>
                                     </div>
                                     <div class="rating">

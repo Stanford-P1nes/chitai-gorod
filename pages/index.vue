@@ -52,19 +52,19 @@ const contentsPerView = computed(() => {
 
 const productStore = useProductStore();
 
-const { loading } = storeToRefs(productStore);
+const { loadingProducts } = storeToRefs(productStore);
 
-const { loadingProducts, getByStatus } = productStore;
+const { getProducts, getByStatus } = productStore;
 
 onMounted(async () => {
-    await loadingProducts();
+    await getProducts();
 });
 
 // CONTENT STORE
 
 const contentStore = useContentStore()
 
-const { contents, loadingContent } = storeToRefs(contentStore)
+const { contentsData, loadingContents } = storeToRefs(contentStore)
 
 const { getContents } = contentStore
 
@@ -156,7 +156,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         >
                             <AppProductCard
                                 :product="product"
-                                :loading="loading"
+                                :loading="loadingProducts"
                             />
                         </swiper-slide>
                     </swiper-container>
@@ -217,7 +217,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         >
                             <AppProductCard
                                 :product="product"
-                                :loading="loading"
+                                :loading="loadingProducts"
                             />
                         </swiper-slide>
                     </swiper-container>
@@ -278,7 +278,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         >
                             <AppProductCard
                                 :product="product"
-                                :loading="loading"
+                                :loading="loadingProducts"
                             />
                         </swiper-slide>
                     </swiper-container>
@@ -333,15 +333,15 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         :space-between="slidesPerGap"
                     >
                         <swiper-slide
-                            v-if="contents.length"
-                            v-for="content in contents"
+                            v-if="contentsData.length"
+                            v-for="content in contentsData"
                             :key="content.id"
                         >
-                            <AppContentCard :content="content" :loading='loadingContent' />
+                            <AppContentCard :content="content" :loading='loadingContents' />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="contents.length > contentsPerView">
+                    <template v-if="contentsData.length > contentsPerView">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="contentSwiperInstance.prev()"

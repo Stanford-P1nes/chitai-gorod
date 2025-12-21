@@ -9,10 +9,10 @@ const category = route.params.category as string;
 const subcategory = route.params.subcategory as string;
 
 const store = useProductStore();
-const { loading } = storeToRefs(store);
-const { loadingProducts, getByCategory } = store;
+const { loadingProducts } = storeToRefs(store);
+const { getProducts, getByCategory } = store;
 
-onMounted(async () => await loadingProducts());
+onMounted(async () => await getProducts());
 
 const products = computed(() =>
     getByCategory({ category, subcategory })
@@ -25,7 +25,7 @@ const products = computed(() =>
             v-for="product in products"
             :key="product.id"
             :product="product"
-            :loading="loading"
+            :loading="loadingProducts"
         />
     </SectionProductGrid>
 </template>

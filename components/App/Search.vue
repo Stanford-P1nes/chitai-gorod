@@ -4,11 +4,11 @@ import { storeToRefs } from 'pinia'
 import { useProductStore } from '~/stores/products';
 
 const store = useProductStore();
-const { loading } = storeToRefs(store);
-const { getBySearch, loadingProducts } = store;
+const { loadingProducts } = storeToRefs(store);
+const { getBySearch, getProducts } = store;
 
 onMounted(async () => {
-    await loadingProducts();
+    await getProducts();
 });
 
 const searchProduct = ref('');
@@ -50,7 +50,7 @@ function handleSubmit(event: any) {
                 v-for="product in products" 
                 :key="product.id"
                 :product='product' 
-                :loading='loading'
+                :loading='loadingProducts'
             />
         </div>
     </div>
