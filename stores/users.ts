@@ -19,7 +19,7 @@ export const useUsersStore = defineStore('users', () => {
         };
 
         try {
-            const { data, error } = await supabase.from('users').select<User[]>('*');
+            const { data, error } = await supabase.from('users').select('*');
 
             if (error) {
                 console.error('Supabase error:', error);

@@ -8,18 +8,18 @@ import { transformKeysToCamel } from '~/utils/transformKeys';
 export const useReviewStore = defineStore('reviews', () => {
     const { supabase } = useSupabase();
     const reviewsData = ref<Review[]>([]);
-    const loadingReview = ref(false);
+    const loadingReviews = ref(false);
 
     function setFallbackReviews() {
         reviewsData.value = reviews;
     }
 
     async function getReviews() {
-        loadingReview.value = true;
+        loadingReviews.value = true;
         await nextTick();
 
         try {
-            const { data, error } = await supabase.from('reviews').select<Review[]>('*');
+            const { data, error } = await supabase.from('reviews').select('*');
 
             if (error) {
                 console.error('Supabase error: ', error);
@@ -33,7 +33,7 @@ export const useReviewStore = defineStore('reviews', () => {
             
             setFallbackReviews();
         } finally {
-            loadingReview.value = false;
+            loadingReviews.value = false;
         }
     }
 
@@ -43,7 +43,7 @@ export const useReviewStore = defineStore('reviews', () => {
 
     return {
         reviewsData,
-        loadingReview,
+        loadingReviews,
         getReviews,
         getByProductId,
     };

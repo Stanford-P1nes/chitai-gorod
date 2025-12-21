@@ -20,7 +20,7 @@ export const useProductStore = defineStore('products', () => {
         await nextTick();
 
         try {
-            const { data, error } = await supabase.from('products').select<Product[]>('*');
+            const { data, error } = await supabase.from('products').select('*');
 
             if (error) {
                 console.error('Supabase error: ', error);

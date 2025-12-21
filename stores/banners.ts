@@ -8,19 +8,19 @@ import { transformKeysToCamel } from '~/utils/transformKeys';
 export const useBannerStore = defineStore('banners', () => {
     const { supabase } = useSupabase();
     const bannersData = ref<Banner[]>([]);
-    const loadingBanner = ref(false);
+    const loadingBanners = ref(false);
 
     function setFallbackContents() {
         bannersData.value = banners;
     }
 
     async function getBanners() {
-        loadingBanner.value = true;
+        loadingBanners.value = true;
 
         nextTick();
 
         try {
-            const { data, error } = await supabase.from('banners').select<Banner[]>('*');
+            const { data, error } = await supabase.from('banners').select('*');
 
             if (error) {
                 console.error('Supabase error: ', error);
@@ -34,13 +34,13 @@ export const useBannerStore = defineStore('banners', () => {
 
             setFallbackContents();
         } finally {
-            loadingBanner.value = false;
+            loadingBanners.value = false;
         }
     }
 
     return {
         bannersData,
-        loadingBanner,
+        loadingBanners,
         getBanners,
     };
 });

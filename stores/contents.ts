@@ -20,7 +20,7 @@ export const useContentStore = defineStore('contents', () => {
         nextTick();
 
         try {
-            const { data, error } = await supabase.from('contents').select<Content[]>('*');
+            const { data, error } = await supabase.from('contents').select('*');
 
             if (error) {
                 console.error('Supabase error: ', error);
