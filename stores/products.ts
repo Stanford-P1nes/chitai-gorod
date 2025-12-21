@@ -1,6 +1,6 @@
-import type { Product } from '../types/product';
-import { ref, nextTick } from 'vue';
 import { defineStore } from 'pinia';
+import { ref, nextTick } from 'vue';
+import type { Product } from '../types/product';
 import { useSupabase } from '~/composables/useSupabase';
 import { transformKeysToCamel } from '~/utils/transformKeys';
 

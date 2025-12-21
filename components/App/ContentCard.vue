@@ -1,26 +1,41 @@
 <script setup lang="ts">
-import type { ContentCard } from '~/types/contentCard';
+import type { Content } from '~/types/content';
+import type { Loading } from '~/types/loading';
 
 defineProps<{
-    contentCard: ContentCard;
+    content: Content;
+    loading: Loading;
 }>();
 </script>
 
 <template>
     <article class="content-card">
-        <div class='content-card__image-wrapper'>
+        <UiSkeleton
+            v-if="loading"
+            width="100%"
+            height="300px"
+        />
+        <div
+            v-else
+            class="content-card__image-wrapper"
+        >
             <img
-                :src="contentCard.img"
-                :alt="contentCard.subtitle"
+                :src="content.img"
+                :alt="content.title"
                 class="content-card__image"
             />
         </div>
-        <div class='content-card__content'>
-            <p class="content-card__title">{{ contentCard.title }}</p>
+        <UiSkeleton
+            v-if="loading"
+            width="100%"
+            height="100px"
+        />
+        <div class="content-card__content">
+            <p class="content-card__title">{{ content.title }}</p>
             <nuxt-link
-                :to="contentCard.link"
+                :to="content.to"
                 class="content-card__subtitle content-card__subtitle--absolute"
-                >{{ contentCard.subtitle }}</nuxt-link
+                >{{ content.subtitle }}</nuxt-link
             >
         </div>
     </article>

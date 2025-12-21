@@ -81,14 +81,13 @@ function handleSubmit(event: any) {
 
     &__cards {
         position: absolute;
-        width: 100%;
+        display: flex;
         top: 110%;
         left: 0;
         right: 0;
         padding: $padding-1x;
-        display: flex;
         gap: $gap-1x;
-        @include LampEffect($radius: $radius-2x, $overflow: auto);
+        @include LampEffect($radius: $radius-2x);
         overflow-y: hidden;
         overflow-x: auto;
     }

@@ -1,7 +1,7 @@
-export interface ContentCard {
+export interface Content {
     id: number;
     img: string;
     title: string;
     subtitle: string;
-    link: string;
+    to: string;
 }

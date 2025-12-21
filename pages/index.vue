@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useSwiper } from '#imports';
 import { onMounted, ref, computed, onUnmounted } from 'vue';
-import { contentCards } from '~/data/contentCards';
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
-import { useProductStore } from '~/stores/products';
 import type { Product } from '~/types/product';
+import { useProductStore } from '~/stores/products';
+import { useContentStore } from '~/stores/contents';
 
 const route = useRoute();
 
@@ -50,15 +50,28 @@ const contentsPerView = computed(() => {
 
 // PRODUCT STORE
 
-const store = useProductStore();
+const productStore = useProductStore();
 
-const { loading } = storeToRefs(store);
+const { loading } = storeToRefs(productStore);
 
-const { loadingProducts, getByStatus } = store;
+const { loadingProducts, getByStatus } = productStore;
 
 onMounted(async () => {
     await loadingProducts();
 });
+
+// CONTENT STORE
+
+const contentStore = useContentStore()
+
+const { contents, loadingContent } = storeToRefs(contentStore)
+
+const { getContents } = contentStore
+
+onMounted( async () => {
+    await getContents()
+})
+
 
 const getStatusNew = computed((): Product[] => getByStatus('new'));
 const getStatusExclusive = computed((): Product[] => getByStatus('exclusive'));
@@ -320,15 +333,15 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         :space-between="slidesPerGap"
                     >
                         <swiper-slide
-                            v-if="contentCards.length"
-                            v-for="contentCard in contentCards"
-                            :key="contentCard.id"
+                            v-if="contents.length"
+                            v-for="content in contents"
+                            :key="content.id"
                         >
-                            <AppContentCard :contentCard="contentCard" />
+                            <AppContentCard :content="content" :loading='loadingContent' />
                         </swiper-slide>
                     </swiper-container>
                     <!-- BUTTONS -->
-                    <template v-if="contentCards.length > contentsPerView">
+                    <template v-if="contents.length > contentsPerView">
                         <button
                             class="swiper-basic-button swiper-basic-button--left"
                             @click="contentSwiperInstance.prev()"

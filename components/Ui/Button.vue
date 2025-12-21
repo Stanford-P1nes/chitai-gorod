@@ -50,10 +50,10 @@ const props = withDefaults(defineProps<Props>(), {
     align-items: center;
     justify-content: center;
     height: max-content;
-
     font-weight: 400;
     font-size: $font-size-3x;
     line-height: $line-height-3x;
+    box-shadow: none !important;
 
     &:disabled {
         opacity: 0.6;

@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { useSwiper } from '#imports';
 import { onMounted, ref } from 'vue';
-import { banners } from '~/data/banners';
-import { useBanner } from '~/composables/useBanner';
+import { storeToRefs } from 'pinia';
+import { useBannerStore } from '~/stores/banners';
 
-const { bannerData, loading, fetchError, getBanner } = useBanner();
+const bannerStore = useBannerStore();
+
+// BANNERS
+const { banners, loadingBanner } = storeToRefs(bannerStore)
+const { getBanners } = bannerStore
 
 onMounted(async () => {
-    await getBanner();
+    await getBanners();
 });
+
+// SWIPER
 
 const bannersSwiper = ref(null);
 const bannerSwiperInstance = useSwiper(bannersSwiper, {
@@ -34,13 +40,13 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
                     style="--swiper-theme-color: #2e2e2e"
                 >
                     <UiSkeleton
-                        v-if="loading"
+                        v-if="loadingBanner"
                         width="745px"
                         height="400px"
                     />
                     <swiper-slide
                         v-else
-                        v-for="banner in bannerData"
+                        v-for="banner in banners"
                         :key="banner.id"
                         class="main-banners__slide"
                         :title="banner.title"
@@ -48,11 +54,11 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
                         <img
                             class="main-banners__img"
                             :src="banner.img"
-                            :alt="banner.alt"
+                            :alt="banner.title"
                         />
                     </swiper-slide>
                 </swiper-container>
-                <template v-if="bannerData.length > 1">
+                <template v-if="banners.length > 1">
                     <button
                         class="swiper-basic-button swiper-basic-button--left"
                         @click="bannerSwiperInstance.prev()"
