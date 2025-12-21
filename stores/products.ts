@@ -1,28 +1,40 @@
+import type { Product } from '../types/product';
+import { products } from '~/data/products';
 import { defineStore } from 'pinia';
 import { ref, nextTick } from 'vue';
-import type { Product } from '../types/product';
 import { useSupabase } from '~/composables/useSupabase';
 import { transformKeysToCamel } from '~/utils/transformKeys';
 
 export const useProductStore = defineStore('products', () => {
     const { supabase } = useSupabase();
-    const products = ref<Product[]>([]);
-    const loading = ref(false);
+    const productsData = ref<Product[]>([]);
+    const loadingProducts = ref(false);
 
-    async function loadingProducts() {
-        loading.value = true;
+    function setFallbackProducts() {
+        productsData.value = products;
+    }
+
+    async function getProducts() {
+        loadingProducts.value = true;
 
         await nextTick();
 
         try {
-            const { data, error } = await supabase.from('products').select('*');
+            const { data, error } = await supabase.from('products').select<Product[]>('*');
 
-            if (!error) products.value = transformKeysToCamel<Product[]>(data);
+            if (error) {
+                console.error('Supabase error: ', error);
+                setFallbackProducts();
+                return;
+            }
+
+            productsData.value = transformKeysToCamel<Product[]>(data);
         } catch (error) {
-            console.log('Произошла ошибка во время получения данных: ', error);
-            return [];
+            console.error('Произошла ошибка во время получения данных: ', error);
+            
+            setFallbackProducts();
         } finally {
-            loading.value = false;
+            loadingProducts.value = false;
         }
     }
 
@@ -30,7 +42,7 @@ export const useProductStore = defineStore('products', () => {
         category?: Product['category'];
         subcategory?: Product['subcategory'];
     }) {
-        return products.value.filter(el => {
+        return productsData.value.filter(el => {
             return (
                 (!params.category || el.category === params.category) &&
                 (!params.subcategory || el.subcategory === params.subcategory)
@@ -40,24 +52,24 @@ export const useProductStore = defineStore('products', () => {
 
     function getByStatus(status: Product['status']) {
         if (!status) return [];
-        return products.value.filter(el => el.status === status);
+        return productsData.value.filter(el => el.status === status);
     }
 
     function getBySearch(searchProduct: string): Product[] {
         const q = String(searchProduct).trim().toLowerCase();
         if (!q) return [];
-        return products.value.filter(el => (el.name ?? '').toLowerCase().includes(q));
+        return productsData.value.filter(el => (el.name ?? '').toLowerCase().includes(q));
     }
 
     function getById(id: number) {
         if (id == null || Number.isNaN(id)) return undefined;
-        return products.value.find(p => p.id === id);
+        return productsData.value.find(p => p.id === id);
     }
 
     return {
         products,
-        loading,
         loadingProducts,
+        getProducts,
         getByCategory,
         getByStatus,
         getBySearch,
