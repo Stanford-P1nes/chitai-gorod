@@ -2,7 +2,7 @@ import type { Review } from '~/types/review';
 
 export const reviews: Review[] = [
     {
-        id: 101,
+        id: 1,
         userId: 100000,
         productId: 1,
         authorName: 'Кассиан',
@@ -16,7 +16,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 102,
+        id: 2,
         userId: 100001,
         authorName: 'Аврелий',
         productId: 2,
@@ -29,7 +29,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 103,
+        id: 3,
         userId: 100002,
         productId: 3,
         authorName: 'Люциан',
@@ -42,7 +42,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 104,
+        id: 4,
         userId: 100003,
         productId: 4,
         authorName: 'Илларион',
@@ -55,7 +55,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 105,
+        id: 5,
         userId: 100004,
         productId: 5,
         authorName: 'Один',
@@ -69,7 +69,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 106,
+        id: 6,
         userId: 100005,
         productId: 6,
         authorName: 'Тимотей',
@@ -82,7 +82,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 107,
+        id: 7,
         userId: 100006,
         productId: 7,
         authorName: 'Елисей',
@@ -96,7 +96,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 108,
+        id: 8,
         userId: 100007,
         productId: 8,
         authorName: 'Демьян',
@@ -109,7 +109,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 109,
+        id: 9,
         userId: 100008,
         productId: 9,
         authorName: 'Макар',
@@ -122,7 +122,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 110,
+        id: 10,
         userId: 100009,
         productId: 10,
         authorName: 'Серафим',
@@ -135,7 +135,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 111,
+        id: 11,
         userId: 100010,
         productId: 11,
         authorName: 'Яромир',
@@ -148,7 +148,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 112,
+        id: 12,
         userId: 100011,
         productId: 12,
         authorName: 'Эмиль',
@@ -161,7 +161,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 113,
+        id: 13,
         userId: 100012,
         productId: 13,
         authorName: 'Аэлита',
@@ -175,7 +175,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 114,
+        id: 14,
         userId: 100013,
         productId: 14,
         authorName: 'Мирослава',
@@ -188,7 +188,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 115,
+        id: 15,
         userId: 100014,
         productId: 15,
         authorName: 'Есения',
@@ -201,7 +201,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 116,
+        id: 16,
         userId: 100015,
         productId: 16,
         authorName: 'Элиана',
@@ -214,7 +214,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 117,
+        id: 17,
         userId: 100016,
         productId: 17,
         authorName: 'Калина',
@@ -227,7 +227,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 118,
+        id: 18,
         userId: 100017,
         productId: 18,
         authorName: 'Мелания',
@@ -240,7 +240,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 119,
+        id: 19,
         userId: 100018,
         productId: 19,
         authorName: 'Таисья',
@@ -253,7 +253,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 120,
+        id: 20,
         userId: 100019,
         productId: 20,
         authorName: 'Снежана',
@@ -266,7 +266,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 121,
+        id: 21,
         userId: 100020,
         productId: 21,
         authorName: 'Аделина',
@@ -279,7 +279,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 122,
+        id: 22,
         userId: 100021,
         productId: 22,
         authorName: 'Василиса',
@@ -292,7 +292,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 123,
+        id: 23,
         userId: 100022,
         productId: 23,
         authorName: 'Эмилия',
@@ -305,7 +305,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 124,
+        id: 24,
         userId: 100023,
         productId: 24,
         authorName: 'Злата',
@@ -318,7 +318,7 @@ export const reviews: Review[] = [
         updated_at: '21.12.2025, 10:47:00',
     },
     {
-        id: 125,
+        id: 25,
         userId: 100024,
         productId: 25,
         authorName: 'Ульяна',
