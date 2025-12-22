@@ -16,8 +16,8 @@ const toggleTheme = () => {
             :class="{ 'theme-switch__item--light-active': colorMode.value === 'light' }"
         >
             <img
-                src="/ico/light-mode.svg"
-                alt="Лампочка"
+                src="/ico/dark-mode.svg"
+                alt="Луна"
                 class="theme-switch__icon"
             />
         </div>
@@ -26,8 +26,8 @@ const toggleTheme = () => {
             :class="{ 'theme-switch__item--dark-active': colorMode.value === 'dark' }"
         >
             <img
-                src="/ico/dark-mode.svg"
-                alt="Луна"
+                src="/ico/light-mode.svg"
+                alt="Лампочка"
                 class="theme-switch__icon"
             />
         </div>
@@ -40,8 +40,8 @@ const toggleTheme = () => {
     max-width: 30px;
     min-width: 30px;
     aspect-ratio: 1;
-    @include LampEffect($radius: $radius-5x);
-    border-radius: $radius-5x;
+    @include LampEffect($radius: $radius-3x);
+    border-radius: $radius-3x;
 
     &__item {
         position: absolute;

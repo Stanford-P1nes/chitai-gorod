@@ -118,7 +118,7 @@ function toggleClick(e: any): void {
 
     &__item {
         opacity: 0;
-        animation: surfer 0.5s ease forwards;
+        animation: surfer .2s ease forwards;
         animation-delay: calc(var(--i) * 0.1s);
         width: max-content;
 

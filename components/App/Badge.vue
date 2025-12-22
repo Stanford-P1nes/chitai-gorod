@@ -11,7 +11,7 @@
     height: 8px;
     aspect-ratio: 1;
     background-color: $color-red;
-    border-radius: $radius-5x;
+    border-radius: $radius-3x;
     z-index: 100;
 }
 </style>

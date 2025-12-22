@@ -60,8 +60,8 @@ const { isModalOpen, modalContent, closeModal } = useModal();
         top: $padding-6x;
         width: 35px;
         height: 35px;
-        border-radius: $radius-5x;
-        @include LampEffect($radius: $radius-5x);
+        border-radius: $radius-3x;
+        @include LampEffect($radius: $radius-3x);
     }
 }
 </style>

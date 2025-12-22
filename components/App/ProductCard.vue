@@ -125,6 +125,11 @@ defineProps<{
         width: 100%;
         height: 100%;
         user-select: none;
+        transition: all 1s ease;
+    }
+
+    &:hover &__img {
+        transform: scale(1.03);
     }
 
     &__content {

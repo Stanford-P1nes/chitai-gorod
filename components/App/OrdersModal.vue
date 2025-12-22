@@ -96,7 +96,7 @@ onMounted(() => {
         width: 8px;
         height: 8px;
         background-color: $color-white;
-        border-radius: $radius-5x;
+        border-radius: $radius-3x;
     }
 
     &__main {

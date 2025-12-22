@@ -153,6 +153,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                             v-if="getStatusNew.length"
                             v-for="product in getStatusNew"
                             :key="product.id"
+                            class='products-cards__swiper-slide'
                         >
                             <AppProductCard
                                 :product="product"
@@ -214,6 +215,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                             v-if="getStatusExclusive.length"
                             v-for="product in getStatusExclusive"
                             :key="product.id"
+                            class='products-cards__swiper-slide'
                         >
                             <AppProductCard
                                 :product="product"
@@ -275,6 +277,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                             v-if="getStatusRatings.length"
                             v-for="product in getStatusRatings"
                             :key="product.id"
+                            class='products-cards__swiper-slide'
                         >
                             <AppProductCard
                                 :product="product"
@@ -331,6 +334,7 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
                         ref="contentSwiper"
                         :slides-per-view="contentsPerView"
                         :space-between="slidesPerGap"
+                        class='products-cards__swiper-slide'
                     >
                         <swiper-slide
                             v-if="contentsData.length"
@@ -371,18 +375,6 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
 
 <style lang="scss">
 .page {
-    @include media(laptop) {
-        padding: $padding-5x;
-    }
-
-    @include media(tablet) {
-        padding: $padding-4x;
-    }
-
-    @include media(mobile) {
-        padding: $padding-3x;
-    }
-
     &__products-shelf {
         width: 100%;
     }
@@ -429,5 +421,9 @@ const contentSwiperInstance = useSwiper(contentSwiper, {
 .products-cards {
     position: relative;
     overflow: hidden;
+
+    &__swiper-slide {
+        padding: 3px 0;
+    }
 }
 </style>
