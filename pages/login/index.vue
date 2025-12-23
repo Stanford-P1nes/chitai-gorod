@@ -31,7 +31,7 @@
 }
 
 .auth-content {
-    padding: 0 $padding-6x;
+    padding: 0 $padding-3x;
     animation: modal-top 0.4s ease forwards;
 
     &__header {

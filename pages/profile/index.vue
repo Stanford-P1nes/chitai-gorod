@@ -36,6 +36,9 @@
 }
 
 .profile-content {
+    padding: 0 $padding-3x;
+    animation: modal-top 0.4s ease forwards;
+
     &__header {
         padding-bottom: $padding-6x;
         border-bottom: 1px solid $color-white;

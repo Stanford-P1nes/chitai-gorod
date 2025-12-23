@@ -27,35 +27,33 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="page">
-        <div class="basket-content page__content">
-            <section class="basket-content__header">
-                <h3 class="basket-content__title">Корзина</h3>
-            </section>
-            <section class="basket-content__main">
-                <div class="basket-content__cards">
-                    <AppBasketCard
-                        v-for="item in items"
-                        :key="item?.id"
-                        :product="item"
-                    />
-                </div>
-                <aside class="basket-content__aside">
-                    <UiButton
-                        :text="items.length ? 'Купить' : 'Корзина пустая'"
-                        :color="items.length ? 'active' : 'default'"
-                        class="basket-content__button-buy"
-                        @click="buy"
-                    />
-                </aside>
-            </section>
-        </div>
+    <div class="basket-content">
+        <section class="basket-content__header">
+            <h3 class="basket-content__title">Корзина</h3>
+        </section>
+        <section class="basket-content__main">
+            <div class="basket-content__cards">
+                <AppBasketCard
+                    v-for="item in items"
+                    :key="item?.id"
+                    :product="item"
+                />
+            </div>
+            <aside class="basket-content__aside">
+                <UiButton
+                    :text="items.length ? 'Купить' : 'Корзина пустая'"
+                    :color="items.length ? 'active' : 'default'"
+                    class="basket-content__button-buy"
+                    @click="buy"
+                />
+            </aside>
+        </section>
     </div>
 </template>
 
 <style scoped lang="scss">
 .basket-content {
-    padding: 0 $padding-6x;
+    padding: 0 $padding-3x;
     animation: modal-top 0.4s ease forwards;
 
     &__header {

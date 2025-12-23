@@ -16,57 +16,55 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="page">
-        <div class="orders-content page__content">
-            <section class="orders-content__header">
-                <div class="orders-content__top">
-                    <strong class="orders-content__navigate">Заказы</strong>
-                    <span class="orders-content__between-element"></span>
-                    <strong class="orders-content__navigate">Покупки</strong>
-                </div>
-                <div class="orders-content__bottom">
-                    <UiButton
-                        text="Актуальные"
-                        color="active"
-                    />
-                    <UiButton
-                        text="Завершённые"
-                        color="unactive"
-                    />
-                </div>
-            </section>
-            <section class="orders-content__main">
+    <div class="orders-content">
+        <section class="orders-content__header">
+            <div class="orders-content__top">
+                <strong class="orders-content__navigate">Заказы</strong>
+                <span class="orders-content__between-element"></span>
+                <strong class="orders-content__navigate">Покупки</strong>
+            </div>
+            <div class="orders-content__bottom">
+                <UiButton
+                    text="Актуальные"
+                    color="active"
+                />
+                <UiButton
+                    text="Завершённые"
+                    color="unactive"
+                />
+            </div>
+        </section>
+        <section class="orders-content__main">
+            <div
+                v-if="orders"
+                class="orders-content__cards"
+            >
                 <div
-                    v-if="orders"
-                    class="orders-content__cards"
+                    v-for="order in orders"
+                    :key="order?.id"
+                    class="order-block orders-content__order-block"
                 >
-                    <div
-                        v-for="order in orders"
-                        :key="order?.id"
-                        class="order-block orders-content__order-block"
-                    >
-                        <p class="order-block__title-number">Заказ № {{ order?.id }}</p>
-                        <p class="order-block__title-date">
-                            Дата: {{ new Date(order?.date).toLocaleString() }}
-                        </p>
+                    <p class="order-block__title-number">Заказ № {{ order?.id }}</p>
+                    <p class="order-block__title-date">
+                        Дата: {{ new Date(order?.date).toLocaleString() }}
+                    </p>
 
-                        <div class="order-block__order-items">
-                            <AppProductCardMini
-                                v-for="item in order?.items"
-                                :key="item?.id"
-                                :product="item"
-                            />
-                        </div>
+                    <div class="order-block__order-items">
+                        <AppProductCardMini
+                            v-for="item in order?.items"
+                            :key="item?.id"
+                            :product="item"
+                        />
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </div>
 </template>
 
 <style scoped lang="scss">
 .orders-content {
-    padding: 0 $padding-6x;
+    padding: 0 $padding-3x;
     animation: modal-top 0.4s ease forwards;
 
     &__header {
