@@ -66,14 +66,12 @@ defineProps<{
 .basket-card {
     position: relative;
     width: 100%;
-    height: 125px;
     display: flex;
     align-items: flex-start;
 
     &__image-wrapper {
         position: relative;
         width: 100px;
-        height: 100%;
         z-index: 100;
         @include LampEffect($radius: $radius-2x, $overflow: visable);
     }

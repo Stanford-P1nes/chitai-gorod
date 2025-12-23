@@ -78,13 +78,14 @@ const selectCountry = (selectedCountry: Country): void => {
 <style lang="scss">
 .ui-input {
     position: relative;
-    width: 100%;
-    height: max-content;
-    z-index: 1000;
     display: flex;
     gap: $gap-3x;
     padding: $padding-3x $padding-5x;
-    @include LampEffect($radius: $radius-2x, $overflow: visible);
+    box-shadow: 2px 2px 1px 0 rgba(0, 0, 0, 0.25);
+    background: var(--lamp-bg);
+    border: $border;
+    border-radius: $radius-2x;
+    z-index: 1000;
 
     &__icon {
         width: 20px;
@@ -103,13 +104,13 @@ const selectCountry = (selectedCountry: Country): void => {
         left: 0;
         top: 110%;
         width: 100%;
+        max-height: 338px;
         padding: $padding-2x;
         display: flex;
         flex-direction: column;
         gap: $gap-1x;
         cursor: pointer;
         @include LampEffect($radius: $radius-2x, $overflow: auto);
-        height: 165px;
     }
 
     &__button {

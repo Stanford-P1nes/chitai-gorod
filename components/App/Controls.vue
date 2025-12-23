@@ -6,20 +6,19 @@ import { storeToRefs } from 'pinia';
 import { useModal } from '~/composables/useModal';
 import { useBadgeStore } from '~/stores/badge';
 
-const badgeStore = useBadgeStore()
+const badgeStore = useBadgeStore();
 
 const { isModalOpen, openModal, closeModal } = useModal();
-const { cart, favorites, orders } = storeToRefs(badgeStore)
+const { cart, favorites, orders } = storeToRefs(badgeStore);
 
 const totalCount = ref<number | null>(null);
 function controlClick(idx: Control['id'], name: Control['name']): void {
     const step = 100 / controls.length;
     totalCount.value = idx * step;
-    openModal(name);
+    // openModal(name);
 }
 
 function hasBadge(name: Control['name']) {
-    // map control name to corresponding badge ref
     if (name === 'cart') return !!cart.value;
     if (name === 'favorites') return !!favorites.value;
     if (name === 'orders') return !!orders.value;
@@ -39,13 +38,15 @@ function hasBadge(name: Control['name']) {
             class="controls__button controls__button--hover"
             @click="controlClick(control.id, control.name)"
         >
-            <div class="controls__icon">
-                <img
-                    :src="control.icon"
-                    :alt="control.alt"
-                    class="controls__img"
-                />
-            </div>
+            <router-link :to="control.link">
+                <div class="controls__icon">
+                    <img
+                        :src="control.icon"
+                        :alt="control.name"
+                        class="controls__img"
+                    />
+                </div>
+            </router-link>
             <AppBadge v-if="hasBadge(control.name)" />
         </button>
     </div>

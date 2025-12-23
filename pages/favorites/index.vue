@@ -53,16 +53,12 @@ onMounted(() => {
     &__main {
         padding-top: 5px;
         padding-bottom: 25px;
-        overflow: hidden;
-        overflow-y: auto;
-        min-height: 100px;
-        max-height: 350px;
     }
 
     &__cards {
         width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         gap: $gap-4x;
     }
 }

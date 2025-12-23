@@ -22,7 +22,7 @@
 <style scoped lang="scss">
 .auth-content {
     padding: 0 $padding-6x;
-    animation: modal-right 0.4s ease forwards;
+    animation: modal-top 0.4s ease forwards;
 
     &__header {
         padding: 36px 0 20px;

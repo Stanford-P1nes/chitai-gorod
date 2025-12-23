@@ -413,7 +413,7 @@ function addToFavorites(product: Product) {
 
     &__offer {
         grid-column: span 1;
-        grid-row: span 2;
+        grid-row: span 3;
 
         @include media(laptop) {
             grid-column: 3/4;
@@ -493,6 +493,7 @@ function addToFavorites(product: Product) {
 
 .product-offer {
     position: sticky;
+    top: 144px;
     padding: $padding-6x;
     @include LampEffect($radius: $radius-2x);
 

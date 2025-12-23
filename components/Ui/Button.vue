@@ -4,7 +4,7 @@ interface Props {
     text?: string;
     src?: string;
     alt?: string;
-    color?: 'default' | 'active' | 'unactive' | 'red';
+    color?: 'default' | 'active' | 'unactive' | 'danger';
     disable?: boolean;
 }
 
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
     <button
         class="ui-button"
-        :class='{"ui-button--icon": src, "ui-button--default": color === "default", "ui-button--active": color === "active", "ui-button--unactive": color === "unactive", "ui-button--red": color === "red"}'
+        :class='{"ui-button--icon": src, "ui-button--default": color === "default", "ui-button--active": color === "active", "ui-button--unactive": color === "unactive", "ui-button--danger": color === "danger"}'
         :disable="disable"
     >
         <template v-if="variant === 'secondary'">
@@ -78,7 +78,7 @@ const props = withDefaults(defineProps<Props>(), {
         background-color: $color-unactive;
     }
 
-    &--red {
+    &--danger {
         @include LampEffect($radius: $radius-2x);
         background-color: $color-active-red;
     }
