@@ -18,6 +18,10 @@ const products = computed(() => getBySearch(searchProduct.value));
 function handleSubmit(event: any) {
     event.preventDefault();
 }
+
+function clearSearch() {
+    searchProduct.value = '';
+}
 </script>
 
 <template>
@@ -42,15 +46,11 @@ function handleSubmit(event: any) {
             alt="Кнопка с иконкой лупы для поиска"
             color="active"
         />
-        <div
-            v-if="products.length"
-            class="app-search__cards"
-        >
-            <AppProductCardMini 
-                v-for="product in products" 
-                :key="product.id"
-                :product='product' 
-                :loading='loadingProducts'
+        <div v-if="products.length" class="app-search__cards">
+            <AppProductList
+                :products="products"
+                :loading="loadingProducts"
+                @clear="clearSearch"
             />
         </div>
     </div>
@@ -80,8 +80,7 @@ function handleSubmit(event: any) {
     }
 
     &__cards {
-        position: absolute;
-        display: flex;
+        position: fixed;
         top: 110%;
         left: 0;
         right: 0;
