@@ -158,6 +158,18 @@ const bannerSwiperInstance = useSwiper(bannersSwiper, {
         height: 100%;
         user-select: none;
     }
+
+    @include media(tablet) {
+        height: 300px;
+    }
+
+    @include media(mobile) {
+        height: 250px;
+    }
+
+    @include media(small-mobile) {
+        height: 150px;
+    }
 }
 
 .main-mini-banners {

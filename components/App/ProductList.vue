@@ -43,7 +43,9 @@ const emit = defineEmits<{
 .product-list {
     width: 100%;
     z-index: 1000;
-
+    max-height: 315px;
+    overflow-y: auto;
+    
     &__list {
         list-style: none;
         margin: 0;
@@ -87,7 +89,7 @@ const emit = defineEmits<{
     &__link {
         position: absolute;
         inset: 0;
-        z-index: 10;
+        z-index: 1000;
     }
 }
 </style>

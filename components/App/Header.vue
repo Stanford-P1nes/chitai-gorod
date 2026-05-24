@@ -72,7 +72,7 @@ const { toggleSidebar } = useSidebar();
 .app-header {
     position: sticky;
     top: 0;
-    z-index: 9000;
+    z-index: 1000;
 
     &__inner {
         position: relative;
@@ -81,7 +81,7 @@ const { toggleSidebar } = useSidebar();
         border-radius: 0 0 24px 24px;
 
         @include media(mobile) {
-            @include LampEffect($radius: 0);
+            @include LampEffect($radius: 0, $overflow: visible);
         }
     }
 

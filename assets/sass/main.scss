@@ -56,10 +56,12 @@ img {
 
     @include media(tablet) {
         padding: $padding-4x;
+        gap: $gap-6x;
     }
 
     @include media(mobile) {
         padding: $padding-3x;
+        gap: $gap-5x;
     }
 }
 

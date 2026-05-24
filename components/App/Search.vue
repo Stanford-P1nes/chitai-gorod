@@ -58,6 +58,8 @@ function clearSearch() {
 
 <style scoped lang="scss">
 .app-search {
+    position: relative;
+    z-index: 1000;
     flex-grow: 4;
     display: flex;
     @include LampEffect($radius: $radius-2x, $overflow: visible);
